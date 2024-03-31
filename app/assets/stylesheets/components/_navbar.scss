@@ -1,6 +1,36 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #14181C;
+  color: $boxd-blue;
+  height: 4.5vh;
+  display: flex;
+  justify-content: center;
+
+}
+
+.navbar-container {
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+
+    .logo {
+      width: 16.5rem;
+    }
+  }
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+
+  .nav-link {
+    color: $boxd-blue;
+    margin-left: 1rem;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +39,19 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.search-pill {
+  width: 10.5rem;
+  margin-left: 1rem;
+}
+
+.search-pill-text {
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.search-pill-btn {
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
 }

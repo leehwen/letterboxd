@@ -1,0 +1,17 @@
+<div>
+  <% results.each do | result |%>
+
+    <div class="srch-results">
+      <div class="srch-results-image">
+        <%= image_tag "https://image.tmdb.org/t/p/original#{result[:poster_path]}" %>
+      </div>
+
+      <div class="srch-results-content">
+        <h3><%= result[:original_title] %></h3>
+        <p><%= result[:release_date].first(4) %></p>
+        <p class="content-width"><%= result[:overview].truncate(150) %></p>
+      </div>
+    </div>
+
+  <% end %>
+</div>

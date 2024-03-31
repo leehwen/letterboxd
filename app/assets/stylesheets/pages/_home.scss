@@ -1,1 +1,16 @@
 // Specific CSS for your home-page
+body {
+  background-color: #191E25;
+  color: $boxd-blue;
+}
+
+.hm-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+
+  .hm-content {
+    width: 75%;
+  }
+}
