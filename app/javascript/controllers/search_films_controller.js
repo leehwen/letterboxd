@@ -10,10 +10,8 @@ export default class extends Controller {
 
   connect() {
     console.log('Connected');
-    console.log(this.contentTarget.innerText)
-    console.log(this.queryValue)
 
-    const options = {
+    const searchQuery = {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -21,11 +19,30 @@ export default class extends Controller {
       }
     };
 
-    fetch(`https://api.themoviedb.org/3/search/movie?query=${this.queryValue}&include_adult=false&language=en-US&page=1`, options)
+    fetch(`https://api.themoviedb.org/3/search/movie?query=${this.queryValue}&include_adult=false&language=en-US&page=1`, searchQuery)
       .then(response => response.json())
       .then((data => {
-        console.log(data);
+        const searchResults = JSON.stringify(data.results);
+
+        fetch(`/library/search`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "text/plain",
+            "X-CSRF-Token": this.#getMetaValue("csrf-token")
+          },
+          body: searchResults
+        })
+        .then(response => response.text())
+        .then((results => {
+          this.contentTarget.innerHTML = results;
+        }))
       }))
       .catch(err => console.error(err));
+  }
+
+  #getMetaValue(name) {
+    const element = document.head.querySelector(`meta[name="${name}"]`)
+    return element.getAttribute("content")
   }
 }

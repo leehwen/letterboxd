@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :library, only: %i[index show create] do
     collection do
       get 'search'
+      post 'search'
     end
   end
 
