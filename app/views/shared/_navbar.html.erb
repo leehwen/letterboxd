@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="navbar-container">
 
-    <%= link_to "#", class: "navbar-logo" do %>
+  <div class="navbar-container">
+    <%= link_to root_path, class: "navbar-logo" do %>
       <%= image_tag "logo.png", class: "logo" %>
     <% end %>
 
@@ -17,14 +17,17 @@
       <% else %>
         <%= link_to "SIGN IN", new_user_session_path, class: "nav-link" %>
         <%= link_to "CREATE ACCOUNT", new_user_session_path, class: "nav-link" %>
-        <div class="input-group search-pill">
-          <input type="text" class="form-control search-pill-text" placeholder="Search films" aria-label="Recipient's username" aria-describedby="button-addon2">
-          <button class="btn btn-outline-secondary search-pill-btn" type="submit" id="button-addon2">
+        <%= form_with method: :get, url: search_library_index_path, class: "d-flex search-pill" do %>
+          <%= text_field_tag :film,
+                params[:film],
+                class: "form-control search-pill-text",
+                placeholder: "Search"
+            %>
+          <%= button_tag type: "submit", class: "btn btn-outline-secondary search-pill-btn" do %>
             <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </div>
+          <% end %>
+        <% end %>
       <% end %>
     </div>
-
   </div>
 </div>
