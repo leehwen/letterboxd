@@ -1,38 +1,30 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+  <div class="navbar-container">
+
+    <%= link_to "#", class: "navbar-logo" do %>
+      <%= image_tag "logo.png", class: "logo" %>
     <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
-          </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+    <div class="navbar-menu">
+      <% if user_signed_in? %>
+        <%= link_to "SIGN OUT", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+        <div class="input-group search-pill">
+          <input type="text" class="form-control search-pill-text" placeholder="Search films" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button class="btn btn-outline-secondary search-pill-btn" type="submit" id="button-addon2">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      <% else %>
+        <%= link_to "SIGN IN", new_user_session_path, class: "nav-link" %>
+        <%= link_to "CREATE ACCOUNT", new_user_session_path, class: "nav-link" %>
+        <div class="input-group search-pill">
+          <input type="text" class="form-control search-pill-text" placeholder="Search films" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button class="btn btn-outline-secondary search-pill-btn" type="submit" id="button-addon2">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      <% end %>
     </div>
+
   </div>
 </div>
