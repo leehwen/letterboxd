@@ -1,18 +1,18 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="search-films"
+// Connects to data-controller="film-info"
 export default class extends Controller {
-
   static targets = ["content"]
   static values = {
-    query: String,
-    apiToken: String
+    apiToken: String,
+    filmId: String,
+    tmdbId: String
   }
 
   connect() {
-    console.log('Connected');
+    console.log('Connected')
 
-    const searchQuery = {
+    const filmInfo = {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -20,25 +20,25 @@ export default class extends Controller {
       }
     };
 
-    fetch(`https://api.themoviedb.org/3/search/movie?query=${this.queryValue}&include_adult=false&language=en-US&page=1`, searchQuery)
+    fetch(`https://api.themoviedb.org/3/movie/${this.tmdbIdValue}?append_to_response=credits&language=en-US`, filmInfo)
       .then(response => response.json())
-      .then((data => {
-        const searchResults = JSON.stringify({results: data.results, query: this.queryValue});
+      .then((data) => {
+        const additionalFilmInfo = JSON.stringify({genres: data.genres, runtime: data.runtime, crew: data.credits.crew});
 
-        fetch(`/library/search`, {
-          method: "POST",
+        fetch(`/library/${this.filmIdValue}`, {
+          method: "PATCH",
           headers: {
             "Content-Type": "application/json",
             "Accept": "text/plain",
             "X-CSRF-Token": this.#getMetaValue("csrf-token")
           },
-          body: searchResults
+          body: additionalFilmInfo
         })
         .then(response => response.text())
-        .then((results => {
-          this.contentTarget.innerHTML = results;
-        }))
-      }))
+        .then((filmInfoHTML) => {
+          this.contentTarget.innerHTML = filmInfoHTML
+        })
+      })
       .catch(err => console.error(err));
   }
 

@@ -1,0 +1,21 @@
+.film-info-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+
+  .film-info-content {
+    width: 75%;
+  }
+}
+
+.film-info-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 75px - 7rem);
+
+  img {
+    width: 75px;
+  }
+}

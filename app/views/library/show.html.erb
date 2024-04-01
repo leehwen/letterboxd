@@ -1,1 +1,7 @@
-Test
+<div class="film-info-container">
+  <div class="film-info-content" data-controller="film-info" data-film-info-target="content" data-film-info-film-id-value="<%= @film_library.id %>" data-film-info-tmdb-id-value="<%= @film_library.tmdb_id %>" data-film-info-api-token-value="<%= ENV['TMDB_TOKEN'] %>">
+    <div class="film-info-loading">
+      <%= image_tag "loading.svg" %>
+    </div>
+  </div>
+</div>
