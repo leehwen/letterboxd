@@ -23,7 +23,7 @@ export default class extends Controller {
     fetch(`https://api.themoviedb.org/3/search/movie?query=${this.queryValue}&include_adult=false&language=en-US&page=1`, searchQuery)
       .then(response => response.json())
       .then((data => {
-        const searchResults = JSON.stringify(data.results);
+        const searchResults = JSON.stringify({results: data.results, query: this.queryValue});
 
         fetch(`/library/search`, {
           method: "POST",

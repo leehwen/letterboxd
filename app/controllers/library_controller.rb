@@ -15,11 +15,14 @@ class LibraryController < ApplicationController
 
   def search
     @query = params[:film]
-    @results = params[:_json]
+
+    @results = params[:results]
+    @duplicated_query = params[:query]
 
     respond_to do |format|
       format.html
-      format.text { render partial: "search_films_results", locals: {results: @results}, formats: [:html] }
+      format.text { render partial: "search_films_results", locals: {results: @results, query: @duplicated_query}, formats: [:html] }
     end
+
   end
 end
