@@ -1,8 +1,38 @@
 <div>
-  <%= film_library.title %>
-  <%= film_library.description %>
-  <%= film_library.directed_by %>
-  <%= film_library.genres %>
-  <%= film_library.runtime %>
-  <%= film_library.release_date %>
+  <div class="film-info-backdrop">
+    <%= image_tag film_library.backdrop_url, class: "film-backdrop" %>
+
+    <div class="film-info-img">
+      <%= image_tag film_library.image_url, class: "film-img" %>
+    </div>
+  </div>
+
+
+  <div class="film-info-content">
+    <div>
+      <h2>
+        <%= film_library.title %>
+      </h2>
+      <p>
+        <%= film_library.release_date.first(4) %>
+      </p>
+
+      <% if film_library.directed_by.count == 1 %>
+        <p>
+          Directed by <%= film_library.directed_by.join %>
+        </p>
+      <% elsif film_library.directed_by.count > 1 %>
+        <p>
+          Directed by <%= film_library.directed_by.join(", ") %>
+        </p>
+      <% end %>
+
+    </div>
+
+    <%= film_library.description %>
+    <%= film_library.genres %>
+    <%= film_library.runtime %>
+
+  </div>
+
 </div>

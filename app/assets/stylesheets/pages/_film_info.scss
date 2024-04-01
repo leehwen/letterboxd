@@ -1,11 +1,10 @@
 .film-info-container {
   display: flex;
   justify-content: center;
-  padding-top: 3.5rem;
   padding-bottom: 3.5rem;
 
-  .film-info-content {
-    width: 75%;
+  .film-info {
+    width: 1100px;
   }
 }
 
@@ -13,9 +12,36 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 75px - 7rem);
+  height: calc(100vh - 75px - 3.5rem);
 
   img {
     width: 75px;
   }
+}
+
+.film-info-backdrop {
+  position: relative;
+
+  .film-backdrop {
+    width: 1100px;
+    height: 500px;
+    object-fit: cover;
+    object-position: top;
+  }
+}
+
+.film-info-img {
+  position: absolute;
+  left: 65px;
+  bottom: -105px;
+
+  .film-img {
+    height: 275px;
+    border-radius: 0.65rem;
+    border: 2px solid rgba(255, 255, 255, 1);
+  }
+}
+
+.film-info-content {
+  margin-top: 12.5rem;
 }

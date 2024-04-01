@@ -2,14 +2,14 @@
   justify-content: space-between;
   background: #14181C;
   color: $boxd-blue;
-  height: 4.5vh;
+  height: 65px;
   display: flex;
   justify-content: center;
 
 }
 
 .navbar-container {
-  width: 75%;
+  min-width: 1100px;
   display: flex;
   justify-content: space-between;
 
@@ -31,14 +31,6 @@
     color: $boxd-blue;
     margin-left: 1rem;
   }
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
 }
 
 .search-pill {

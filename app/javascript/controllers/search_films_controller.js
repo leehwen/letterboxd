@@ -25,7 +25,7 @@ export default class extends Controller {
       .then((data => {
         const searchResults = JSON.stringify({results: data.results, query: this.queryValue});
 
-        fetch(`/library/search`, {
+        fetch(`/library/results`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -10,9 +10,17 @@
       </div>
 
       <div class="srch-results-content">
-        <h3><%= link_to result[:original_title], library_path(FilmLibrary.find_by(title: result[:original_title])) %></h3>
-        <h5><%= result[:release_date].first(4) %></h5>
-        <p class="content-width"><%= result[:overview].truncate(150) %></p>
+        <h3>
+          <%= link_to result[:original_title], library_path(FilmLibrary.find_by(title: result[:original_title])) %>
+        </h3>
+
+        <h5>
+          <%= result[:release_date].first(4) %>
+        </h5>
+
+        <p class="content-width">
+          <%= result[:overview].truncate(150) %>
+        </p>
       </div>
     </div>
   <% end %>
