@@ -1,0 +1,2 @@
+class FilmLibrary < ApplicationRecord
+end
