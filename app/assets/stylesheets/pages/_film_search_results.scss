@@ -38,6 +38,16 @@
     }
   }
 
+  a {
+    text-decoration: none;
+    color: white;
+    transition: 0.1s ease;
+
+    &:hover {
+      color: $boxd-sky-blue;
+    }
+  }
+
   .content-width {
     width: 75%;
   }
