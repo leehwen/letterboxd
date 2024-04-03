@@ -5,7 +5,7 @@
   padding-bottom: 3.5rem;
 
   .srch-content {
-    width: 75%;
+    width: 70%;
   }
 }
 
@@ -38,7 +38,36 @@
     }
   }
 
+  a {
+    text-decoration: none;
+    color: white;
+    transition: 0.1s ease;
+
+    &:hover {
+      color: $boxd-sky-blue;
+    }
+  }
+
   .content-width {
     width: 75%;
   }
 }
+
+@media (max-width: 540px) {
+  /* For a screen < 540px, this CSS will be read */
+
+    .srch-container {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+
+      .srch-content {
+        width: 80%;
+      }
+    }
+
+    .srch-results {
+      .content-width {
+        width: 85%;
+      }
+    }
+  }

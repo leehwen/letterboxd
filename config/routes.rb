@@ -12,10 +12,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :library, only: %i[index show create] do
+  resources :library, only: %i[index show update] do
     collection do
       get 'search'
       post 'search'
+      post 'results'
     end
   end
 

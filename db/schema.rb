@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_01_014850) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_03_042753) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,13 +45,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_01_014850) do
   create_table "film_libraries", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "director"
     t.string "genres", default: [], array: true
     t.integer "runtime"
     t.string "release_date"
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "tmdb_id"
+    t.string "backdrop_url"
+    t.string "directed_by", default: [], array: true
+    t.string "cast", default: [], array: true
   end
 
   create_table "users", force: :cascade do |t|
