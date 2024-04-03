@@ -5,7 +5,7 @@
   padding-bottom: 3.5rem;
 
   .srch-content {
-    width: 1100px;
+    width: 70%;
   }
 }
 
@@ -52,3 +52,22 @@
     width: 75%;
   }
 }
+
+@media (max-width: 540px) {
+  /* For a screen < 540px, this CSS will be read */
+
+    .srch-container {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+
+      .srch-content {
+        width: 80%;
+      }
+    }
+
+    .srch-results {
+      .content-width {
+        width: 85%;
+      }
+    }
+  }

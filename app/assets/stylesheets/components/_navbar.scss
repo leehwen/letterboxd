@@ -2,14 +2,16 @@
   justify-content: space-between;
   background: #14181C;
   color: $boxd-blue;
-  height: 65px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-
 }
 
 .navbar-container {
-  min-width: 1100px;
+  width: 70%;
   display: flex;
   justify-content: space-between;
 
@@ -18,14 +20,17 @@
     align-items: center;
 
     .logo {
-      width: 16.5rem;
+      width: 14.5rem;
     }
   }
 }
 
 .navbar-menu {
+  width: 70%;
   display: flex;
+  justify-content: end;
   align-items: center;
+  margin-top: 0.25rem;
 
   .nav-link {
     color: $boxd-blue;
@@ -33,9 +38,18 @@
   }
 }
 
+.search-pill-wrapper {
+  display: flex;
+  justify-content: end;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0.65rem;
+  padding-bottom: 0.65rem;
+}
+
+
 .search-pill {
-  width: 10.5rem;
-  margin-left: 1rem;
+  width: 100%;
 }
 
 .search-pill-text {
@@ -47,3 +61,14 @@
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
 }
+
+@media (max-width: 540px) {
+  /* For a screen < 540px, this CSS will be read */
+    .navbar-container {
+      width: 90%;
+    }
+
+    .navbar-menu {
+      width: 90%;
+    }
+  }

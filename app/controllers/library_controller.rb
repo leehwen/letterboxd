@@ -28,7 +28,14 @@ class LibraryController < ApplicationController
       @directors << crew[:name] if crew[:job] == "Director"
     end
 
-    @film_library.update(runtime: @runtime, genres: @genre_names, directed_by: @directors)
+    @cast = params[:cast]
+    @acting_cast = []
+
+    @cast.each do |cast|
+      @acting_cast << cast[:name] if cast[:known_for_department] == "Acting"
+    end
+
+    @film_library.update(runtime: @runtime, genres: @genre_names, directed_by: @directors, cast: @acting_cast)
 
     respond_to do |format|
       format.html
@@ -47,14 +54,14 @@ class LibraryController < ApplicationController
 
     @results.each do |result|
       @film_library =  FilmLibrary.find_or_initialize_by(
-        title: result[:original_title]
+        tmdb_id: result[:id]
       )
 
+      @film_library.title = result[:original_title]
       @film_library.description = result[:overview]
       @film_library.release_date = result[:release_date]
       @film_library.image_url = "https://image.tmdb.org/t/p/original#{result[:poster_path]}"
       @film_library.backdrop_url = "https://image.tmdb.org/t/p/original#{result[:backdrop_path]}"
-      @film_library.tmdb_id = result[:id]
       @film_library.save
     end
 

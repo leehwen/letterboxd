@@ -1,37 +1,162 @@
 <div>
   <div class="film-info-backdrop">
-    <%= image_tag film_library.backdrop_url, class: "film-backdrop" %>
-
-    <div class="film-info-img">
-      <%= image_tag film_library.image_url, class: "film-img" %>
-    </div>
+    <% if film_library.backdrop_url.last(4) == ".jpg"%>
+      <%= image_tag film_library.backdrop_url, class: "film-backdrop" %>
+    <% end %>
   </div>
 
 
-  <div class="film-info-content">
-    <div>
-      <h2>
-        <%= film_library.title %>
-      </h2>
-      <p>
-        <%= film_library.release_date.first(4) %>
-      </p>
+  <div class="film-info-wrapper">
 
-      <% if film_library.directed_by.count == 1 %>
-        <p>
-          Directed by <%= film_library.directed_by.join %>
-        </p>
-      <% elsif film_library.directed_by.count > 1 %>
-        <p>
-          Directed by <%= film_library.directed_by.join(", ") %>
-        </p>
-      <% end %>
+    <div class="row">
+      <div class="col-lg-3 col-md-4 col-sm-5">
+        <div class="film-info-img">
+          <%= image_tag film_library.image_url, class: "film-img" %>
+        </div>
+      </div>
 
+      <div class="col-lg-9 col-md-8 col-sm-7">
+        <div class="film-info-content" data-controller="film-info-content">
+
+          <div class="row">
+            <div class="col-12">
+              <h2>
+                <%= film_library.title %>
+              </h2>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-7 col-md-10 mb-4">
+              <div class="subheaders">
+                <h4>
+                  <%= film_library.release_date.first(4) %>
+                </h4>
+
+                <% if film_library.directed_by.count == 1 %>
+                  <h4>
+                    Directed by <%= film_library.directed_by.join %>
+                  </h4>
+                <% elsif film_library.directed_by.count > 1 %>
+                  <h4>
+                    Directed by <%= film_library.directed_by.join(", ") %>
+                  </h4>
+                <% end %>
+              </div>
+
+              <div class="film-info-description">
+                <p>
+                  <%= film_library.description %>
+                </p>
+              </div>
+
+              <div class="film-info-tabs-wrapper">
+                <div class="film-info-tabs">
+                  <div data-action="click->film-info-content#select" data-film-info-content-target="tab" data-tab="cast" class="film-info-tab active">
+                    <h6>
+                      CAST
+                    </h6>
+                  </div>
+                  <div data-action="click->film-info-content#select" data-film-info-content-target="tab" data-tab="genre" class="film-info-tab">
+                    <h6>
+                      GENRE
+                    </h6>
+                  </div>
+                </div>
+
+                <div data-film-info-content-target="content" data-content="cast" class="d-flex flex-wrap">
+                  <% film_library.cast.first(20).each do |cast| %>
+                    <div class="film-info-pill">
+                      <%= cast %>
+                    </div>
+                  <% end %>
+                  <div class="film-info-pill">
+                    ...and more
+                  </div>
+                </div>
+
+                <div data-film-info-content-target="content" data-content="genre" class="d-none d-flex flex-wrap">
+                  <% film_library.genres.each do |genre| %>
+                    <div class="film-info-pill">
+                      <%= genre %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+
+              <p class="m-0">
+                Runtime: <%= film_library.runtime %> mins
+              </p>
+            </div>
+
+            <div class="col-lg-5 col-md-10">
+              <div class="film-info-card">
+                <div class="film-info-card-content py-3">
+                  <div class="row">
+                    <div class="col-4 d-flex flex-column align-items-center justify-content-center">
+                      <i class="fa-regular fa-eye"></i>
+                      Watch
+                    </div>
+
+                    <div class="col-4 d-flex flex-column align-items-center justify-content-center">
+                      <i class="fa-regular fa-heart"></i>
+                      Like
+                    </div>
+
+                    <div class="col-4 d-flex flex-column align-items-center justify-content-center">
+                      <i class="fa-regular fa-calendar-plus"></i>
+                      Watchlist
+                    </div>
+                  </div>
+                </div>
+
+                <div class="film-info-card-content">
+                  Rate
+                </div>
+
+                <div class="film-info-card-content">
+                  Review or log...
+                </div>
+
+                <div class="film-info-card-content">
+                  Add to lists...
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="film-reviews-container row">
+            <div class="col-lg-12">
+              <h6>
+                POPULAR REVIEWS
+              </h6>
+              <p>
+                Minim qui nulla fugiat. Labore incididunt veniam officia do aliqua adipisicing mollit id sit Lorem. Consequat cillum aute cillum elit occaecat est voluptate excepteur ex amet fugiat et sint irure. Minim Lorem id id fugiat mollit nisi anim ea dolor dolor sit. Mollit exercitation magna nisi id dolore ex voluptate amet excepteur elit eu tempor sunt. Laboris laborum excepteur mollit mollit proident quis dolore. Voluptate et commodo veniam consectetur.
+
+                Reprehenderit excepteur magna qui cupidatat ad Lorem deserunt labore. Velit fugiat reprehenderit mollit fugiat occaecat ipsum cillum cillum aliqua laborum. Nisi anim eiusmod sit adipisicing commodo exercitation. Consequat ea amet incididunt dolor nisi cupidatat excepteur ullamco reprehenderit ullamco nulla. Quis aliquip est cupidatat. Eiusmod quis culpa proident id est proident exercitation excepteur. Adipisicing reprehenderit consequat consectetur esse esse incididunt consectetur laborum quis qui deserunt velit amet in.
+
+                Reprehenderit proident voluptate sunt minim exercitation est consequat anim Lorem. Adipisicing veniam esse eiusmod officia anim consequat voluptate. Ut sunt velit esse do. Labore ex qui pariatur pariatur labore excepteur deserunt ad ex et. Reprehenderit ea ad qui sint. Eiusmod sit quis occaecat irure sint. Tempor aliqua minim ut elit eu cillum elit.
+
+                Mollit velit incididunt elit culpa sint officia. Laboris eu ea est labore. Proident consectetur esse velit. Ea qui magna ullamco irure irure pariatur est Lorem quis anim magna ut laborum minim. Deserunt labore irure velit irure quis commodo magna. Proident ad in minim tempor nisi ut.
+
+                Adipisicing officia cupidatat velit. Sunt nulla enim irure do excepteur incididunt in deserunt aute. Laborum veniam mollit irure incididunt voluptate sit ut esse dolor veniam. Velit dolor nostrud irure sunt officia duis excepteur amet consectetur et. Lorem est irure occaecat excepteur nostrud.
+
+                Nisi est consectetur ex esse Lorem minim quis et. Id aliqua duis et do nostrud irure ea eu consequat. Eiusmod ea eiusmod magna. Incididunt exercitation nostrud aliquip laborum sunt adipisicing. Et consectetur quis voluptate adipisicing velit ea.
+
+                Duis cupidatat dolore ea tempor ea eiusmod ea nisi proident ullamco anim velit. Nostrud do minim incididunt ipsum sit cillum qui velit nulla aliqua do. Esse voluptate sit ut ea non sit pariatur ipsum laborum dolor dolor laborum aliqua. Fugiat consectetur labore quis et non veniam. Ea excepteur in pariatur reprehenderit est nisi.
+
+                Ipsum commodo est magna aliquip nisi. Ipsum aliquip cupidatat irure ullamco ad minim velit minim elit aliquip do nulla. Nulla sit sit reprehenderit occaecat in. Laborum excepteur enim tempor ullamco laboris dolor. Exercitation fugiat ea esse irure eiusmod ullamco est. Enim aute officia nostrud ipsum do quis pariatur occaecat fugiat mollit excepteur eiusmod consequat laborum. Nulla nisi incididunt enim consequat id ullamco. Non nostrud exercitation duis labore ut anim laboris ut cillum ipsum est proident labore pariatur labore.
+
+                Consectetur incididunt nostrud dolor consequat. Consequat tempor officia commodo enim duis adipisicing ex dolore id. Non nisi enim laboris id consequat labore. Amet sint irure aute occaecat proident adipisicing minim quis.
+
+                Proident consectetur ea non laborum nulla nisi laborum anim. Ea velit ipsum proident. Elit sint nostrud voluptate reprehenderit commodo irure enim consequat adipisicing deserunt. Ipsum cillum dolor adipisicing eiusmod est et aliqua ullamco exercitation enim officia voluptate in. Qui veniam eu excepteur.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
-
-    <%= film_library.description %>
-    <%= film_library.genres %>
-    <%= film_library.runtime %>
 
   </div>
 

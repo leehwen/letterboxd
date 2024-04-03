@@ -11,7 +11,7 @@
 
       <div class="srch-results-content">
         <h3>
-          <%= link_to result[:original_title], library_path(FilmLibrary.find_by(title: result[:original_title])) %>
+          <%= link_to result[:original_title], library_path(FilmLibrary.find_by(tmdb_id: result[:id])) %>
         </h3>
 
         <h5>

@@ -23,7 +23,7 @@ export default class extends Controller {
     fetch(`https://api.themoviedb.org/3/movie/${this.tmdbIdValue}?append_to_response=credits&language=en-US`, filmInfo)
       .then(response => response.json())
       .then((data) => {
-        const additionalFilmInfo = JSON.stringify({genres: data.genres, runtime: data.runtime, crew: data.credits.crew});
+        const additionalFilmInfo = JSON.stringify({genres: data.genres, runtime: data.runtime, crew: data.credits.crew, cast: data.credits.cast});
 
         fetch(`/library/${this.filmIdValue}`, {
           method: "PATCH",
@@ -46,4 +46,6 @@ export default class extends Controller {
     const element = document.head.querySelector(`meta[name="${name}"]`)
     return element.getAttribute("content")
   }
+
+
 }
