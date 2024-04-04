@@ -41,7 +41,7 @@ export default class extends Controller {
       }))
       .catch(err => console.error(err));
   }
-
+param
   #getMetaValue(name) {
     const element = document.head.querySelector(`meta[name="${name}"]`)
     return element.getAttribute("content")

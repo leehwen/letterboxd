@@ -70,5 +70,4 @@ class LibraryController < ApplicationController
       format.text { render partial: "film_search_results", locals: {results: @results, query: @query}, formats: [:html] }
     end
   end
-
 end

@@ -105,6 +105,7 @@
 }
 
 .film-info-card {
+  min-width: 16rem;
   display: flex;
   flex-direction: column;
   background-color: #445566;
@@ -116,9 +117,22 @@
     padding-bottom: 0.5rem;
     border-bottom: 1.2px solid rgba(25, 30, 37, 1);
 
+    .film-info-tracker {
+      &:hover {
+        p {
+          color: white;
+        }
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: $boxd-blue;
+    }
+
     i {
       font-size: 2rem;
-      font-weight: 100;
+      margin-bottom: 0.2rem;
     }
   }
 }
