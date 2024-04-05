@@ -112,15 +112,68 @@
 
   .film-info-card-content {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
     border-bottom: 1.2px solid rgba(25, 30, 37, 1);
 
     .film-info-tracker {
       &:hover {
         p {
           color: white;
+        }
+      }
+    }
+
+    .film-info-rating {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 0.25rem;
+      color: #334455;
+      transition: 0.1s ease;
+      width: 80%;
+
+      .film-info-rating-stars {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .fa-xmark {
+        font-size: 1rem;
+        color: #8C969F;
+        position: absolute;
+        left: -1.2rem;
+        display: none;
+      }
+
+      .starred {
+        color: #00E054;
+      }
+
+      a {
+        color: #334455;
+      }
+
+      &:hover {
+        .fa-xmark {
+          display: block;
+
+          &:hover ~ .fa-star {
+            color: #334455;
+          }
+        }
+
+        .fa-star {
+          color: #40BCF4;
+
+          &:hover ~ .fa-star {
+            color: #334455;
+          }
         }
       }
     }
@@ -146,6 +199,25 @@
     border-bottom: 0.85px solid rgba(170, 187, 204, 0.5);
   }
 }
+
+@media (max-width: 3500px) {
+
+  .film-info-container {
+    .film-info {
+      width: 50%;
+    }
+  }
+}
+
+@media (max-width: 1500px) {
+
+  .film-info-container {
+    .film-info {
+      width: 70%;
+    }
+  }
+}
+
 
 @media (max-width: 540px) {
   /* For a screen < 540px, this CSS will be read */

@@ -105,21 +105,21 @@
 
                       <div data-action="click->film-info-content#tracker" class="film-info-tracker col-4 d-flex flex-column align-items-center justify-content-center">
                         <% if film.present? && film.watched %>
-                          <i class="fa-regular fa-eye d-none" data-film-info-content-target="icon" data-icon="watch"></i>
-                          <p class="m-0 p-0 d-none" data-film-info-content-target="icon" data-icon="watch" data-status="false">
+                          <i class="fa-regular fa-eye d-none" data-film-info-content-target="icon" data-icon="watch" data-status="inactive"></i>
+                          <p class="m-0 p-0 d-none" data-film-info-content-target="icon" data-icon="watch" data-status="inactive">
                             Watch
                           </p>
-                          <i class="fa-solid fa-eye" data-film-info-content-target="icon" data-icon="watch" style="color: #00E054;"></i>
-                          <p class="m-0 p-0" data-film-info-content-target="icon" data-icon="watch" data-status="true">
+                          <i class="fa-solid fa-eye" data-film-info-content-target="icon" data-icon="watch" style="color: #00E054;" data-status="active"></i>
+                          <p class="m-0 p-0" data-film-info-content-target="icon" data-icon="watch" data-status="active">
                             Watch
                           </p>
                         <% else %>
-                          <i class="fa-regular fa-eye" data-film-info-content-target="icon" data-icon="watch"></i>
-                          <p class="m-0 p-0" data-film-info-content-target="icon" data-icon="watch" data-status="false">
+                          <i class="fa-regular fa-eye" data-film-info-content-target="icon" data-icon="watch" data-status="inactive"></i>
+                          <p class="m-0 p-0" data-film-info-content-target="icon" data-icon="watch" data-status="inactive">
                             Watch
                           </p>
-                          <i class="fa-solid fa-eye d-none" data-film-info-content-target="icon" data-icon="watch" style="color: #00E054;"></i>
-                          <p class="m-0 p-0 d-none" data-film-info-content-target="icon" data-icon="watch" data-status="true">
+                          <i class="fa-solid fa-eye d-none" data-film-info-content-target="icon" data-icon="watch" style="color: #00E054;" data-status="active"></i>
+                          <p class="m-0 p-0 d-none" data-film-info-content-target="icon" data-icon="watch" data-status="active">
                             Watch
                           </p>
                         <% end %>
@@ -149,21 +149,21 @@
 
                       <div data-action="click->film-info-content#tracker" class="film-info-tracker col-4 d-flex flex-column align-items-center justify-content-center">
                         <% if film.present? && film.watchlist %>
-                          <i class="fa-regular fa-clock d-none" data-film-info-content-target="icon" data-icon="watchlist"></i>
-                          <p class="m-0 p-0 d-none" data-film-info-content-target="icon" data-icon="watchlist">
+                          <i class="fa-regular fa-clock d-none" data-film-info-content-target="icon" data-icon="watchlist" data-status="inactive"></i>
+                          <p class="m-0 p-0 d-none" data-film-info-content-target="icon" data-icon="watchlist" data-status="inactive">
                             Watchlist
                           </p>
-                          <i class="fa-solid fa-clock" data-film-info-content-target="icon" data-icon="watchlist" style="color: #40BCF4;"></i>
-                          <p class="m-0 p-0" data-film-info-content-target="icon" data-icon="watchlist">
+                          <i class="fa-solid fa-clock" data-film-info-content-target="icon" data-icon="watchlist" style="color: #40BCF4;" data-status="active"></i>
+                          <p class="m-0 p-0" data-film-info-content-target="icon" data-icon="watchlist" data-status="active">
                             Watchlist
                           </p>
                         <% else %>
-                          <i class="fa-regular fa-clock" data-film-info-content-target="icon" data-icon="watchlist""></i>
-                          <p class="m-0 p-0" data-film-info-content-target="icon" data-icon="watchlist"">
+                          <i class="fa-regular fa-clock" data-film-info-content-target="icon" data-icon="watchlist"" data-status="inactive"></i>
+                          <p class="m-0 p-0" data-film-info-content-target="icon" data-icon="watchlist"" data-status="inactive">
                             Watchlist
                           </p>
-                          <i class="fa-solid fa-clock d-none" data-film-info-content-target="icon" data-icon="watchlist" style="color: #40BCF4;"></i>
-                          <p class="m-0 p-0 d-none" data-film-info-content-target="icon" data-icon="watchlist">
+                          <i class="fa-solid fa-clock d-none" data-film-info-content-target="icon" data-icon="watchlist" style="color: #40BCF4;" data-status="active"></i>
+                          <p class="m-0 p-0 d-none" data-film-info-content-target="icon" data-icon="watchlist" data-status="active">
                             Watchlist
                           </p>
                         <% end %>
@@ -172,9 +172,66 @@
                   </div>
 
                   <div class="film-info-card-content">
-                    <p class="m-0 p-0">
-                      Rate
-                    </p>
+                    <% if film.present? && film.rating >= 1 %>
+                      <p class="m-0 p-0">
+                        Rate
+                      </p>
+                      <div class="film-info-rating">
+                        <div class="film-info-rating-stars">
+                          <% case film.rating %>
+                          <% when 1 %>
+                            <i class="fa-solid fa-xmark" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="0"></i>
+                            <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="1"></i>
+                            <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="2"></i>
+                            <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="3"></i>
+                            <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="4"></i>
+                            <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="5"></i>
+                          <% when 2 %>
+                            <i class="fa-solid fa-xmark" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="0"></i>
+                            <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="1"></i>
+                            <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="2"></i>
+                            <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="3"></i>
+                            <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="4"></i>
+                            <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="5"></i>
+                          <% when 3 %>
+                            <i class="fa-solid fa-xmark" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="0"></i>
+                            <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="1"></i>
+                            <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="2"></i>
+                            <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="3"></i>
+                            <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="4"></i>
+                            <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="5"></i>
+                          <% when 4 %>
+                            <i class="fa-solid fa-xmark" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="0"></i>
+                            <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="1"></i>
+                            <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="2"></i>
+                            <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="3"></i>
+                            <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="4"></i>
+                            <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="5"></i>
+                          <% when 5 %>
+                            <i class="fa-solid fa-xmark" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="0"></i>
+                            <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="1"></i>
+                            <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="2"></i>
+                            <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="3"></i>
+                            <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="4"></i>
+                            <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="5"></i>
+                          <% end %>
+                        </div>
+                      </div>
+                    <% else %>
+                      <p class="m-0 p-0">
+                        Rate
+                      </p>
+                      <div class="film-info-rating">
+                        <div class="film-info-rating-stars">
+                          <i class="fa-solid fa-xmark" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="0"></i>
+                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="1"></i>
+                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="2"></i>
+                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="3"></i>
+                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="4"></i>
+                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="5"></i>
+                        </div>
+                      </div>
+                    <% end %>
                   </div>
 
                   <div class="film-info-card-content">
@@ -194,8 +251,8 @@
                   <div class="film-info-card-content py-3">
                     <div class="row">
                       <a href="<%= new_library_film_path(film_library) %>" class="film-info-tracker col-4 d-flex flex-column align-items-center justify-content-center">
-                          <i class="fa-regular fa-eye" data-film-info-content-target="icon" data-icon="watch" data-status="false"></i>
-                          <p class="m-0 p-0" data-film-info-content-target="icon" data-icon="watch" data-status="false">
+                          <i class="fa-regular fa-eye" data-film-info-content-target="icon" data-icon="watch"></i>
+                          <p class="m-0 p-0" data-film-info-content-target="icon" data-icon="watch">
                             Watch
                           </p>
                       </a>
@@ -220,6 +277,18 @@
                     <p class="m-0 p-0">
                       Rate
                     </p>
+                    <div class="film-info-rating">
+                      <div class="film-info-rating-stars">
+                        <a href="<%= new_library_film_path(film_library) %>">
+                          <i class="fa-solid fa-xmark d-none" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="0"></i>
+                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="1"></i>
+                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="2"></i>
+                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="3"></i>
+                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="4"></i>
+                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="5"></i>
+                        </a>
+                      </div>
+                    </div>
                   </div>
 
                   <div class="film-info-card-content">

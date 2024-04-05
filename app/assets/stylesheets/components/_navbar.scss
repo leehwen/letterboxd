@@ -62,6 +62,26 @@
   border-bottom-right-radius: 50px;
 }
 
+@media (max-width: 3500px) {
+  .navbar-container {
+    width: 50%;
+  }
+
+  .navbar-menu {
+    width: 50%;
+  }
+}
+
+@media (max-width: 1500px) {
+  .navbar-container {
+    width: 70%;
+  }
+
+  .navbar-menu {
+    width: 70%;
+  }
+}
+
 @media (max-width: 540px) {
   /* For a screen < 540px, this CSS will be read */
     .navbar-container {

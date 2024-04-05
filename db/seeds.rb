@@ -9,6 +9,8 @@
 #   end
 
 puts "resetting data base..."
+User.destroy_all
+Film.destroy_all
 FilmLibrary.destroy_all
 
 puts "creating entries..."

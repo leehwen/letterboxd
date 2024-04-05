@@ -28,3 +28,37 @@ h4 {
   font-weight: 100;
   font-style: normal;
 }
+
+  .srch-container {
+    .srch-content {
+      width: 70%;
+    }
+  }
+
+  @media (max-width: 3500px) {
+    .hm-container {
+      .hm-content {
+        width: 50%;
+      }
+    }
+  }
+
+  @media (max-width: 1500px) {
+    .hm-container {
+      .hm-content {
+        width: 70%;
+      }
+    }
+  }
+
+  @media (max-width: 540px) {
+    /* For a screen < 540px, this CSS will be read */
+      .hm-container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+
+        .hm-content {
+          width: 80%;
+        }
+      }
+    }

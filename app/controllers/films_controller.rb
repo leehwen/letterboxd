@@ -61,6 +61,13 @@ class FilmsController < ApplicationController
         format.json { render json: { head: :ok } }
       end
 
+    elsif @update_type == "rating"
+      @rating = params[:rating].to_i
+      @film.update(rating: @rating)
+
+      respond_to do |format|
+        format.json { render json: { head: :ok } }
+      end
     end
   end
 end
