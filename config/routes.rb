@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       post 'search'
       post 'results'
     end
-  end
 
+    resources :films, only: %i[new create update]
+  end
 end

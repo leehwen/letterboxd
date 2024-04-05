@@ -53,6 +53,22 @@
   }
 }
 
+@media (max-width: 3500px) {
+  .srch-container {
+    .srch-content {
+      width: 50%;
+    }
+  }
+}
+
+@media (max-width: 1500px) {
+  .srch-container {
+    .srch-content {
+      width: 70%;
+    }
+  }
+}
+
 @media (max-width: 540px) {
   /* For a screen < 540px, this CSS will be read */
 

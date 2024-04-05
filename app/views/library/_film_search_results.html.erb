@@ -5,9 +5,16 @@
 
   <% results.each do | result |%>
     <div class="srch-results">
-      <div class="srch-results-image">
-        <%= image_tag "https://image.tmdb.org/t/p/original#{result[:poster_path]}" %>
-      </div>
+
+      <% if result[:poster_path].blank? %>
+        <div class="srch-results-image">
+          <%= image_tag "poster not available.jpg" %>
+        </div>
+      <% else %>
+        <div class="srch-results-image">
+          <%= image_tag "https://image.tmdb.org/t/p/original#{result[:poster_path]}" %>
+        </div>
+      <% end %>
 
       <div class="srch-results-content">
         <h3>
