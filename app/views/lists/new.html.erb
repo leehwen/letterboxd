@@ -1,0 +1,17 @@
+<div class="main-container">
+  <div class="main-content">
+    <div class="new-list-header">
+     <h3>
+      New List
+     </h3>
+    </div>
+    <div>
+      <%= simple_form_for(@list) do |f| %>
+        <%= f.hidden_field :film_library_id, value: @film_library_id %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.submit "SAVE", class: "btn btn-green mt-3"%>
+      <% end %>
+    </div>
+  </div>
+</div>

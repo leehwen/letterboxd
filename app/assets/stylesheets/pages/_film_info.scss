@@ -178,6 +178,11 @@
       }
     }
 
+    .btn-none {
+      padding: 0;
+      color: $boxd-blue;
+    }
+
     a {
       text-decoration: none;
       color: $boxd-blue;
@@ -197,6 +202,40 @@
     padding-bottom: 0.6rem;
     margin-bottom: 0.85rem;
     border-bottom: 0.85px solid rgba(170, 187, 204, 0.5);
+  }
+}
+
+.lb-modal-content {
+  background-color: #445566;
+}
+
+.lb-modal-header {
+  border-bottom: 1px solid #334455;
+  position: relative;
+  padding-top: 1.5rem;
+}
+
+.lb-modal-footer {
+  border-top: 1px solid #334455;
+  background-color: #334455;
+}
+
+.lb-btn-close {
+  color: #778899;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.lb-modal-title {
+  padding-right: 1.8rem;
+}
+
+.modal-body {
+  a {
+    &:hover {
+      color: white;
+    }
   }
 }
 

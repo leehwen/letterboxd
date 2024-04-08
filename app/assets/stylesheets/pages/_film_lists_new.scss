@@ -1,0 +1,66 @@
+.new-film-list-header {
+  color: #aabbcc;
+  border-bottom: 1px solid rgba(68, 85, 102, 1);
+  margin-bottom: 1rem;
+}
+
+.new-film-list-search {
+  position: relative;
+}
+
+.new-film-list-results {
+  background-color: #667788;
+  color: white;
+  border: 1px solid #EAEAEA;
+  position: absolute;
+  width: 70%;
+  max-height: 18.5rem;
+  overflow: scroll;
+
+  .container {
+    padding: 0.25rem 0;
+  }
+}
+
+.new-film-list-result {
+  padding: 0.75rem 1rem;
+
+  &:hover {
+    background-color: $boxd-green;
+  }
+}
+
+.clear-results {
+  background-color: #445566;
+  padding-top: 0.75rem;
+  padding-bottom: 0.8rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  position: sticky;
+  bottom: 0;
+  transition: 0.3s ease;
+
+  &:hover {
+    background-color: #14181C;
+  }
+}
+
+@media (max-width: 3500px) {
+  .new-film-list-results {
+    width: 50%;
+  }
+}
+
+@media (max-width: 1500px) {
+  .new-film-list-results {
+    width: 70%;
+  }
+}
+
+@media (max-width: 540px) {
+  /* For a screen < 540px, this CSS will be read */
+
+  .new-film-list-results {
+    width: 80%;
+  }
+}

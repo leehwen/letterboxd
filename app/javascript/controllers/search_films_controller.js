@@ -36,12 +36,13 @@ export default class extends Controller {
         })
         .then(response => response.text())
         .then((results => {
+
           this.contentTarget.innerHTML = results;
         }))
       }))
       .catch(err => console.error(err));
   }
-param
+
   #getMetaValue(name) {
     const element = document.head.querySelector(`meta[name="${name}"]`)
     return element.getAttribute("content")
