@@ -1,5 +1,5 @@
 <div class="main-container">
-  <div class="main-content"  data-controller="film-lists" data-film-lists-list-id-value="<%= @list.id %>" data-film-lists-api-token-value="<%= ENV['TMDB_TOKEN'] %>">
+  <div class="main-content"  data-controller="film-lists" data-film-lists-list-id-value="<%= @list.id %>" <%= "data-film-lists-film-id-value=#{@film_library.id}" if @film_library.present? %> data-film-lists-api-token-value="<%= ENV['TMDB_TOKEN'] %>">
     <div class="new-film-list-header">
       <h3>
         Add a film
@@ -8,8 +8,8 @@
 
     <form>
       <div class="input-group new-film-list-search">
-        <input type="text" class="form-control" data-film-lists-target="query" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="submit" data-action="click->film-lists#search" id="button-addon2">Button</button>
+        <input type="text" class="form-control" data-film-lists-target="query" placeholder="Enter name of film..." aria-label="Enter name of film" aria-describedby="Enter name of film">
+        <button class="btn btn-outline-secondary" type="submit" data-action="click->film-lists#search" id="button-addon2">Search</button>
       </div>
     </form>
 
@@ -26,7 +26,24 @@
     </div>
 
     <div class="mt-4" data-film-lists-target="filmList">
-      <%= @film_library.title %>
+      <div class="film list-empty">
+        <h3>
+          Your list is empty
+        </h3>
+        <p class="m-0">
+          Add films using the field above.
+        </p>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-end mt-4">
+      <%# <button type="button" class="btn btn-grey me-2">Cancel</button> %>
+      <% if @url.last(3) == "new" %>
+        <%= link_to 'Cancel', list_path(@list), data: {turbo_method: :delete}, class: "btn btn-grey me-2" %>
+      <% else %>
+        <%= link_to 'Cancel', cancel_list_path(@list), data: {turbo_method: :delete}, class: "btn btn-grey me-2" %>
+      <% end %>
+      <%= link_to 'Save', list_path(@list), class: "btn btn-green" %>
     </div>
   </div>
 </div>

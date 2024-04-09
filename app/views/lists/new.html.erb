@@ -7,7 +7,7 @@
     </div>
     <div>
       <%= simple_form_for(@list) do |f| %>
-        <%= f.hidden_field :film_library_id, value: @film_library_id %>
+        <%= f.hidden_field :film_library_id, value: @film_library_id if @film_library_id.present? %>
         <%= f.input :name %>
         <%= f.input :description %>
         <%= f.submit "SAVE", class: "btn btn-green mt-3"%>

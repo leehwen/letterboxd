@@ -45,6 +45,84 @@
   }
 }
 
+h3 {
+  font-size: 1.15rem;
+}
+
+.film {
+  display: flex;
+  padding: 0.75rem;
+  border: 1px solid #334455;
+  border-radius: 0.35rem;
+  margin-bottom: 0.35rem;
+
+  .film-img {
+    margin-right: 0.75rem;
+
+    img {
+      width: 3.5rem;
+      border: 1px solid #334455;
+      border-radius: 0.2rem;
+    }
+  }
+
+  .film-img-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.8rem 1rem;
+
+    img {
+      width: 8.5rem;
+      border: 1px solid #334455;
+      border-radius: 0.2rem;
+    }
+  }
+
+  .film-content {
+    padding: 0.2rem 0;
+    flex-grow: 1;
+  }
+
+  .list-modal-content {
+    background-color: #445566;
+  }
+
+  .list-modal-header {
+    border-bottom: 0;
+    position: relative;
+    padding-top: 1.5rem;
+  }
+
+  .list-modal-footer {
+    border-top: 0;
+  }
+
+  .list-modal-btn-close {
+    color: #778899;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .list-modal-title {
+    padding-right: 1.8rem;
+  }
+
+  .film-delete {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+  }
+}
+
+.film.list-empty {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+
 @media (max-width: 3500px) {
   .new-film-list-results {
     width: 50%;
@@ -57,10 +135,20 @@
   }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 575px) {
   /* For a screen < 540px, this CSS will be read */
 
   .new-film-list-results {
     width: 80%;
+  }
+
+  .film {
+    .film-img-modal {
+      padding: 0rem 1rem;
+      display: none;
+      // img {
+      //   display: none;
+      // }
+    }
   }
 }

@@ -1,6 +1,6 @@
 <div>
   <% results.each do | result |%>
-    <div class="new-film-list-result" data-action="click->film-lists#addFilm">
+    <div class="new-film-list-result" data-action="click->film-lists#addFilm" data-film-id="<%= result[:id] %>" >
       <%= result[:original_title] %> <%= result[:release_date].first(4) %>
     </div>
   <% end %>

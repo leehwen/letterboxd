@@ -23,6 +23,10 @@ Rails.application.routes.draw do
   end
 
   resources :lists do
+    member do
+      delete 'cancel'
+    end
+
     resources :film_lists do
       collection do
         post 'results'

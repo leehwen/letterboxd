@@ -205,29 +205,29 @@
   }
 }
 
-.lb-modal-content {
+.film-info-modal-content {
   background-color: #445566;
 }
 
-.lb-modal-header {
+.film-info-modal-header {
   border-bottom: 1px solid #334455;
   position: relative;
   padding-top: 1.5rem;
 }
 
-.lb-modal-footer {
+.film-info-modal-footer {
   border-top: 1px solid #334455;
   background-color: #334455;
 }
 
-.lb-btn-close {
+.film-info-modal-btn-close {
   color: #778899;
   position: absolute;
   top: 1rem;
   right: 1rem;
 }
 
-.lb-modal-title {
+.film-info-modal-title {
   padding-right: 1.8rem;
 }
 
@@ -258,7 +258,7 @@
 }
 
 
-@media (max-width: 540px) {
+@media (max-width: 560px) {
   /* For a screen < 540px, this CSS will be read */
 
     .film-info-container {

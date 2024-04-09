@@ -254,12 +254,12 @@
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-                        <div class="modal-content lb-modal-content">
-                          <div class="modal-header lb-modal-header">
-                            <h1 class="modal-title lb-modal-title fs-5" id="exampleModalLabel">
+                        <div class="modal-content film-info-modal-content">
+                          <div class="modal-header film-info-modal-header">
+                            <h1 class="modal-title film-info-modal-title fs-5" id="exampleModalLabel">
                               Add '<%= film_library.title %>' to lists
                             </h1>
-                            <button type="button" class="btn-close lb-btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn-close film-info-modal-btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
                             <%= simple_form_for :new_list, method: :get, url: new_list_path  do |f| %>
@@ -267,7 +267,7 @@
                               <%= f.submit '+ New list...', class: "btn btn-none" %>
                             <% end %>
                           </div>
-                          <div class="modal-footer lb-modal-footer">
+                          <div class="modal-footer film-info-modal-footer">
                             <button type="button" class="btn btn-green">Add</button>
                           </div>
                         </div>

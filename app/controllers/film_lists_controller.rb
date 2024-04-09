@@ -2,11 +2,47 @@ class FilmListsController < ApplicationController
   def new
     @film_list = FilmList.new
     @list = List.find(params[:list_id])
-    @film_library = FilmLibrary.find(params[:film_library_id])
+    @url = request.original_url
+
+    @film_library = FilmLibrary.find(params[:film_library_id]) if params[:film_library_id].present?
   end
 
   def create
+    @film_list = FilmList.new
+    @film_list.list_id = params[:list_id]
 
+    if params[:film_library_id].present?
+      @film_library = FilmLibrary.find(params[:film_library_id])
+    elsif params[:tmdb_id].present?
+      @film_library = FilmLibrary.find_by(tmdb_id: params[:tmdb_id])
+    end
+
+    @film =  Film.find_or_initialize_by(
+      film_library_id: @film_library.id
+    )
+
+    @film.user = current_user
+    @film.save
+
+    @film_list.film_id = @film.id
+    @film_list.save
+
+    respond_to do |format|
+      format.html
+      format.text { render partial: "film_added_to_list", locals: {film_list: @film_list}, formats: [:html] }
+    end
+
+  end
+
+  def destroy
+    @list = List.find(params[:list_id])
+    @film_list = FilmList.find(params[:id])
+    @film_list.destroy
+
+    respond_to do |format|
+      format.html
+      format.json { render json: { head: :ok } }
+    end
   end
 
   def results
