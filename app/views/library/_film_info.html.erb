@@ -277,27 +277,37 @@
                               <% @lists.each do |list| %>
                                 <% @list_films = list.films %>
 
-                                <% @list_films.each do |listfilm| %>
-                                  <% if listfilm.id == film.id %>
-                                    <% @already_added_to_list << list.name %>
+                                <% if film.present? %>
+                                  <% @list_films.each do |listfilm| %>
+                                    <% if listfilm.id == film.id %>
+                                      <% @already_added_to_list << list.name %>
+                                    <% end %>
                                   <% end %>
+
+                                  <% if @already_added_to_list.include?(list.name) %>
+                                    <div class="form-check form-switch">
+                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>
+                                      <label class="form-check-label" for="flexCheckCheckedDisabled">
+                                        <%= list.name %>
+                                      </label>
+                                    </div>
+                                  <% else %>
+                                    <div class="form-check form-switch">
+                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-film-info-target="list" data-list-id="<%= list.id %>">
+                                      <label class="form-check-label" for="flexCheckDefault">
+                                        <%= list.name %>
+                                      </label>
+                                    </div>
+                                  <% end %>
+                                <% else %>
+                                    <div class="form-check form-switch">
+                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-film-info-target="list" data-list-id="<%= list.id %>">
+                                      <label class="form-check-label" for="flexCheckDefault">
+                                        <%= list.name %>
+                                      </label>
+                                    </div>
                                 <% end %>
 
-                                <% if @already_added_to_list.include?(list.name) %>
-                                  <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>
-                                    <label class="form-check-label" for="flexCheckCheckedDisabled">
-                                      <%= list.name %>
-                                    </label>
-                                  </div>
-                                <% else %>
-                                  <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-film-info-target="list" data-list-id="<%= list.id %>">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                      <%= list.name %>
-                                    </label>
-                                  </div>
-                                <% end %>
 
                               <% end %>
                             </div>
