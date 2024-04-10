@@ -17,7 +17,7 @@ export default class extends Controller {
     this.contentTargets.forEach((t) => {
       t.classList.add("d-none")
 
-      if (e.target.dataset.tab == t.dataset.content) {
+      if (e.target.dataset.tab === t.dataset.content) {
         t.classList.remove("d-none")
       }
     })
@@ -51,18 +51,18 @@ export default class extends Controller {
     })
 
     this.iconTargets.forEach((t1) => {
-      if (e.target.dataset.icon == t1.dataset.icon) {
+      if (e.target.dataset.icon === t1.dataset.icon) {
         t1.classList.toggle("d-none")
 
-        if (e.target.dataset.icon == "watch" && e.target.dataset.status == "inactive") {
+        if (e.target.dataset.icon === "watch" && e.target.dataset.status === "inactive") {
           this.iconTargets.forEach((t2) => {
-            if (e.target.dataset.icon == "watch" && e.target.dataset.status == "active") {
+            if (e.target.dataset.icon === "watch" && e.target.dataset.status === "active") {
               e.classList.toggle("d-none")
-            } else if (t2.dataset.icon == "watchlist" && t2.dataset.status == "active") {
+            } else if (t2.dataset.icon === "watchlist" && t2.dataset.status === "active") {
               t2.classList.add(`d-none`)
 
               this.iconTargets.forEach((t3) => {
-                if (t3.dataset.icon == "watchlist" && t3.dataset.status == "inactive") {
+                if (t3.dataset.icon === "watchlist" && t3.dataset.status === "inactive") {
                   t3.classList.remove(`d-none`)
                 }
               })

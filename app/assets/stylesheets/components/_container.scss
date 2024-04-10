@@ -1,0 +1,39 @@
+.main-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+
+  .main-content {
+    width: 70%;
+  }
+}
+
+@media (max-width: 3500px) {
+  .main-container {
+    .main-content {
+      width: 50%;
+    }
+  }
+}
+
+@media (max-width: 1500px) {
+  .main-container {
+    .main-content {
+      width: 70%;
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  /* For a screen < 540px, this CSS will be read */
+
+    .main-container {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+
+      .main-content {
+        width: 80%;
+      }
+    }
+  }

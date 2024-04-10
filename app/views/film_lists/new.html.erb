@@ -1,0 +1,55 @@
+<div class="main-container">
+  <div class="main-content"  data-controller="film-lists" data-film-lists-list-id-value="<%= @list.id %>" <%= "data-film-lists-film-id-value=#{@film_library.id}" if @film_library.present? %> data-film-lists-api-token-value="<%= ENV['TMDB_TOKEN'] %>">
+    <div class="new-film-list-header">
+    <% if @film_library.present? %>
+      <h3>
+        Add more films
+      </h3>
+    <% else %>
+      <h3>
+        Add films
+      </h3>
+    <% end %>
+    </div>
+
+    <form>
+      <div class="input-group new-film-list-search">
+        <input type="text" class="form-control" data-film-lists-target="query" placeholder="Enter name of film..." aria-label="Enter name of film" aria-describedby="Enter name of film">
+        <button class="btn btn-outline-secondary" type="submit" data-action="click->film-lists#search" id="button-addon2">Search</button>
+      </div>
+    </form>
+
+    <div data-film-lists-target="show" class="new-film-list-results d-none">
+      <div data-film-lists-target="results" class="container">
+
+      </div>
+
+      <div class="clear-results" data-action="click->film-lists#clear" data-film-lists-target="clear">
+        <p class="m-0 p-0">
+          Clear
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-4" data-film-lists-target="filmList">
+      <div class="film list-empty">
+        <h3>
+          Your list is empty
+        </h3>
+        <p class="m-0">
+          Add films using the field above.
+        </p>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-end mt-4">
+      <%# <button type="button" class="btn btn-grey me-2">Cancel</button> %>
+      <% if @url.last(3) == "new" %>
+        <%= link_to 'Cancel', list_path(@list), data: {turbo_method: :delete}, class: "btn btn-grey me-2" %>
+      <% else %>
+        <%= link_to 'Cancel', cancel_list_path(@list), data: {turbo_method: :delete}, class: "btn btn-grey me-2" %>
+      <% end %>
+      <%= link_to 'Go to list', list_path(@list), class: "btn btn-green" %>
+    </div>
+  </div>
+</div>

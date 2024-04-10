@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="film-info"
 export default class extends Controller {
-  static targets = ["content"]
+  static targets = ["content", "list"]
   static values = {
     apiToken: String,
     filmId: String,
@@ -42,10 +42,29 @@ export default class extends Controller {
       .catch(err => console.error(err));
   }
 
+  addToList() {
+    console.log('clicked')
+    this.listTargets.forEach((t) => {
+      if (t.checked) {
+        fetch(`/lists/${t.dataset.listId}/film_lists`, {
+          method: "POST",
+          headers: {
+          "Content-Type": "application/json",
+          "Accept": "text/plain",
+          "X-CSRF-Token": this.#getMetaValue("csrf-token")
+          },
+            body: JSON.stringify({film_library_id: this.filmIdValue})
+          })
+          .then(response => response.text())
+          .then((data) => {
+            window.location.reload();
+          })
+      }
+    })
+  }
+
   #getMetaValue(name) {
     const element = document.head.querySelector(`meta[name="${name}"]`)
     return element.getAttribute("content")
   }
-
-
 }

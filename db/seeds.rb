@@ -11,6 +11,7 @@
 puts "resetting data base..."
 User.destroy_all
 Film.destroy_all
+List.destroy_all
 FilmLibrary.destroy_all
 
 puts "creating entries..."
@@ -20,6 +21,21 @@ puts "creating entries..."
 admin = User.create!(
   email: "leehwen@email.com",
   password: "password",
+)
+
+list1 = List.create!(
+  name: "Fantasy",
+  user: admin
+)
+
+list2 = List.create!(
+  name: "Romcoms",
+  user: admin
+)
+
+list2 = List.create!(
+  name: "Arthouse",
+  user: admin
 )
 
 puts "seeding entries done!"

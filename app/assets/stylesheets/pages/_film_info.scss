@@ -178,6 +178,11 @@
       }
     }
 
+    .btn-none {
+      padding: 0;
+      color: $boxd-blue;
+    }
+
     a {
       text-decoration: none;
       color: $boxd-blue;
@@ -200,6 +205,54 @@
   }
 }
 
+.film-info-modal-content {
+  background-color: #445566;
+}
+
+.film-info-modal-header {
+  border-bottom: 1px solid #334455;
+  position: relative;
+  padding-top: 1.5rem;
+}
+
+.film-info-modal-footer {
+  border-top: 1px solid #334455;
+  background-color: #334455;
+}
+
+.film-info-modal-btn-close {
+  color: #778899;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.film-info-modal-title {
+  padding-right: 1.8rem;
+}
+
+.modal-body {
+  padding-top: 0.5rem;
+
+  .form {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #334455;
+  }
+}
+.form-check-input:unchecked {
+  // border-color: #66afe9; /*you can change this depending on your application's background color */
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+.form-check-input:checked {
+  background-color: $boxd-green;
+  border-color: $boxd-green;
+  -webkit-box-shadow: none !important;
+}
+
+
 @media (max-width: 3500px) {
 
   .film-info-container {
@@ -219,7 +272,7 @@
 }
 
 
-@media (max-width: 540px) {
+@media (max-width: 560px) {
   /* For a screen < 540px, this CSS will be read */
 
     .film-info-container {

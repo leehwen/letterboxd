@@ -21,4 +21,16 @@ Rails.application.routes.draw do
 
     resources :films, only: %i[new create update]
   end
+
+  resources :lists do
+    member do
+      delete 'cancel'
+    end
+
+    resources :film_lists do
+      collection do
+        post 'results'
+      end
+    end
+  end
 end
