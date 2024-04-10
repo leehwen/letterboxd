@@ -44,13 +44,6 @@ class ListsController < ApplicationController
     @film_library = FilmList.find_by(list_id: params[:id]).film.film_library
     redirect_to library_path(@film_library)
 
-    # if params[:list_id].present?
-    #   @list = List.find(params[:list_id])
-    #   @film_library = FilmList.find_by(list_id: params[:list_id]).film.film_library
-    # elsif params[:id].present?
-
-    # end
-
     @list.destroy
   end
 

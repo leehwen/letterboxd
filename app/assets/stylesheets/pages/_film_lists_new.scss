@@ -92,10 +92,18 @@ h3 {
     border-bottom: 0;
     position: relative;
     padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
   }
 
-  .list-modal-footer {
-    border-top: 0;
+  .modal-body {
+    h3 {
+      font-size: 1.35rem;
+    }
+  }
+
+  .list-modal-title {
+    font-size: 1rem !important;
+    margin-bottom: 0.5rem;
   }
 
   .list-modal-btn-close {
@@ -105,8 +113,18 @@ h3 {
     right: 1rem;
   }
 
-  .list-modal-title {
-    padding-right: 1.8rem;
+  .list-modal-img {
+    img {
+      width: 100%;
+    }
+  }
+
+  .list-modal-input {
+    margin-top: 1rem;
+  }
+
+  .list-modal-footer {
+    border-top: 0;
   }
 
   .film-delete {
@@ -143,8 +161,7 @@ h3 {
   }
 
   .film {
-    .film-img-modal {
-      padding: 0rem 1rem;
+    .list-modal-img {
       display: none;
       // img {
       //   display: none;

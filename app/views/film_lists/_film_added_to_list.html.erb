@@ -1,4 +1,4 @@
-<div class="film" data-film-lists-target="delete" data-list-id="<%= film_list.id %>">
+<div class="film" data-film-lists-target="film" data-list-id="<%= film_list.id %>">
   <div class= "film-img">
     <%= image_tag film_list.film.film_library.image_url%>
   </div>
@@ -10,7 +10,7 @@
       <%= film_list.film.film_library.release_date.first(4) %>
     </p>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-transparent-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button type="button" class="btn btn-transparent-sm" data-action="click->film-lists#addNote" data-film-lists-target="addNote" data-list-id="<%= film_list.id %>" data-film-title="<%= film_list.film.film_library.title %>" data-url="<%= film_list.film.film_library.image_url %>" data-bs-toggle="modal" data-bs-target="#exampleModal">
       ADD NOTE
     </button>
 
@@ -19,29 +19,22 @@
       <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered">
         <div class="modal-content list-modal-content">
           <div class="modal-header list-modal-header">
-            <h1 class="modal-title list-modal-title fs-5" id="exampleModalLabel">
-              EDIT LIST ENTRY
-            </h1>
             <button type="button" class="btn-close list-modal-btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
-            insert form
-          </div>
-          <div class="modal-footer list-modal-footer">
-            <button type="button" class="btn btn-grey" data-bs-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-green">Update</button>
+          <div data-film-lists-target="modal">
+
           </div>
         </div>
       </div>
     </div>
 
-
-
-
-
-
   </div>
-  <div class="film-delete">
-    <i class="fa-solid fa-xmark" data-action="click->film-lists#deleteFilm" data-list-id="<%= film_list.id %>"></i>
-  </div>
+
+  <% if @film_library.present? && @film_library == film_list.film.film_library %>
+      <% else %>
+    <div class="film-delete">
+      <i class="fa-solid fa-xmark" data-action="click->film-lists#deleteFilm" data-list-id="<%= film_list.id %>"></i>
+    </div>
+  <% end %>
+
 </div>

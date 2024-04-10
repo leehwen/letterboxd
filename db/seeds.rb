@@ -23,4 +23,19 @@ admin = User.create!(
   password: "password",
 )
 
+list1 = List.create!(
+  name: "Fantasy",
+  user: admin
+)
+
+list2 = List.create!(
+  name: "Romcoms",
+  user: admin
+)
+
+list2 = List.create!(
+  name: "Arthouse",
+  user: admin
+)
+
 puts "seeding entries done!"

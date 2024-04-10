@@ -232,12 +232,26 @@
 }
 
 .modal-body {
-  a {
-    &:hover {
-      color: white;
-    }
+  padding-top: 0.5rem;
+
+  .form {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #334455;
   }
 }
+.form-check-input:unchecked {
+  // border-color: #66afe9; /*you can change this depending on your application's background color */
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+.form-check-input:checked {
+  background-color: $boxd-green;
+  border-color: $boxd-green;
+  -webkit-box-shadow: none !important;
+}
+
 
 @media (max-width: 3500px) {
 

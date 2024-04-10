@@ -261,14 +261,50 @@
                             </h1>
                             <button type="button" class="btn-close film-info-modal-btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
+
                           <div class="modal-body">
-                            <%= simple_form_for :new_list, method: :get, url: new_list_path  do |f| %>
-                              <%= f.hidden_field :film_library_id, value: film_library.id %>
-                              <%= f.submit '+ New list...', class: "btn btn-none" %>
-                            <% end %>
+                            <div class="form">
+                              <%= simple_form_for :new_list, method: :get, url: new_list_path  do |f| %>
+                                <%= f.hidden_field :film_library_id, value: film_library.id %>
+                                <%= f.submit '+ New list...', class: "btn btn-none" %>
+                              <% end %>
+                            </div>
+
+                            <div>
+                              <% @lists = List.where(user_id: current_user) %>
+                              <% @already_added_to_list = [] %>
+
+                              <% @lists.each do |list| %>
+                                <% @list_films = list.films %>
+
+                                <% @list_films.each do |listfilm| %>
+                                  <% if listfilm.id == film.id %>
+                                    <% @already_added_to_list << list.name %>
+                                  <% end %>
+                                <% end %>
+
+                                <% if @already_added_to_list.include?(list.name) %>
+                                  <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>
+                                    <label class="form-check-label" for="flexCheckCheckedDisabled">
+                                      <%= list.name %>
+                                    </label>
+                                  </div>
+                                <% else %>
+                                  <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-film-info-target="list" data-list-id="<%= list.id %>">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                      <%= list.name %>
+                                    </label>
+                                  </div>
+                                <% end %>
+
+                              <% end %>
+                            </div>
                           </div>
+
                           <div class="modal-footer film-info-modal-footer">
-                            <button type="button" class="btn btn-green">Add</button>
+                            <button type="button" class="btn btn-green" data-action="click->film-info#addToList">Add</button>
                           </div>
                         </div>
                       </div>
@@ -333,9 +369,9 @@
                   </div>
 
                   <div class="film-info-card-content">
-                    <p class="m-0 p-0">
+                    <a href="<%= new_list_path %>">
                       Add to lists...
-                    </p>
+                    </a>
                   </div>
                 </div>
               <% end %>

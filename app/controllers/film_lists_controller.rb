@@ -31,7 +31,18 @@ class FilmListsController < ApplicationController
       format.html
       format.text { render partial: "film_added_to_list", locals: {film_list: @film_list}, formats: [:html] }
     end
+  end
 
+  def update
+    @list = List.find(params[:list_id])
+    @film_list = FilmList.find(params[:id])
+    @notes = params[:notes]
+    @film_list.update(notes: @notes)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: { head: :ok } }
+    end
   end
 
   def destroy
