@@ -6,11 +6,27 @@
         <h3>
           <%= @list.name %>
         </h3>
+
+        <% @film_list_notes = [] %>
+        <% @list.film_lists.each do |filmlist| %>
+          <% @film_list_notes << filmlist.notes if filmlist.notes.present? %>
+        <% end %>
+
+        <% if @film_list_notes.present? %>
+          Read notes
+        <% end %>
+
+        <p>
+          <%= @list.description %>
+        </p>
       </div>
 
       <div class="list-header-right">
-        <p>
-          <%= link_to 'Edit or delete list...', new_list_path %>
+        <p class="edit-list">
+          <%= link_to 'Edit list',  edit_list_path(@list), class: "btn btn-green"%>
+        </p>
+        <p class="delete-list">
+          <%= link_to 'Delete list', list_path(@list), data: {turbo_method: :delete}, class: "btn btn-red" %>
         </p>
       </div>
     </div>

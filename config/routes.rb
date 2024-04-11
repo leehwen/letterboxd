@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 
     resources :film_lists do
       collection do
+        get 'edit_list'
         post 'results'
       end
     end

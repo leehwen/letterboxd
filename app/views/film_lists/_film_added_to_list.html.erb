@@ -30,8 +30,8 @@
 
   </div>
 
-  <% if @film_library.present? && @film_library == film_list.film.film_library %>
-      <% else %>
+  <% if @existing_film_library.present? && @existing_film_library.to_i == film_list.film.film_library.id %>
+  <% else %>
     <div class="film-delete">
       <i class="fa-solid fa-xmark" data-action="click->film-lists#deleteFilm" data-list-id="<%= film_list.id %>"></i>
     </div>

@@ -1,6 +1,10 @@
 <div>
   <div class="srch-results">
-    FOUND <%= results.count %> FILMS MATCHING <%= query.upcase %>
+    <% if results.count == 1%>
+      FOUND <%= results.count %> FILM MATCHING <%= query.upcase %>
+    <% else %>
+      FOUND <%= results.count %> FILMS MATCHING <%= query.upcase %>
+    <% end %>
   </div>
 
   <% results.each do | result |%>

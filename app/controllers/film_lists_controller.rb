@@ -10,9 +10,10 @@ class FilmListsController < ApplicationController
   def create
     @film_list = FilmList.new
     @film_list.list_id = params[:list_id]
+    @existing_film_library = params[:film_library_id]
 
     if params[:film_library_id].present?
-      @film_library = FilmLibrary.find(params[:film_library_id])
+      @film_library = FilmLibrary.find(@existing_film_library)
     elsif params[:tmdb_id].present?
       @film_library = FilmLibrary.find_by(tmdb_id: params[:tmdb_id])
     end
@@ -31,6 +32,12 @@ class FilmListsController < ApplicationController
       format.html
       format.text { render partial: "film_added_to_list", locals: {film_list: @film_list}, formats: [:html] }
     end
+  end
+
+  def edit_list
+    @list = List.find(params[:list_id])
+    @film_lists = @list.film_lists
+    @url = request.original_url
   end
 
   def update
