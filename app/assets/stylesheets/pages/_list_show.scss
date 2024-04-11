@@ -1,0 +1,51 @@
+.list-header {
+
+  .list-header-left {
+    border-bottom: 1px solid $boxd-blue;
+  }
+
+  .list-header-right {
+    display: flex;
+    justify-content: end;
+  }
+
+
+  h4 {
+    font-weight: 300;
+  }
+
+  a {
+    text-decoration: none;
+    background-color: #445566;
+    color: $boxd-blue;
+    padding: 0.75rem 1.25rem;
+    transition: 0.3s ease;
+
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+
+@media (max-width: 575px) {
+  /* For a screen < 540px, this CSS will be read */
+
+  .list-header {
+    border-bottom: 1px solid $boxd-blue;
+    padding-bottom: 0.75rem;
+
+    .list-header-left {
+      border-bottom: 0;
+    }
+
+    .list-header-right {
+      display: flex;
+      justify-content: start;
+    }
+  }
+
+  h4 {
+    margin-bottom: 1.25rem;
+  }
+}
