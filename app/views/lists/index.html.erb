@@ -1,1 +1,177 @@
-Showing all lists
+<div class="main-container">
+  <div class="main-content">
+
+    <div class="lists-header">
+      <div class="lists-header-left">
+        <div class="d-flex mb-3  lists-header-left-title">
+          <h3 class="m-0">
+            Your lists
+          </h3>
+        </div>
+      </div>
+
+      <div class="lists-header-right">
+        <p class="new-list">
+          <%= link_to 'New list',  new_list_path, class: "btn btn-green"%>
+        </p>
+      </div>
+    </div>
+
+    <div class="lists-content">
+
+      <% @lists.each do |list| %>
+        <div class="list">
+
+          <%= link_to list_path(list), class: "list-film-imgs" do %>
+            <% case list.films.count %>
+            <% when 0 %>
+              <% 3.times do %>
+                <div class="list-film-img">
+                  <%= image_tag "poster not available.jpeg" %>
+                </div>
+              <% end %>
+              <div class="list-film-img-last">
+                <%= image_tag "poster not available.jpeg" %>
+              </div>
+            <% when 1 %>
+              <% 3.times do %>
+                <div class="list-film-img">
+                  <%= image_tag "poster not available.jpeg" %>
+                </div>
+              <% end %>
+              <% list.films.each do |film| %>
+                <% if film.film_library.image_url.last(4) == "inal" %>
+                  <div class="list-film-img-last">
+                    <%= image_tag "poster not available.jpeg" %>
+                  </div>
+                <% else %>
+                  <div class="list-film-img-last">
+                    <%= image_tag film.film_library.image_url %>
+                  </div>
+                <% end %>
+              <% end %>
+            <% when 2 %>
+              <% 2.times do %>
+                <div class="list-film-img">
+                  <%= image_tag "poster not available.jpeg" %>
+                </div>
+              <% end %>
+              <% list.films.each do |film| %>
+                <% if film == list.films.last %>
+                  <% if film.film_library.image_url.last(4) == "inal" %>
+                    <div class="list-film-img-last">
+                      <%= image_tag "poster not available.jpeg" %>
+                    </div>
+                  <% else %>
+                    <div class="list-film-img-last">
+                      <%= image_tag film.film_library.image_url %>
+                    </div>
+                  <% end %>
+
+                <% else %>
+
+                  <% if film.film_library.image_url.last(4) == "inal" %>
+                    <div class="list-film-img">
+                      <%= image_tag "poster not available.jpeg" %>
+                    </div>
+                  <% else %>
+                    <div class="list-film-img">
+                      <%= image_tag film.film_library.image_url %>
+                    </div>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% when 3 %>
+              <div class="list-film-img">
+                <%= image_tag "poster not available.jpeg" %>
+              </div>
+              <% list.films.each do |film| %>
+                <% if film == list.films.last %>
+                  <% if film.film_library.image_url.last(4) == "inal" %>
+                    <div class="list-film-img-last">
+                      <%= image_tag "poster not available.jpeg" %>
+                    </div>
+                  <% else %>
+                    <div class="list-film-img-last">
+                      <%= image_tag film.film_library.image_url %>
+                    </div>
+                  <% end %>
+
+                <% else %>
+
+                  <% if film.film_library.image_url.last(4) == "inal" %>
+                    <div class="list-film-img">
+                      <%= image_tag "poster not available.jpeg" %>
+                    </div>
+                  <% else %>
+                    <div class="list-film-img">
+                      <%= image_tag film.film_library.image_url %>
+                    </div>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% else %>
+              <% list.films.first(4).each do |film| %>
+
+                <% if film == list.films.first(4)[3] %>
+                  <% if film.film_library.image_url.last(4) == "inal" %>
+                    <div class="list-film-img-last">
+                      <%= image_tag "poster not available.jpeg" %>
+                    </div>
+                  <% else %>
+                    <div class="list-film-img-last">
+                      <%= image_tag film.film_library.image_url %>
+                    </div>
+                  <% end %>
+
+                <% else %>
+
+                  <% if film.film_library.image_url.last(4) == "inal" %>
+                    <div class="list-film-img">
+                      <%= image_tag "poster not available.jpeg" %>
+                    </div>
+                  <% else %>
+                    <div class="list-film-img">
+                      <%= image_tag film.film_library.image_url %>
+                    </div>
+                  <% end %>
+                <% end %>
+
+              <% end %>
+            <% end %>
+          <% end %>
+
+          <div class="list-content">
+            <h3>
+              <%= link_to list.name, list_path(list) %>
+            </h3>
+
+            <div class="d-flex">
+              <p>
+                <%= list.films.count %> films
+              </p>
+
+              <%= link_to edit_list_path(list) do %>
+                <i class="fa-solid fa-pencil"></i>
+              <% end %>
+
+              <%= link_to list_path(list), data: {turbo_method: :delete}, class: "delete-list" do %>
+              <i class="fa-regular fa-trash-can"></i>
+              <% end %>
+            </div>
+
+            <p class="content-width">
+              <% if list.description.present? %>
+                <%= list.description %>
+              <% else %>
+                  No description available.
+              <% end %>
+            </p>
+          </div>
+
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
