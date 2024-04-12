@@ -26,12 +26,19 @@ class FilmListsController < ApplicationController
     @film.save
 
     @film_list.film_id = @film.id
-    @film_list.save
 
-    respond_to do |format|
-      format.html
-      format.text { render partial: "film_added_to_list", locals: {film_list: @film_list}, formats: [:html] }
+    if @film_list.save
+      respond_to do |format|
+        format.html
+        format.text { render partial: "film_added_to_list", locals: {film_list: @film_list}, formats: [:html] }
+      end
+    else
+      respond_to do |format|
+        format.html
+        format.text { render plain: "false" }
+      end
     end
+
   end
 
   def edit_list

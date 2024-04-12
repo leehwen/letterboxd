@@ -1,15 +1,9 @@
 <div class="main-container">
-  <div class="main-content"  data-controller="film-lists" data-film-lists-list-id-value="<%= @list.id %>" <%= "data-film-lists-film-id-value=#{@film_library.id}" if @film_library.present? %> data-film-lists-api-token-value="<%= ENV['TMDB_TOKEN'] %>">
+  <div class="main-content"  data-controller="film-lists" data-film-lists-list-id-value="<%= @list.id %>" data-film-lists-api-token-value="<%= ENV['TMDB_TOKEN'] %>">
     <div class="new-film-list-header">
-    <% if @film_library.present? %>
-      <h3>
-        Add more films
-      </h3>
-    <% else %>
       <h3>
         Add films
       </h3>
-    <% end %>
     </div>
 
     <form>
