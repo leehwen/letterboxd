@@ -43,10 +43,6 @@
     <div class="list-content">
 
       <% @list.film_lists.each do |filmlist| %>
-        <% if filmlist == @list.film_lists[0] %>
-        <% else %>
-        <% end %>
-
         <div class="list-film">
           <% if filmlist.film.film_library.image_url.last(4) == "inal" %>
             <div class="list-film-img">
@@ -59,8 +55,9 @@
           <% end %>
 
           <div class="list-film-content">
+
             <h3>
-              <%= filmlist.film.film_library.title %>
+              <%= link_to filmlist.film.film_library.title, library_path(filmlist.film.film_library) %>
             </h3>
 
             <h4>

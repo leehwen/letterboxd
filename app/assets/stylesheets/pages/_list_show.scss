@@ -2,7 +2,11 @@
   margin-bottom: 1rem;
 
   .list-header-left {
-    border-bottom: 1px solid $boxd-blue;
+    border-bottom: 1px solid #435666;
+
+    .list-header-left-title {
+      margin-bottom: 0.75rem;
+    }
 
     .list-header-left-notes {
       text-decoration: none;
@@ -12,7 +16,7 @@
       font-weight: 300;
       padding: 0.2rem 0.5rem;
       margin-left: 0.45rem;
-      transition: 0.1s ease;
+      transition: 0.2s ease;
       border-radius: 0.2rem;
     }
 
@@ -23,7 +27,7 @@
       background-color: #443322;
       padding: 0.2rem 0.5rem;
       margin-left: 0.45rem;
-      transition: 0.1s ease;
+      transition: 0.2s ease;
       border-radius: 0.2rem;
 
       &:hover {
@@ -36,10 +40,10 @@
     a {
       text-decoration: none;
       color: white;
-      transition: 0.1s ease;
+      transition: 0.2s ease;
 
       &:hover {
-        color: $boxd-blue;
+        color: $boxd-sky-blue;
       }
     }
   }
@@ -75,7 +79,7 @@
 
   .grid-item{
     position: relative;
-    transition: 0.1s ease;
+    transition: 0.2s ease;
 
     img {
       width: 100%;
@@ -92,6 +96,7 @@
       width: 100%;
       height: 100%;
       font-size: 0.95em;
+      transition: 0.3s ease;
       opacity: 0;
 
       i.fa-eye {
@@ -123,6 +128,52 @@
     }
   }
 
+}
+
+.list-film {
+  display: flex;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 0.85px solid rgba(170, 187, 204, 0.5);
+
+  .list-film-img {
+    margin-right: 1.5rem;
+    padding-bottom: 1.25rem;
+
+    img {
+      width: 5rem;
+      border: 0.85px solid rgba(170, 187, 204, 0.5);
+      border-radius: 2px;
+      box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);;
+    }
+  }
+
+  .list-film-content {
+    width: 100%;
+
+    .list-film-rating {
+      display: flex;
+      margin-bottom: 0.65rem;
+
+      .starred {
+        color: #00E054;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+      transition: 0.2s ease;
+
+      &:hover {
+        color: $boxd-sky-blue;
+      }
+    }
+  }
+
+  .content-width {
+    width: 85%;
+  }
 }
 
 @media (max-width: 1850px) {
