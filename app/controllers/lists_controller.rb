@@ -25,11 +25,18 @@ class ListsController < ApplicationController
   end
 
   def edit
-
+    @list = List.find(params[:id])
   end
 
   def update
+    @list = List.find(params[:id])
+    @list.update(list_params)
 
+    if @list.save
+      redirect_to edit_list_list_film_lists_path(@list)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -45,6 +52,10 @@ class ListsController < ApplicationController
     redirect_to library_path(@film_library)
 
     @list.destroy
+  end
+
+  def notes
+    @list = List.find(params[:id])
   end
 
   private

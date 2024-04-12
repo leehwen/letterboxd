@@ -101,14 +101,14 @@ export default class extends Controller {
     })
     .then(response => response.json())
     .then((data) => {
-      console.log(data)
 
       this.filmTargets.forEach((t) => {
         if (t.dataset.listId == e.target.dataset.listId) {
           t.outerHTML = "";
         }
 
-        if (this.filmListTarget.innerHTML.length <= 1) {
+        console.log(this.filmListTarget.innerHTML.length)
+        if (this.filmListTarget.innerHTML.length <= 25) {
           this.filmListTarget.innerHTML = `
           <div class="film list-empty">
             <h3>

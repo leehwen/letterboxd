@@ -2,7 +2,7 @@
   <div class="main-content">
     <div class="new-list-header">
      <h3>
-      New list
+      Edit list
      </h3>
     </div>
     <div>
@@ -10,7 +10,7 @@
         <%= f.hidden_field :film_library_id, value: @film_library_id if @film_library_id.present? %>
         <%= f.input :name %>
         <%= f.input :description %>
-        <%= f.submit "Create", class: "btn btn-green float-end mt-3"%>
+        <%= f.submit "Next", class: "btn btn-green float-end mt-3"%>
       <% end %>
     </div>
   </div>

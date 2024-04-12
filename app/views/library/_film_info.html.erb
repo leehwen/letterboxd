@@ -273,9 +273,11 @@
                             <div>
                               <% @lists = List.where(user_id: current_user) %>
                               <% @already_added_to_list = [] %>
+                              <% @input_id = 1 %>
 
                               <% @lists.each do |list| %>
                                 <% @list_films = list.films %>
+                                <% @input_id += 1 %>
 
                                 <% if film.present? %>
                                   <% @list_films.each do |listfilm| %>
@@ -293,21 +295,20 @@
                                     </div>
                                   <% else %>
                                     <div class="form-check form-switch">
-                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-film-info-target="list" data-list-id="<%= list.id %>">
-                                      <label class="form-check-label" for="flexCheckDefault">
+                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault<%= @input_id %>" data-film-info-target="list" data-list-id="<%= list.id %>">
+                                      <label class="form-check-label" for="flexCheckDefault<%= @input_id %>">
                                         <%= list.name %>
                                       </label>
                                     </div>
                                   <% end %>
                                 <% else %>
                                     <div class="form-check form-switch">
-                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-film-info-target="list" data-list-id="<%= list.id %>">
-                                      <label class="form-check-label" for="flexCheckDefault">
+                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault<%= @input_id %>" data-film-info-target="list" data-list-id="<%= list.id %>">
+                                      <label class="form-check-label" for="flexCheckDefault<%= @input_id %>">
                                         <%= list.name %>
                                       </label>
                                     </div>
                                 <% end %>
-
 
                               <% end %>
                             </div>
@@ -321,6 +322,32 @@
                     </div>
                   </div>
                 </div>
+
+                <% if film.present? && film.lists.count >= 1 %>
+                  <div class="film-info-list">
+                    <div class="header">
+                      <% if film.lists.count == 1 %>
+                        <h6>
+                          LIST
+                        </h6>
+                      <% else %>
+                        <h6>
+                          LISTS
+                        </h6>
+                      <% end %>
+
+                    </div>
+                    <div class="d-flex flex-wrap">
+                      <% film.lists.each do |list| %>
+                        <div class="film-info-pill">
+                          <%= link_to list.name, list_path(list) %>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                <% else %>
+                <% end %>
+
               <% else %>
                 <div class="film-info-card">
                   <div class="film-info-card-content py-3">

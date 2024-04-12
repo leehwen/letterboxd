@@ -1,0 +1,98 @@
+<div class="main-container">
+  <div class="main-content"  data-controller="film-lists" data-film-lists-list-id-value="<%= @list.id %>" <%= "data-film-lists-film-id-value=#{@film_library.id}" if @film_library.present? %> data-film-lists-api-token-value="<%= ENV['TMDB_TOKEN'] %>">
+    <div class="new-film-list-header">
+    <% if @film_library.present? %>
+      <h3>
+        Add more films
+      </h3>
+    <% else %>
+      <h3>
+        Add films
+      </h3>
+    <% end %>
+    </div>
+
+    <form>
+      <div class="input-group new-film-list-search">
+        <input type="text" class="form-control" data-film-lists-target="query" placeholder="Enter name of film..." aria-label="Enter name of film" aria-describedby="Enter name of film">
+        <button class="btn btn-outline-secondary" type="submit" data-action="click->film-lists#search" id="button-addon2">Search</button>
+      </div>
+    </form>
+
+    <div data-film-lists-target="show" class="new-film-list-results d-none">
+      <div data-film-lists-target="results" class="container">
+
+      </div>
+
+      <div class="clear-results" data-action="click->film-lists#clear" data-film-lists-target="clear">
+        <p class="m-0 p-0">
+          Clear
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-4" data-film-lists-target="filmList">
+      <% if @film_lists.present? %>
+        <% @film_lists.each do |filmlist| %>
+          <div class="film" data-film-lists-target="film" data-list-id="<%= filmlist.id %>">
+            <div class= "film-img">
+              <%= image_tag filmlist.film.film_library.image_url%>
+            </div>
+            <div class="film-content">
+              <h3 class="m-0">
+                <%= filmlist.film.film_library.title %>
+              </h3>
+              <p class="m-0">
+                <%= filmlist.film.film_library.release_date.first(4) %>
+              </p>
+              <!-- Button trigger modal -->
+                <% if filmlist.notes.present? %>
+                  <button type="button" class="btn btn-transparent-sm" data-action="click->film-lists#addNote" data-film-lists-target="addNote" data-list-id="<%= filmlist.id %>" data-film-title="<%= filmlist.film.film_library.title %>" data-url="<%= filmlist.film.film_library.image_url %>" data-notes="<%= filmlist.notes %>" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    EDIT NOTE
+                  </button>
+                <% else %>
+                  <button type="button" class="btn btn-transparent-sm" data-action="click->film-lists#addNote" data-film-lists-target="addNote" data-list-id="<%= filmlist.id %>" data-film-title="<%= filmlist.film.film_library.title %>" data-url="<%= filmlist.film.film_library.image_url %>" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    ADD NOTE
+                  </button>
+                <% end %>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered">
+                  <div class="modal-content list-modal-content">
+                    <div class="modal-header list-modal-header">
+                      <button type="button" class="btn-close list-modal-btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div data-film-lists-target="modal">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="film-delete">
+              <i class="fa-solid fa-xmark" data-action="click->film-lists#deleteFilm" data-list-id="<%= filmlist.id %>"></i>
+            </div>
+
+          </div>
+        <% end %>
+      <% else %>
+        <div class="film list-empty">
+          <h3>
+            Your list is empty
+          </h3>
+          <p class="m-0">
+            Add films using the field above.
+          </p>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="d-flex justify-content-end mt-4">
+      <%# <button type="button" class="btn btn-grey me-2">Cancel</button> %>
+      <%= link_to 'Back', edit_list_path(@list), class: "btn btn-grey me-2" %>
+      <%= link_to 'Go to list', list_path(@list), class: "btn btn-green" %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+.list-film {
+  display: flex;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 0.85px solid rgba(170, 187, 204, 0.5);
+
+  .list-film-img {
+    margin-right: 1.5rem;
+    padding-bottom: 1.25rem;
+
+    img {
+      width: 5rem;
+      border: 0.85px solid rgba(170, 187, 204, 0.5);
+      border-radius: 2px;
+      box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);;
+    }
+  }
+
+  .list-film-content {
+    width: 100%;
+
+    .list-film-rating {
+      display: flex;
+      margin-bottom: 0.65rem;
+
+      .starred {
+        color: #00E054;
+      }
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    transition: 0.1s ease;
+
+    &:hover {
+      color: $boxd-sky-blue;
+    }
+  }
+
+  .content-width {
+    width: 85%;
+  }
+}

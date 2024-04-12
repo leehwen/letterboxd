@@ -195,6 +195,24 @@
   }
 }
 
+.film-info-list {
+  .header {
+    margin-top: 1.5rem;
+    margin-bottom: 0.85rem;
+    border-bottom: 0.85px solid rgba(170, 187, 204, 0.5);
+  }
+
+  a {
+    text-decoration: none;
+    color: $boxd-blue;
+    transition: 0.1s ease;
+
+    &:hover{
+      color: white;
+    }
+  }
+}
+
 .film-reviews-container {
   margin-top: 2rem;
 
