@@ -25,9 +25,9 @@
           <%= link_to result[:original_title], library_path(FilmLibrary.find_by(tmdb_id: result[:id])) %>
         </h3>
 
-        <h5>
+        <h4>
           <%= result[:release_date].first(4) %>
-        </h5>
+        </h4>
 
         <p class="content-width">
           <%= result[:overview].truncate(150) %>

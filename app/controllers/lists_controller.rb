@@ -54,6 +54,10 @@ class ListsController < ApplicationController
     @list.destroy
   end
 
+  def notes
+    @list = List.find(params[:id])
+  end
+
   private
 
   def list_params

@@ -3,28 +3,31 @@
 
     <div class="list-header">
       <div class="list-header-left">
-        <div>
+        <div class="d-flex mb-3  list-header-left-title">
+          <h3 class="m-0">
+            <%= @list.name %>
+          </h3>
 
+          <div class="d-flex align-items-center">
+            <% @film_list_notes = [] %>
+            <% @list.film_lists.each do |filmlist| %>
+              <% @film_list_notes << filmlist.notes if filmlist.notes.present? %>
+            <% end %>
+
+            <% if @film_list_notes.present? %>
+              <%= link_to notes_list_path(@list), class: "list-header-left-notes" do %>
+              <i class="fa-solid fa-glasses"></i> Read notes
+              <% end %>
+            <% end %>
+          </div>
         </div>
+
         <div>
-
+          <p>
+            <%= @list.description %>
+          </p>
         </div>
-        <h3>
-          <%= @list.name %>
-        </h3>
 
-        <% @film_list_notes = [] %>
-        <% @list.film_lists.each do |filmlist| %>
-          <% @film_list_notes << filmlist.notes if filmlist.notes.present? %>
-        <% end %>
-
-        <% if @film_list_notes.present? %>
-          Read notes
-        <% end %>
-
-        <p>
-          <%= @list.description %>
-        </p>
       </div>
 
       <div class="list-header-right">

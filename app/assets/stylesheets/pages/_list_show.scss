@@ -3,6 +3,45 @@
 
   .list-header-left {
     border-bottom: 1px solid $boxd-blue;
+
+    .list-header-left-notes {
+      text-decoration: none;
+      font-size: 0.85rem;
+      background-color: #cc8844;
+      color: white;
+      font-weight: 300;
+      padding: 0.2rem 0.5rem;
+      margin-left: 0.45rem;
+      transition: 0.1s ease;
+      border-radius: 0.2rem;
+    }
+
+    a.list-header-left-notes {
+      text-decoration: none;
+      font-size: 0.85rem;
+      color: #cc8844;
+      background-color: #443322;
+      padding: 0.2rem 0.5rem;
+      margin-left: 0.45rem;
+      transition: 0.1s ease;
+      border-radius: 0.2rem;
+
+      &:hover {
+        background-color: #cc8844;
+        color: white;
+        font-weight: 300;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+      transition: 0.1s ease;
+
+      &:hover {
+        color: $boxd-blue;
+      }
+    }
   }
 
   .list-header-right {

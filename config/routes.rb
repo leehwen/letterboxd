@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   resources :lists do
     member do
+      get 'notes'
       delete 'cancel'
     end
 
