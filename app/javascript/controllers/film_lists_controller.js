@@ -78,13 +78,18 @@ export default class extends Controller {
       })
       .then(response => response.text())
       .then((data) => {
-        this.queryTarget.value = "";
-        this.showTarget.classList.add('d-none');
-
-        if (this.filmListTarget.innerHTML.includes('Your list is empty')) {
-          this.filmListTarget.innerHTML = data;
+        if (data === "false") {
+          this.queryTarget.value = "";
+          this.showTarget.classList.add('d-none');
         } else {
-          this.filmListTarget.insertAdjacentHTML("beforeend", data)
+          this.queryTarget.value = "";
+          this.showTarget.classList.add('d-none');
+
+          if (this.filmListTarget.innerHTML.includes('Your list is empty')) {
+            this.filmListTarget.innerHTML = data;
+          } else {
+            this.filmListTarget.insertAdjacentHTML("beforeend", data)
+          }
         }
       })
   }
