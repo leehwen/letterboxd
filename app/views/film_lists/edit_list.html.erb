@@ -46,9 +46,15 @@
                 <%= filmlist.film.film_library.release_date.first(4) %>
               </p>
               <!-- Button trigger modal -->
-              <button type="button" class="btn btn-transparent-sm" data-action="click->film-lists#addNote" data-film-lists-target="addNote" data-list-id="<%= filmlist.id %>" data-film-title="<%= filmlist.film.film_library.title %>" data-url="<%= filmlist.film.film_library.image_url %>" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                ADD NOTE
-              </button>
+                <% if filmlist.notes.present? %>
+                  <button type="button" class="btn btn-transparent-sm" data-action="click->film-lists#addNote" data-film-lists-target="addNote" data-list-id="<%= filmlist.id %>" data-film-title="<%= filmlist.film.film_library.title %>" data-url="<%= filmlist.film.film_library.image_url %>" data-notes="<%= filmlist.notes %>" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    EDIT NOTE
+                  </button>
+                <% else %>
+                  <button type="button" class="btn btn-transparent-sm" data-action="click->film-lists#addNote" data-film-lists-target="addNote" data-list-id="<%= filmlist.id %>" data-film-title="<%= filmlist.film.film_library.title %>" data-url="<%= filmlist.film.film_library.image_url %>" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    ADD NOTE
+                  </button>
+                <% end %>
 
               <!-- Modal -->
               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

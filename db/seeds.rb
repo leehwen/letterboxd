@@ -25,11 +25,13 @@ admin = User.create!(
 
 list1 = List.create!(
   name: "Fantasy",
+  description: "Escape from reality, where anything is possible",
   user: admin
 )
 
 list2 = List.create!(
   name: "Romcoms",
+  description: "Sometimes, all one needs is a lil' love",
   user: admin
 )
 

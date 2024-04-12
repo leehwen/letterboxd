@@ -19,16 +19,6 @@
     font-size: 1.5rem;
     margin-bottom: 0.75rem;
   }
-
-  // a {
-  //   text-decoration: none;
-  //   color: $boxd-blue;
-  //   transition: 0.1s ease;
-
-  //   &:hover {
-  //     color: white;
-  //   }
-  // }
 }
 
 .list-content {
@@ -64,6 +54,11 @@
       height: 100%;
       font-size: 0.95em;
       opacity: 0;
+
+      i.fa-eye {
+        line-height: 1.5;
+        margin-right: 0.25rem;
+      }
 
       i.fa-heart {
         line-height: 1.5;
