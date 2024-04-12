@@ -86,6 +86,23 @@
   }
 }
 
+@media (max-width: 770px) {
+  /* For a screen < 540px, this CSS will be read */
+  .navbar-container {
+    .navbar-logo {
+      justify-content: center;
+      margin-top: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+  }
+
+  .navbar-menu {
+    .navbar-menu-wrapper {
+      justify-content: center;
+    }
+  }
+  }
+
 @media (max-width: 560px) {
   /* For a screen < 540px, this CSS will be read */
     .navbar-container {
