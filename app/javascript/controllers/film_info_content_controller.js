@@ -85,7 +85,7 @@ export default class extends Controller {
     .then((data) => {
       const film_id = data.film.id
 
-      fetch (`/library/${this.libraryIdValue}/films/${film_id}`, {
+      fetch(`/library/${this.libraryIdValue}/films/${film_id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

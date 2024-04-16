@@ -98,7 +98,7 @@
 
             <div class="col-lg-5 col-md-10">
               <% if user_signed_in? %>
-                <div class="film-info-card">
+                <div class="film-info-card" data-controller="datepicker">
                   <div class="film-info-card-content py-3">
                     <div class="row">
                       <% film = Film.find_by(film_library_id: film_library.id, user_id: current_user) %>
@@ -234,10 +234,107 @@
                     <% end %>
                   </div>
 
+                  <% if film.present? && film.reviews.count == 1 %>
+                    <div class="film-info-card-content">
+                      <button type="button" class="btn btn-none" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                        Edit review...
+                      </button>
+
+                      <div class="modal fade" id="exampleModal3" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
+                          <div class="modal-content review-modal-content">
+                            <div class="modal-header review-modal-header">
+                             <a href="<%= library_path(film_library) %>" class="btn-close review-modal-btn-close" aria-label="Close"></a>
+                            </div>
+                            <div class="modal-body">
+                              <div class="row">
+                                <div class="col-md-3 ps-md-4 col-sm-4 ps-sm-3">
+                                  <div class="review-modal-img">
+                                    <% if film.film_library.image_url.last(4) == 'inal' %>
+                                      <%= image_tag "poster.jpeg" %>
+                                    <% else %>
+                                      <%= image_tag film.film_library.image_url %>
+                                    <% end %>
+                                  </div>
+                                </div>
+                                <div class="col-md-9 px-md-4 col-sm-8 pe-sm-3">
+                                  <div class="review-modal-subtitle">
+                                    <p class="m-0">
+                                      LAST WATCHED ON
+                                    </p>
+                                    <input class="form-control form-control-sm review-modal-pickr" data-datepicker-target="editReview" data-film-info-target="updatedReviewDate" data-date="<%= film.reviews[0].date %>" type="text" placeholder="Select date" aria-label=".form-control-sm example">
+                                  </div>
+                                  <h1 class="modal-title fs-5" id="exampleModalLabel">Review of <%= film.film_library.title %> </h1>
+                                  <div class="mb-3">
+                                    <textarea class="form-control review-modal-input" id="exampleFormControlTextarea1" data-film-info-target="updatedReview" rows="4"><%= film.reviews[0].review %></textarea>
+                                  </div>
+                                  <div class="review-modal-rating">
+                                    <p class="m-0">
+                                      Rating:
+                                    </p>
+                                    <div class="review-rating">
+                                      <div class="review-rating-stars">
+                                        <% case film.reviews[0].rating %>
+                                        <% when 1 %>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="1"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="2"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="3"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="4"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="5"></i>
+                                        <% when 2 %>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="1"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="2"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="3"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="4"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="5"></i>
+                                        <% when 3 %>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="1"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="2"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="3"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="4"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="5"></i>
+                                        <% when 4 %>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="1"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="2"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="3"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="4"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="5"></i>
+                                        <% when 5 %>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="1"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="2"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="3"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="4"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="5"></i>
+                                        <% end %>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer review-modal-footer">
+                              <button type="button" class="btn btn-green" data-action="click->film-info#updateReview" data-film-id="<%= film.id %>" data-review-id="<%= film.reviews[0].id %>">Update</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <% elsif film.present? && film.reviews.count > 1 %>
+                    <div class="film-info-card-content">
+                      Edit reviews
+                    </div>
+                  <% end %>
+
                   <div class="film-info-card-content">
-                    <button type="button" class="btn btn-none" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                      Submit a review...
-                    </button>
+                    <% if film.present? && film.reviews.present? %>
+                      <button type="button" class="btn btn-none" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                        Submit another review...
+                      </button>
+                    <% else %>
+                      <button type="button" class="btn btn-none" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                        Submit a review...
+                      </button>
+                    <% end %>
 
                     <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
@@ -261,11 +358,11 @@
                                   <p class="m-0">
                                     LAST WATCHED ON
                                   </p>
-                                  <input class="form-control form-control-sm review-modal-pickr" data-controller="datepicker" type="text" placeholder="Select date" aria-label=".form-control-sm example">
+                                  <input class="form-control form-control-sm review-modal-pickr" data-datepicker-target="newReview" data-film-info-target="reviewDate" type="text" placeholder="Select date" aria-label=".form-control-sm example">
                                 </div>
                                 <h1 class="modal-title fs-5" id="exampleModalLabel">Review of <%= film.film_library.title %> </h1>
                                 <div class="mb-3">
-                                  <textarea class="form-control review-modal-input" id="exampleFormControlTextarea1" placeholder="Add a review..." rows="4"></textarea>
+                                  <textarea class="form-control review-modal-input" id="exampleFormControlTextarea1" data-film-info-target="review" placeholder="Add a review..." rows="4"></textarea>
                                 </div>
                                 <div class="review-modal-rating">
                                   <p class="m-0">
@@ -276,46 +373,46 @@
                                       <div class="review-rating-stars">
                                         <% case film.rating %>
                                         <% when 1 %>
-                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="1"></i>
-                                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="2"></i>
-                                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="3"></i>
-                                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="4"></i>
-                                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="5"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#rate" data-film-info-target="rating" data-rating="1"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info#rate" data-film-info-target="rating" data-rating="2"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info#rate" data-film-info-target="rating" data-rating="3"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info#rate" data-film-info-target="rating" data-rating="4"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info#rate" data-film-info-target="rating" data-rating="5"></i>
                                         <% when 2 %>
-                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="1"></i>
-                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="2"></i>
-                                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="3"></i>
-                                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="4"></i>
-                                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="5"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#addRating" data-film-info-target="rating" data-rating="1"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#addRating" data-film-info-target="rating" data-rating="2"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info#addRating" data-film-info-target="rating" data-rating="3"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info#addRating" data-film-info-target="rating" data-rating="4"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info#addRating" data-film-info-target="rating" data-rating="5"></i>
                                         <% when 3 %>
-                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="1"></i>
-                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="2"></i>
-                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="3"></i>
-                                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="4"></i>
-                                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="5"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#addRating" data-film-info-target="rating" data-rating="1"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#addRating" data-film-info-target="rating" data-rating="2"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#addRating" data-film-info-target="rating" data-rating="3"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info#addRating" data-film-info-target="rating" data-rating="4"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info#addRating" data-film-info-target="rating" data-rating="5"></i>
                                         <% when 4 %>
-                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="1"></i>
-                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="2"></i>
-                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="3"></i>
-                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="4"></i>
-                                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="5"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#addRating" data-film-info-target="rating" data-rating="1"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#addRating" data-film-info-target="rating" data-rating="2"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#addRating" data-film-info-target="rating" data-rating="3"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#addRating" data-film-info-target="rating" data-rating="4"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info#addRating" data-film-info-target="rating" data-rating="5"></i>
                                         <% when 5 %>
-                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="1"></i>
-                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="2"></i>
-                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="3"></i>
-                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="4"></i>
-                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="5"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#addRating" data-film-info-target="rating" data-rating="1"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#addRating" data-film-info-target="rating" data-rating="2"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#addRating" data-film-info-target="rating" data-rating="3"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#addRating" data-film-info-target="rating" data-rating="4"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info#addRating" data-film-info-target="rating" data-rating="5"></i>
                                         <% end %>
                                       </div>
                                     </div>
                                   <% else %>
                                     <div class="review-rating">
                                       <div class="review-rating-stars">
-                                        <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="1"></i>
-                                        <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="2"></i>
-                                        <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="3"></i>
-                                        <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="4"></i>
-                                        <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="5"></i>
+                                        <i class="fa-solid fa-star" data-action="click->film-info#addRating" data-film-info-content-target="rating" data-rating="1"></i>
+                                        <i class="fa-solid fa-star" data-action="click->film-info#addRating" data-film-info-content-target="rating" data-rating="2"></i>
+                                        <i class="fa-solid fa-star" data-action="click->film-info#addRating" data-film-info-content-target="rating" data-rating="3"></i>
+                                        <i class="fa-solid fa-star" data-action="click->film-info#addRating" data-film-info-content-target="rating" data-rating="4"></i>
+                                        <i class="fa-solid fa-star" data-action="click->film-info#addRating" data-film-info-content-target="rating" data-rating="5"></i>
                                       </div>
                                     </div>
                                   <% end %>
@@ -479,9 +576,9 @@
                   </div>
 
                   <div class="film-info-card-content">
-                    <p class="m-0 p-0">
+                    <a href="<%= new_film_review_path %>">
                       Submit a review...
-                    </p>
+                    </a>
                   </div>
 
                   <div class="film-info-card-content">
