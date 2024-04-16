@@ -223,33 +223,29 @@
   }
 }
 
-.film-info-modal-content {
+.list-modal-content, .review-modal-content {
   background-color: #445566;
 }
 
-.film-info-modal-header {
+.list-modal-header {
   border-bottom: 1px solid #334455;
   position: relative;
   padding-top: 1.5rem;
 }
 
-.film-info-modal-footer {
+.list-modal-footer {
   border-top: 1px solid #334455;
   background-color: #334455;
 }
 
-.film-info-modal-btn-close {
+.list-modal-btn-close, .review-modal-btn-close {
   color: #778899;
   position: absolute;
   top: 1rem;
   right: 1rem;
 }
 
-.film-info-modal-title {
-  padding-right: 1.8rem;
-}
-
-.modal-body {
+.list-modal-body {
   padding-top: 0.5rem;
 
   .form {
@@ -258,6 +254,98 @@
     border-bottom: 1px solid #334455;
   }
 }
+
+.review-modal-header {
+  border-bottom: 0;
+  position: relative;
+  padding-top: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.review-modal-footer {
+  border-top: 0;
+}
+
+.review-modal-img {
+  img {
+    width: 100%;
+  }
+}
+
+.review-modal-input {
+  margin-top: 1rem;
+}
+
+.review-modal-subtitle {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.45rem;
+}
+
+.review-modal-pickr {
+  width: 6.25rem;
+  margin-left: 0.8rem;
+}
+
+.review-modal-rating {
+  display: flex;
+
+  .review-rating {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-left: 0.5rem;
+    color: #334455;
+    transition: 0.2s ease;
+    width: 80%;
+
+    .review-rating-stars {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .fa-star {
+      font-size: 1.2rem;
+    }
+
+    .fa-xmark {
+      font-size: 1rem;
+      color: #8C969F;
+      position: absolute;
+      left: -1.2rem;
+      display: none;
+    }
+
+    .starred {
+      color: #00E054;
+    }
+
+    a {
+      color: #334455;
+    }
+
+    &:hover {
+      .fa-xmark {
+        display: block;
+
+        &:hover ~ .fa-star {
+          color: #334455;
+        }
+      }
+
+      .fa-star {
+        color: #40BCF4;
+
+        &:hover ~ .fa-star {
+          color: #334455;
+        }
+      }
+    }
+  }
+}
+
 .form-check-input:unchecked {
   // border-color: #66afe9; /*you can change this depending on your application's background color */
   outline: 0 !important;
@@ -289,8 +377,7 @@
   }
 }
 
-
-@media (max-width: 560px) {
+@media (max-width: 575px) {
   /* For a screen < 540px, this CSS will be read */
 
     .film-info-container {
@@ -309,5 +396,22 @@
       .film-info-img {
         display: none;
       }
+    }
+
+    .review-modal-img {
+      display: none;
+    }
+
+    .review-modal-subtitle {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .review-modal-pickr {
+      margin-top: 0.35rem;
+      margin-left: 0rem;
     }
   }

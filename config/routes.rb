@@ -22,6 +22,10 @@ Rails.application.routes.draw do
     resources :films, only: %i[new create update]
   end
 
+  resources :films, only: %i[index] do
+    resources :reviews
+  end
+
   resources :lists do
     member do
       get 'notes'

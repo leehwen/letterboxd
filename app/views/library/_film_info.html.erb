@@ -13,7 +13,7 @@
       <div class="col-lg-3 col-md-4 col-sm-5">
         <% if film_library.image_url.last(4) == "inal" %>
           <div class="film-info-img">
-            <%= image_tag "poster not available.jpeg", class: "film-img" %>
+            <%= image_tag "poster.jpeg", class: "film-img" %>
           </div>
         <% else %>
           <div class="film-info-img">
@@ -111,7 +111,7 @@
                           </p>
                           <i class="fa-solid fa-eye" data-film-info-content-target="icon" data-icon="watch" style="color: #00E054;" data-status="active"></i>
                           <p class="m-0 p-0" data-film-info-content-target="icon" data-icon="watch" data-status="active">
-                            Watch
+                            Watched
                           </p>
                         <% else %>
                           <i class="fa-regular fa-eye" data-film-info-content-target="icon" data-icon="watch" data-status="inactive"></i>
@@ -120,7 +120,7 @@
                           </p>
                           <i class="fa-solid fa-eye d-none" data-film-info-content-target="icon" data-icon="watch" style="color: #00E054;" data-status="active"></i>
                           <p class="m-0 p-0 d-none" data-film-info-content-target="icon" data-icon="watch" data-status="active">
-                            Watch
+                            Watched
                           </p>
                         <% end %>
                       </div>
@@ -133,7 +133,7 @@
                           </p>
                           <i class="fa-solid fa-heart" data-film-info-content-target="icon" data-icon="like" style="color: #FF900F;"></i>
                           <p class="m-0 p-0" data-film-info-content-target="icon" data-icon="like">
-                            Like
+                            Liked
                           </p>
                         <% else %>
                           <i class="fa-regular fa-heart" data-film-info-content-target="icon" data-icon="like"></i>
@@ -142,7 +142,7 @@
                           </p>
                           <i class="fa-solid fa-heart d-none" data-film-info-content-target="icon" data-icon="like" style="color: #FF900F;"></i>
                           <p class="m-0 p-0 d-none" data-film-info-content-target="icon" data-icon="like">
-                            Like
+                            Liked
                           </p>
                         <% end %>
                       </div>
@@ -235,15 +235,100 @@
                   </div>
 
                   <div class="film-info-card-content">
-                    <p class="m-0 p-0">
-                      Log this film...
-                    </p>
-                  </div>
-
-                  <div class="film-info-card-content">
-                    <p class="m-0 p-0">
+                    <button type="button" class="btn btn-none" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                       Submit a review...
-                    </p>
+                    </button>
+
+                    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
+                        <div class="modal-content review-modal-content">
+                          <div class="modal-header review-modal-header">
+                            <button type="button" class="btn-close review-modal-btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="row">
+                              <div class="col-md-3 ps-md-4 col-sm-4 ps-sm-3">
+                                <div class="review-modal-img">
+                                  <% if film.film_library.image_url.last(4) == 'inal' %>
+                                    <%= image_tag "poster.jpeg" %>
+                                  <% else %>
+                                    <%= image_tag film.film_library.image_url %>
+                                  <% end %>
+                                </div>
+                              </div>
+                              <div class="col-md-9 px-md-4 col-sm-8 pe-sm-3">
+                                <div class="review-modal-subtitle">
+                                  <p class="m-0">
+                                    LAST WATCHED ON
+                                  </p>
+                                  <input class="form-control form-control-sm review-modal-pickr" data-controller="datepicker" type="text" placeholder="Select date" aria-label=".form-control-sm example">
+                                </div>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Review of <%= film.film_library.title %> </h1>
+                                <div class="mb-3">
+                                  <textarea class="form-control review-modal-input" id="exampleFormControlTextarea1" placeholder="Add a review..." rows="4"></textarea>
+                                </div>
+                                <div class="review-modal-rating">
+                                  <p class="m-0">
+                                    Rating:
+                                  </p>
+                                  <% if film.present? && film.rating >= 1 %>
+                                    <div class="review-rating">
+                                      <div class="review-rating-stars">
+                                        <% case film.rating %>
+                                        <% when 1 %>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="1"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="2"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="3"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="4"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="5"></i>
+                                        <% when 2 %>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="1"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="2"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="3"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="4"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="5"></i>
+                                        <% when 3 %>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="1"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="2"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="3"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="4"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="5"></i>
+                                        <% when 4 %>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="1"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="2"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="3"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="4"></i>
+                                          <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="5"></i>
+                                        <% when 5 %>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="1"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="2"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="3"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="4"></i>
+                                          <i class="fa-solid fa-star starred" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="5"></i>
+                                        <% end %>
+                                      </div>
+                                    </div>
+                                  <% else %>
+                                    <div class="review-rating">
+                                      <div class="review-rating-stars">
+                                        <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="1"></i>
+                                        <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="2"></i>
+                                        <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="3"></i>
+                                        <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="4"></i>
+                                        <i class="fa-solid fa-star" data-action="click->film-info-content#rate" data-film-info-content-target="rating" data-icon="rating" data-rating="5"></i>
+                                      </div>
+                                    </div>
+                                  <% end %>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer review-modal-footer">
+                            <button type="button" class="btn btn-green" data-action="click->film-info#addReview">Submit</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
                   <div class="film-info-card-content">
@@ -254,15 +339,15 @@
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-                        <div class="modal-content film-info-modal-content">
-                          <div class="modal-header film-info-modal-header">
-                            <h1 class="modal-title film-info-modal-title fs-5" id="exampleModalLabel">
+                        <div class="modal-content list-modal-content">
+                          <div class="modal-header list-modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">
                               Add '<%= film_library.title %>' to lists
                             </h1>
-                            <button type="button" class="btn-close film-info-modal-btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn-close list-modal-btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
 
-                          <div class="modal-body">
+                          <div class="modal-body list-modal-body">
                             <div class="form">
                               <%= simple_form_for :new_list, method: :get, url: new_list_path  do |f| %>
                                 <%= f.hidden_field :film_library_id, value: film_library.id %>
@@ -314,7 +399,7 @@
                             </div>
                           </div>
 
-                          <div class="modal-footer film-info-modal-footer">
+                          <div class="modal-footer list-modal-footer">
                             <button type="button" class="btn btn-green" data-action="click->film-info#addToList">Add</button>
                           </div>
                         </div>
@@ -391,12 +476,6 @@
                         </a>
                       </div>
                     </div>
-                  </div>
-
-                  <div class="film-info-card-content">
-                    <p class="m-0 p-0">
-                      Log this film...
-                    </p>
                   </div>
 
                   <div class="film-info-card-content">

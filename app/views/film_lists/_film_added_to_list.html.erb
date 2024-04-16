@@ -1,6 +1,10 @@
 <div class="film" data-film-lists-target="film" data-list-id="<%= film_list.id %>">
   <div class= "film-img">
-    <%= image_tag film_list.film.film_library.image_url%>
+    <% if film_list.film.film_library.image_url.last(4) == "inal" %>
+      <%= image_tag "poster.jpeg" %>
+    <% else %>
+      <%= image_tag film_list.film.film_library.image_url %>
+    <% end %>
   </div>
   <div class="film-content">
     <h3 class="m-0">
@@ -10,11 +14,11 @@
       <%= film_list.film.film_library.release_date.first(4) %>
     </p>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-transparent-sm" data-action="click->film-lists#addNote" data-film-lists-target="addNote" data-list-id="<%= film_list.id %>" data-film-title="<%= film_list.film.film_library.title %>" data-url="<%= film_list.film.film_library.image_url %>" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button type="button" class="btn btn-transparent-sm" data-action="click->film-lists#addNote" data-film-lists-target="addNote" data-list-id="<%= film_list.id %>" data-film-title="<%= film_list.film.film_library.title %>" <%= "data-url=#{film_list.film.film_library.image_url}" if film_list.film.film_library.image_url.last(4) != "inal" %> <%= "data-url=../../../assets/poster.jpeg" if film_list.film.film_library.image_url.last(4) == "inal" %> data-bs-toggle="modal" data-bs-target="#exampleModal">
       ADD NOTE
     </button>
 
-    <!-- Modal -->
+
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered">
         <div class="modal-content list-modal-content">
