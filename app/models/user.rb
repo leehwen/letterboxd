@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :films, dependent: :destroy
   has_many :lists, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 end
