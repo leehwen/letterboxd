@@ -9,10 +9,10 @@
 #   end
 
 puts "resetting data base..."
+Review.destroy_all
 Film.destroy_all
 List.destroy_all
 FilmLibrary.destroy_all
-Review.destroy_all
 User.destroy_all
 
 puts "creating entries..."
@@ -20,29 +20,36 @@ puts "creating entries..."
 ## USERS
 
 user1 = User.create!(
+  username: "user1",
   email: "user1@email.com",
   password: "password",
 )
 
 user2 = User.create!(
+  username: "user2",
   email: "user2@email.com",
   password: "password",
 )
 
 user3 = User.create!(
+  username: "user3",
   email: "user3@email.com",
   password: "password",
 )
 
 user4 = User.create!(
+  username: "user4",
   email: "user4@email.com",
   password: "password",
 )
 
 user5 = User.create!(
+  username: "user5",
   email: "user5@email.com",
   password: "password",
 )
+
+## FILM LIBARIES
 
 filmlibrary1 = FilmLibrary.create!(
   title: "Priscilla",
@@ -165,8 +172,8 @@ filmlibrary10 = FilmLibrary.create!(
 )
 
 filmlibrary11 = FilmLibrary.create!(
-  title: "Spider-Man: Spider-Verse Collection",
-  description: ,
+  title: "Spider-Man: Into the Spider-Verse",
+  description: "Struggling to find his place in the world while juggling school and family, Brooklyn teenager Miles Morales is unexpectedly bitten by a radioactive spider and develops unfathomable powers just like the one and only Spider-Man. While wrestling with the implications of his new abilities, Miles discovers a super collider created by the madman Wilson \"Kingpin\" Fisk, causing others from across the Spider-Verse to be inadvertently transported to his dimension.",
   genres: ["Animation", "Action", "Adventure", "Science Fiction"],
   directed_by: ["Peter Ramsey", "Rodney Rothman", "Bob Persichetti"],
   runtime: 117,
@@ -177,15 +184,15 @@ filmlibrary11 = FilmLibrary.create!(
 )
 
 filmlibrary12 = FilmLibrary.create!(
-  title: "Spider-Man: Into the Spider-Verse",
-  description: "Struggling to find his place in the world while juggling school and family, Brooklyn teenager Miles Morales is unexpectedly bitten by a radioactive spider and develops unfathomable powers just like the one and only Spider-Man. While wrestling with the implications of his new abilities, Miles discovers a super collider created by the madman Wilson \"Kingpin\" Fisk, causing others from across the Spider-Verse to be inadvertently transported to his dimension.",
+  title: "Spider-Man: Across the Spider-Verse",
+  description: "After reuniting with Gwen Stacy, Brooklyn’s full-time, friendly neighborhood Spider-Man is catapulted across the Multiverse, where he encounters the Spider Society, a team of Spider-People charged with protecting the Multiverse’s very existence. But when the heroes clash on how to handle a new threat, Miles finds himself pitted against the other Spiders and must set out on his own to save those he loves most.",
   genres: ["Animation", "Action", "Adventure", "Science Fiction"],
-  directed_by: [],
-  runtime: 117,
-  release_date: "2018-12-06",
+  directed_by: ["Peter Ramsey", "Rodney Rothman", "Bob Persichetti"],
+  runtime: 140,
+  release_date: "2023-05-31",
   tmdb_id: 569094,
-  image_url: "https://image.tmdb.org/t/p/original/iiZZdoQBEYBv6id8su7ImL0oCbD.jpg",
-  backdrop_url: "https://image.tmdb.org/t/p/original/hlCq6Qh9GVtuNcGZF4mQYluaZix.jpg",
+  image_url: "https://image.tmdb.org/t/p/original/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
+  backdrop_url: "https://image.tmdb.org/t/p/original/kGWpZewzInbzTuaIHcy0bFgzXuM.jpg",
 )
 
 filmlibrary13 = FilmLibrary.create!(
@@ -232,8 +239,8 @@ filmlibrary16 = FilmLibrary.create!(
   runtime: 167,
   release_date: "2024-02-27",
   tmdb_id: 693134,
-  image_url: "https://image.tmdb.org/t/p/original",
-  backdrop_url: "https://image.tmdb.org/t/p/original",
+  image_url: "https://image.tmdb.org/t/p/original/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
+  backdrop_url: "https://image.tmdb.org/t/p/original/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg",
 )
 
 filmlibrary17 = FilmLibrary.create!(
@@ -520,8 +527,8 @@ filmlibrary40 = FilmLibrary.create!(
   runtime: 140,
   release_date: "2005-05-17",
   tmdb_id: 1895,
-  image_url: "https://image.tmdb.org/t/p/original",
-  backdrop_url: "https://image.tmdb.org/t/p/original",
+  image_url: "https://image.tmdb.org/t/p/original/xfSAoBEm9MNBjmlNcDYLvLSMlnq.jpg",
+  backdrop_url: "https://image.tmdb.org/t/p/original/5vDuLrjJXFS9PTF7Q1xzobmYKR9.jpg",
 )
 
 filmlibrary41 = FilmLibrary.create!(
@@ -643,6 +650,8 @@ filmlibrary50 = FilmLibrary.create!(
   image_url: "https://image.tmdb.org/t/p/original/ohD87uTlwOgNuUEYaW82ew9Eds7.jpg",
   backdrop_url: "https://image.tmdb.org/t/p/original/hag9edxgL2RgG9FMfqAV0KgjPK0.jpg",
 )
+
+## FILMS
 
 film1 = Film.create!(
   like: true,
@@ -1204,6 +1213,8 @@ film75 = Film.create!(
   film_library: filmlibrary49,
 )
 
+## LISTS
+
 list1 = List.create!(
   name: "just a girl, in this big big world",
   description: "we run the world, us girls",
@@ -1246,6 +1257,8 @@ list8 = List.create!(
   name: "Barry baby",
   user: user5
 )
+
+## FILM LISTS
 
 filmlist1 = FilmList.create!(
   film: film2,
@@ -1468,6 +1481,8 @@ filmlist43 = FilmList.create!(
   film: film73,
   list: list8,
 )
+
+## REVIEWS
 
 review1 = Review.create!(
   date: "2024-04-16",

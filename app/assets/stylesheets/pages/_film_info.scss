@@ -214,12 +214,33 @@
 }
 
 .film-reviews-container {
-  margin-top: 2rem;
+  margin-top: 1.85rem;
 
   h6 {
     padding-bottom: 0.6rem;
-    margin-bottom: 0.85rem;
+    margin-bottom: 0;
     border-bottom: 0.85px solid rgba(170, 187, 204, 0.5);
+  }
+
+  .film-reviews-content {
+    display: flex;
+    margin-bottom: 0.75rem;
+    padding-top: 0.85rem;
+    border-top: 0.85px solid rgba(170, 187, 204, 0.3);
+
+    .film-reviews-content-right {
+      margin-left: 1rem;
+      flex-grow: 1;
+
+      .fa-solid {
+        font-size: 0.75rem;
+        margin-right: -4px;
+      }
+
+      .starred {
+        color: #00E054;
+      }
+    }
   }
 }
 
@@ -357,6 +378,7 @@
   border-color: $boxd-green;
   -webkit-box-shadow: none !important;
 }
+
 
 
 @media (max-width: 3500px) {
