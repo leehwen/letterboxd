@@ -9,6 +9,8 @@ export default class extends Controller {
   connect() {
     // console.log(this.editReviewTarget.dataset.date)
     flatpickr(this.newReviewTarget, { maxDate: "today", dateFormat: "Y-m-d", defaultDate: "today" })
-    flatpickr(this.editReviewTarget, { maxDate: "today", dateFormat: "Y-m-d", defaultDate: this.editReviewTarget.dataset.date })
+    this.editReviewTargets.forEach((t) => {
+      flatpickr(t, { maxDate: "today", dateFormat: "Y-m-d", defaultDate: t.dataset.date })
+    })
   }
 }

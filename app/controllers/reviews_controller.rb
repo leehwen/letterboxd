@@ -1,11 +1,15 @@
 class ReviewsController < ApplicationController
+  def index
+    @reviews = Review.where(user: current_user)
+  end
+
   def create
     @review_date = params[:date]
     @review_content = params[:review]
     @film = Film.find(params[:film_id])
     @rating = params[:rating]
 
-    @review = Review.new(date: @review_date, review: @review_content, rating: @rating, film_id: @film.id)
+    @review = Review.new(date: @review_date, review: @review_content, rating: @rating, film_id: @film.id, user_id: current_user.id, film_library_id: @film.film_library_id)
 
     if @review.save
       @film.update(rating: @review.rating)
@@ -33,6 +37,10 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def edit
+
+  end
+
   def update
     @film = Film.find(params[:film_id])
     @review = Review.find(params[:id])
@@ -40,7 +48,7 @@ class ReviewsController < ApplicationController
     @review_content = params[:review]
     @rating = params[:rating]
 
-    @review.update(date: @review_date, review: @review_content, rating: @rating, film_id: @film.id)
+    @review.update(date: @review_date, review: @review_content, rating: @rating, film_id: @film.id, user_id: current_user.id, film_library_id: @film.film_library_id)
 
     if @review.save
       @film.update(rating: @review.rating)
@@ -69,5 +77,12 @@ class ReviewsController < ApplicationController
         flash[:alert] = errors.join(', ').capitalize + " can't be blank"
       end
     end
+  end
+
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+
+    redirect_back_or_to reviews_path
   end
 end

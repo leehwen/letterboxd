@@ -120,24 +120,31 @@ export default class extends Controller {
 
     this.updatedRatingTargets.forEach((t) => {
 
-      if (t.classList.contains('starred')) {
+      if (t.dataset.reviewId == e.target.dataset.reviewId && t.classList.contains('starred')) {
         rating += 1
       }
     })
 
-    fetch(`/films/${e.target.dataset.filmId}/reviews/${e.target.dataset.reviewId}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-        "X-CSRF-Token": this.#getMetaValue("csrf-token")
-      },
-      body: JSON.stringify({ date: this.updatedReviewDateTarget.value, review: this.updatedReviewTarget.value, rating: rating })
+    this.updatedReviewDateTargets.forEach((t1) => {
+      this.updatedReviewTargets.forEach((t2) => {
+        if (t1.dataset.reviewId == e.target.dataset.reviewId && t2.dataset.reviewId == e.target.dataset.reviewId) {
+          fetch(`/films/${e.target.dataset.filmId}/reviews/${e.target.dataset.reviewId}`, {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json",
+              "X-CSRF-Token": this.#getMetaValue("csrf-token")
+            },
+            body: JSON.stringify({ date: t1.value, review: t2.value, rating: rating })
+          })
+          .then(response => response.json())
+          .then((data) => {
+            window.location.reload();
+          })
+        }
+      })
     })
-    .then(response => response.json())
-    .then((data) => {
-      window.location.reload();
-    })
+
   }
 
   updateRating(e) {

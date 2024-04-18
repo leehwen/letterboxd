@@ -23,8 +23,10 @@ Rails.application.routes.draw do
   end
 
   resources :films, only: %i[index] do
-    resources :reviews
+    resources :reviews, only: %i[create edit update]
   end
+
+  resources :reviews, only: %i[index destroy]
 
   resources :lists do
     member do

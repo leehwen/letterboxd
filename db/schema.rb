@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_18_005924) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_18_044622) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -96,7 +96,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_18_005924) do
     t.bigint "film_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.bigint "film_library_id", null: false
     t.index ["film_id"], name: "index_reviews_on_film_id"
+    t.index ["film_library_id"], name: "index_reviews_on_film_library_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -121,5 +125,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_18_005924) do
   add_foreign_key "films", "film_libraries"
   add_foreign_key "films", "users"
   add_foreign_key "lists", "users"
+  add_foreign_key "reviews", "film_libraries"
   add_foreign_key "reviews", "films"
+  add_foreign_key "reviews", "users"
 end

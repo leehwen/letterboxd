@@ -15,6 +15,7 @@ List.destroy_all
 FilmLibrary.destroy_all
 User.destroy_all
 
+
 puts "creating entries..."
 
 ## USERS
@@ -1489,6 +1490,8 @@ review1 = Review.create!(
   review: "every time jacob elordi stood next to a car i thought no way is he fitting in there",
   rating: 4,
   film: film1,
+  user: film1.user,
+  film_library: film1.film_library
 )
 
 review2 = Review.create!(
@@ -1496,6 +1499,8 @@ review2 = Review.create!(
   review: "I really don't think this movie deserves the hate it's getting. The cinematography is beautiful. The acting is great. It has a fun (albeit predictable) twist. My wife and I liked it a lot.",
   rating: 3,
   film: film32,
+  user: film32.user,
+  film_library: film32.film_library
 )
 
 review3 = Review.create!(
@@ -1503,6 +1508,8 @@ review3 = Review.create!(
   review: "everything made sense when i saw “produced by ari aster”",
   rating: 3,
   film: film33,
+  user: film33.user,
+  film_library: film33.film_library
 )
 
 review4 = Review.create!(
@@ -1510,6 +1517,8 @@ review4 = Review.create!(
   review: "God how I missed these types of movies where they build an entire insane unrealistic city on a soundstage. Wasn't expecting the The Lobster guy to be our new Jean-Pierre Jeunet but he's doing a great job",
   rating: 4,
   film: film62,
+  user: film62.user,
+  film_library: film62.film_library
 )
 
 review5 = Review.create!(
@@ -1517,6 +1526,8 @@ review5 = Review.create!(
   review: "Well I just saw the greatest acting performance of my life and it was not by Sandra Hüller or a child actor with the cuntiest bangs I've ever seen — it was by a dog so—",
   rating: 5,
   film: film34,
+  user: film34.user,
+  film_library: film34.film_library
 )
 
 review6 = Review.create!(
@@ -1524,6 +1535,8 @@ review6 = Review.create!(
   review: "There's a handshake in this that feels more overwhelmingly warm and emotional than most hugs I've seen in movies",
   rating: 4,
   film: film3,
+  user: film3.user,
+  film_library: film3.film_library
 )
 
 review7 = Review.create!(
@@ -1531,6 +1544,8 @@ review7 = Review.create!(
   review: "I remember everything. I couldn't put this film into words if I tried. I couldn't ever review this, or even explain how personal this felt to me. Every kiss, every movement, every laugh, every dance, every look, goodbye, embrace. If I could, I couldn't even begin.",
   rating: 5,
   film: film4,
+  user: film4.user,
+  film_library: film4.film_library
 )
 
 review8 = Review.create!(
@@ -1538,6 +1553,8 @@ review8 = Review.create!(
   review: "So strange that life goes on after finishing a film like Call Me By Your Name.",
   rating: 5,
   film: film46,
+  user: film46.user,
+  film_library: film46.film_library
 )
 
 review9 = Review.create!(
@@ -1545,6 +1562,8 @@ review9 = Review.create!(
   review: "a movie about how jacob elordi is simply so fucking hot that his mere existence is enough to make someone legally insane",
   rating: 4,
   film: film16,
+  user: film16.user,
+  film_library: film16.film_library
 )
 
 review10 = Review.create!(
@@ -1552,6 +1571,8 @@ review10 = Review.create!(
   review: "a fine addition in the “Barry Keoghan plays some sort of fucking unhinged freak” cinematic universe",
   rating: 3,
   film: film47,
+  user: film47.user,
+  film_library: film47.film_library
 )
 
 review11 = Review.create!(
@@ -1559,6 +1580,8 @@ review11 = Review.create!(
   review: "Although I anticipated shedding more tears, 'All of Us Strangers' captivates with its exquisite cinematography and imagery. It's a poignant film that delves into the complexities of grief and its diverse manifestations.",
   rating: 4,
   film: film17,
+  user: film17.user,
+  film_library: film17.film_library
 )
 
 review12 = Review.create!(
@@ -1566,6 +1589,8 @@ review12 = Review.create!(
   review: "The best spider-man film. Beyond being funny, creative, and wonderfully animated, it truly has an understanding of the character of Spider-Man.",
   rating: 4,
   film: film65,
+  user: film65.user,
+  film_library: film65.film_library
 )
 
 review13 = Review.create!(
@@ -1573,6 +1598,8 @@ review13 = Review.create!(
   review: "What an incredible treat this movie is. It's been several hours and I'm still beaming with joy. The colors, the animation, the humor, the soundtrack; everything about it was damn near perfect and I enjoyed myself to the fullest from beginning to end. The only bad thing about it is that it ended.",
   rating: 5,
   film: film66,
+  user: film66.user,
+  film_library: film66.film_library
 )
 
 review14 = Review.create!(
@@ -1580,6 +1607,8 @@ review14 = Review.create!(
   review: "casey afflecks voice, barely above a whisper: oh, ok. me in the audience, sneezing and crying loudly: i love film",
   rating: 4,
   film: film35,
+  user: film35.user,
+  film_library: film35.film_library
 )
 
 review15 = Review.create!(
@@ -1587,6 +1616,8 @@ review15 = Review.create!(
   review: "\"i'll take care of us\" the 2020 film version of the 🥺 emoji. this is so special",
   rating: 4,
   film: film36,
+  user: film36.user,
+  film_library: film36.film_library
 )
 
 review16 = Review.create!(
@@ -1594,6 +1625,8 @@ review16 = Review.create!(
   review: "love love love when a blockbuster is almost all methodical worldbuilding instead of pew pew space fighting filler like yes girl give us EVERYTHING",
   rating: 4,
   film: film7,
+  user: film7.user,
+  film_library: film7.film_library
 )
 
 review17 = Review.create!(
@@ -1601,6 +1634,8 @@ review17 = Review.create!(
   review: "They really went ALL OUT on the music video for the new Hans Zimmer album.",
   rating: 5,
   film: film67,
+  user: film67.user,
+  film_library: film67.film_library
 )
 
 review18 = Review.create!(
@@ -1608,6 +1643,8 @@ review18 = Review.create!(
   review: "austin butler is so bald. i've never seen anyone be so bald in my life. so moisturised and bald. he was glowing more than edward in twilight. what's your megamind head skin care routine, elvis boy",
   rating: 5,
   film: film68,
+  user: film68.user,
+  film_library: film68.film_library
 )
 
 review19 = Review.create!(
@@ -1615,6 +1652,8 @@ review19 = Review.create!(
   review: "look what happens when u give a white man gun",
   rating: 3,
   film: film9,
+  user: film9.user,
+  film_library: film9.film_library
 )
 
 review20 = Review.create!(
@@ -1622,6 +1661,8 @@ review20 = Review.create!(
   review: "silence has rarely been this loud",
   rating: 5,
   film: film39,
+  user: film39.user,
+  film_library: film39.film_library
 )
 
 review21 = Review.create!(
@@ -1629,6 +1670,8 @@ review21 = Review.create!(
   review: "seen this 4 times now. great is selling it short. back to business as usual in January. sending warmth and well wishes to everyone out there in the meantime.",
   rating: 4,
   film: film10,
+  user: film10.user,
+  film_library: film10.film_library
 )
 
 review22 = Review.create!(
@@ -1636,6 +1679,8 @@ review22 = Review.create!(
   review: "Is it possible to frame an entire feature film and hang it on your wall? Have we discovered how to do this? Asking for a friend.",
   rating: 4,
   film: film50,
+  user: film50.user,
+  film_library: film50.film_library
 )
 
 review23 = Review.create!(
@@ -1643,6 +1688,8 @@ review23 = Review.create!(
   review: "You know when a movie is directly made for you to feel ripped apart into 1 million pieces but that feeling alone makes you feel like a complete person and then you get to drive alone home and cry to Radiohead? Yeah :)",
   rating: 4,
   film: film51,
+  user: film51.user,
+  film_library: film51.film_library
 )
 
 review24 = Review.create!(
@@ -1650,6 +1697,8 @@ review24 = Review.create!(
   review: "A ridiculous achievement in filmmaking. An absurdly immersive and heart-pounding experience. Cillian Murphy is a fucking stud and RDJ will be a front-runner for Best Supporting Actor. Ludwig Göransson put his entire nutsack into that score, coupled with a sound design that made me feel like I took a bomb to the chest.",
   rating: 5,
   film: film11,
+  user: film11.user,
+  film_library: film11.film_library
 )
 
 review25 = Review.create!(
@@ -1657,6 +1706,8 @@ review25 = Review.create!(
   review: "watching this after i just watched barbie, call me atomic blonde",
   rating: 5,
   film: film19,
+  user: film19.user,
+  film_library: film19.film_library
 )
 
 review26 = Review.create!(
@@ -1664,6 +1715,8 @@ review26 = Review.create!(
   review: "Cillian Murphy's face and bone structure full blown on IMAX thank you Christopher Nolan",
   rating: 5,
   film: film40,
+  user: film40.user,
+  film_library: film40.film_library
 )
 
 review27 = Review.create!(
@@ -1671,6 +1724,8 @@ review27 = Review.create!(
   review: "Dr. Strangenheimer or: How I Learned to Start Worrying and Hate the Bomb",
   rating: 3,
   film: film52,
+  user: film52.user,
+  film_library: film52.film_library
 )
 
 review28 = Review.create!(
@@ -1678,6 +1733,8 @@ review28 = Review.create!(
   review: "in 50 years ryan gosling’s ken performance will still be taught in acting classes",
   rating: 5,
   film: film12,
+  user: film12.user,
+  film_library: film12.film_library
 )
 
 review29 = Review.create!(
@@ -1685,6 +1742,8 @@ review29 = Review.create!(
   review: "I thank god and all that is holy for letting me exist in the same time on earth as Ryan Gosling",
   rating: 5,
   film: film20,
+  user: film20.user,
+  film_library: film20.film_library
 )
 
 review30 = Review.create!(
@@ -1692,6 +1751,8 @@ review30 = Review.create!(
   review: "one depression barbie and one anxiety barbie and one ocd barbie for me please",
   rating: 4,
   film: film41,
+  user: film41.user,
+  film_library: film41.film_library
 )
 
 review31 = Review.create!(
@@ -1699,6 +1760,8 @@ review31 = Review.create!(
   review: "No actor in the history of film has understood their assignment more than Ryan Gosling does as Ken.",
   rating: 4,
   film: film53,
+  user: film53.user,
+  film_library: film53.film_library
 )
 
 review32 = Review.create!(
@@ -1706,6 +1769,8 @@ review32 = Review.create!(
   review: "my face went from h&m to balenciaga real quick",
   rating: 4,
   film: film54,
+  user: film54.user,
+  film_library: film54.film_library
 )
 
 review33 = Review.create!(
@@ -1713,6 +1778,8 @@ review33 = Review.create!(
   review: "Jaundiced and judicious, deeply cynical yet not quite ready to leap into the abyss, Joker is a provocatively toxic time capsule for an era of misguided rage. It's galling, and pretty great. Don't laugh.",
   rating: 4,
   film: film44,
+  user: film44.user,
+  film_library: film44.film_library
 )
 
 review34 = Review.create!(
@@ -1720,6 +1787,8 @@ review34 = Review.create!(
   review: "yes I unironically like this movie and no I will not apologize for it",
   rating: 5,
   film: film70,
+  user: film70.user,
+  film_library: film70.film_library
 )
 
 review35 = Review.create!(
@@ -1727,6 +1796,8 @@ review35 = Review.create!(
   review: "meryl streep was put on this earth to play miranda priestly",
   rating: 4,
   film: film14,
+  user: film14.user,
+  film_library: film14.film_library
 )
 
 review36 = Review.create!(
@@ -1734,6 +1805,8 @@ review36 = Review.create!(
   review: "maybe the real sacred deer was the friends we made along the way",
   rating: 5,
   film: film71,
+  user: film71.user,
+  film_library: film71.film_library
 )
 
 review37 = Review.create!(
@@ -1741,6 +1814,8 @@ review37 = Review.create!(
   review: "One of the best breakup movies in recent memory. Also one of the most brutal. Unrelenting in its portrayal of our desperation in the face of abandonment. We’ll mutilate ourselves beyond recognition if it means having things our way, leaving us with nothing but a pathetic “I told you so”. But who even is “I” at that point? Who is “you”?",
   rating: 5,
   film: film72,
+  user: film72.user,
+  film_library: film72.film_library
 )
 
 review38 = Review.create!(
@@ -1748,6 +1823,8 @@ review38 = Review.create!(
   review: "\"i wrote you. i wrote you 365 letters.\" IM SICK",
   rating: 5,
   film: film21,
+  user: film21.user,
+  film_library: film21.film_library
 )
 
 review39 = Review.create!(
@@ -1755,6 +1832,8 @@ review39 = Review.create!(
   review: "he made her dream house, he wrote 365 letters to her. For a whole year. they're my roman empire.",
   rating: 5,
   film: film73,
+  user: film73.user,
+  film_library: film73.film_library
 )
 
 review40 = Review.create!(
@@ -1762,6 +1841,8 @@ review40 = Review.create!(
   review: "that slow motion shot of ryan gosling nonchalantly eating a slice of pizza in his designer suit at the mall as the camera slowly zooms in on him while tribal music plays over the top is absolutely legendary and what i hope i see right before i die",
   rating: 5,
   film: film15,
+  user: film15.user,
+  film_library: film15.film_library
 )
 
 review41 = Review.create!(
@@ -1769,6 +1850,8 @@ review41 = Review.create!(
   review: "Ryan and Emma invented the rom com genre",
   rating: 4,
   film: film22,
+  user: film22.user,
+  film_library: film22.film_library
 )
 
 review42 = Review.create!(
@@ -1776,6 +1859,8 @@ review42 = Review.create!(
   review: "magine wanting to kiss someone so bad that you literally almost break their fucking nose trying",
   rating: 5,
   film: film23,
+  user: film23.user,
+  film_library: film23.film_library
 )
 
 review43 = Review.create!(
@@ -1783,6 +1868,8 @@ review43 = Review.create!(
   review: "elle woods was at harvard at the same time as mark zuckerberg",
   rating: 4,
   film: film24,
+  user: film24.user,
+  film_library: film24.film_library
 )
 
 review44 = Review.create!(
@@ -1790,6 +1877,8 @@ review44 = Review.create!(
   review: "You could put this back in cinemas forever and it would single-handedly keep the film industry afloat imo (never any less moving or spectacular, what a staggering thing. A woman's heart is a deep ocean of secrets 🥲)",
   rating: 5,
   film: film25,
+  user: film25.user,
+  film_library: film25.film_library
 )
 
 review45 = Review.create!(
@@ -1797,6 +1886,8 @@ review45 = Review.create!(
   review: "you were my brother Anakin",
   rating: 4,
   film: film56,
+  user: film56.user,
+  film_library: film56.film_library
 )
 
 review46 = Review.create!(
@@ -1804,6 +1895,8 @@ review46 = Review.create!(
   review: "in the name of the father (cate blanchett), the son (rooney mara), and the holy ghost (sarah paulson).",
   rating: 4,
   film: film57,
+  user: film57.user,
+  film_library: film57.film_library
 )
 
 review47 = Review.create!(
@@ -1811,6 +1904,8 @@ review47 = Review.create!(
   review: "my wig flew and is currently orbiting every far corner of space and time with mr mcconaughey",
   rating: 5,
   film: film58,
+  user: film58.user,
+  film_library: film58.film_library
 )
 
 review48 = Review.create!(
@@ -1818,6 +1913,8 @@ review48 = Review.create!(
   review: "how hilary duff didn't get a best actress nomination for her “waiting for you is like waiting for rain in this drought” monologue is beyond me",
   rating: 3,
   film: film59,
+  user: film59.user,
+  film_library: film59.film_library
 )
 
 review49 = Review.create!(
@@ -1825,6 +1922,8 @@ review49 = Review.create!(
   review: "Tom Cruise may legitimately be the greatest action star to ever exist.",
   rating: 4,
   film: film28,
+  user: film28.user,
+  film_library: film28.film_library
 )
 
 review50 = Review.create!(
@@ -1832,6 +1931,8 @@ review50 = Review.create!(
   review: "i wonder how every other man in the world feels knowing that never in their lives will they ever come close to being as attractive as jude law in this movie",
   rating: 5,
   film: film29,
+  user: film29.user,
+  film_library: film29.film_library
 )
 
 review51 = Review.create!(
@@ -1839,6 +1940,8 @@ review51 = Review.create!(
   review: "i'm never looking in a mirror ever again",
   rating: 4,
   film: film75,
+  user: film75.user,
+  film_library: film75.film_library
 )
 
 puts "seeding entries done!"

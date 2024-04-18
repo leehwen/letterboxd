@@ -227,6 +227,7 @@
     margin-bottom: 0.75rem;
     padding-top: 0.85rem;
     border-top: 0.85px solid rgba(170, 187, 204, 0.3);
+    position: relative;
 
     .film-reviews-content-right {
       margin-left: 1rem;
@@ -239,6 +240,15 @@
 
       .starred {
         color: #00E054;
+      }
+    }
+
+    .review-actions {
+      top: 15px;
+      right: 10px;
+
+      i.fa-star {
+        opacity: 1;
       }
     }
   }
