@@ -47,7 +47,11 @@
         <% @films.each do |film| %>
           <a href="<%= library_path(film.film_library) %>">
             <div class="grid-item">
-              <%= image_tag film.film_library.image_url %>
+              <% if film.film_library.image_url.last(4) == "inal" %>
+                <%= image_tag "poster.jpeg" %>
+              <% else %>
+                <%= image_tag film.film_library.image_url %>
+              <% end %>
 
               <div class="list-film-details">
                 <div class="d-flex flex-column justify-content-between h-100">
@@ -68,8 +72,6 @@
                         <i class="fa-regular fa-heart"></i>
                       <% end %>
                     </div>
-
-
                   </div>
 
                   <div class="list-film-rating">

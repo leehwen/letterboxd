@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="film-info"
 export default class extends Controller {
-  static targets = ["content", "list"]
+  static targets = ["content", "list", "reviewDate", "review", "rating", "updatedReviewDate", "updatedReview", "updatedRating"]
   static values = {
     apiToken: String,
     filmId: String,
@@ -59,6 +59,104 @@ export default class extends Controller {
           .then((data) => {
             window.location.reload();
           })
+      }
+    })
+  }
+
+  addReview() {
+    let rating = 0
+
+    this.ratingTargets.forEach((t) => {
+
+      if (t.classList.contains('starred')) {
+        rating += 1
+      }
+    })
+
+    fetch(`/library/${this.filmIdValue}/films`, {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "X-CSRF-Token": this.#getMetaValue("csrf-token")
+      }
+    })
+    .then(response => response.json())
+    .then((data) => {
+      console.log(this.reviewDateTarget.value)
+      const film_id = data.film.id
+
+      fetch(`/films/${film_id}/reviews`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+          "X-CSRF-Token": this.#getMetaValue("csrf-token")
+        },
+        body: JSON.stringify({date: this.reviewDateTarget.value, review: this.reviewTarget.value, rating: rating})
+      })
+      .then(response => response.json())
+      .then((data) => {
+        window.location.reload();
+      })
+    })
+  }
+
+  addRating(e) {
+    if (e.target.dataset.rating != 0) {
+      e.target.classList.add("starred")
+    }
+
+    this.ratingTargets.forEach ((t) => {
+      if (t.dataset.rating <= e.target.dataset.rating && t.dataset.rating != 0) {
+        t.classList.add("starred")
+      } else if (t.dataset.rating > e.target.dataset.rating) {
+        t.classList.remove("starred")
+      }
+    })
+  }
+
+  updateReview(e) {
+    let rating = 0
+
+    this.updatedRatingTargets.forEach((t) => {
+
+      if (t.dataset.reviewId == e.target.dataset.reviewId && t.classList.contains('starred')) {
+        rating += 1
+      }
+    })
+
+    this.updatedReviewDateTargets.forEach((t1) => {
+      this.updatedReviewTargets.forEach((t2) => {
+        if (t1.dataset.reviewId == e.target.dataset.reviewId && t2.dataset.reviewId == e.target.dataset.reviewId) {
+          fetch(`/films/${e.target.dataset.filmId}/reviews/${e.target.dataset.reviewId}`, {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json",
+              "X-CSRF-Token": this.#getMetaValue("csrf-token")
+            },
+            body: JSON.stringify({ date: t1.value, review: t2.value, rating: rating })
+          })
+          .then(response => response.json())
+          .then((data) => {
+            window.location.reload();
+          })
+        }
+      })
+    })
+
+  }
+
+  updateRating(e) {
+    if (e.target.dataset.rating != 0) {
+      e.target.classList.add("starred")
+    }
+
+    this.updatedRatingTargets.forEach ((t) => {
+      if (t.dataset.rating <= e.target.dataset.rating && t.dataset.rating != 0) {
+        t.classList.add("starred")
+      } else if (t.dataset.rating > e.target.dataset.rating) {
+        t.classList.remove("starred")
       }
     })
   }

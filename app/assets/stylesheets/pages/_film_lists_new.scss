@@ -1,7 +1,8 @@
 .new-film-list-header {
   color: #aabbcc;
   border-bottom: 1px solid rgba(68, 85, 102, 1);
-  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.2rem;
 
   h3 {
     font-size: 1.5rem;
@@ -128,6 +129,7 @@ h3 {
   }
 
   .list-modal-footer {
+    background-color: #445566;
     border-top: 0;
   }
 

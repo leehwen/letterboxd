@@ -27,22 +27,22 @@
             <% when 0 %>
               <% 3.times do %>
                 <div class="list-film-img">
-                  <%= image_tag "poster not available.jpeg" %>
+                  <%= image_tag "poster.jpeg" %>
                 </div>
               <% end %>
               <div class="list-film-img-last">
-                <%= image_tag "poster not available.jpeg" %>
+                <%= image_tag "poster.jpeg" %>
               </div>
             <% when 1 %>
               <% 3.times do %>
                 <div class="list-film-img">
-                  <%= image_tag "poster not available.jpeg" %>
+                  <%= image_tag "poster.jpeg" %>
                 </div>
               <% end %>
               <% list.films.each do |film| %>
                 <% if film.film_library.image_url.last(4) == "inal" %>
                   <div class="list-film-img-last">
-                    <%= image_tag "poster not available.jpeg" %>
+                    <%= image_tag "poster.jpeg" %>
                   </div>
                 <% else %>
                   <div class="list-film-img-last">
@@ -53,14 +53,14 @@
             <% when 2 %>
               <% 2.times do %>
                 <div class="list-film-img">
-                  <%= image_tag "poster not available.jpeg" %>
+                  <%= image_tag "poster.jpeg" %>
                 </div>
               <% end %>
               <% list.films.each do |film| %>
                 <% if film == list.films.last %>
                   <% if film.film_library.image_url.last(4) == "inal" %>
                     <div class="list-film-img-last">
-                      <%= image_tag "poster not available.jpeg" %>
+                      <%= image_tag "poster.jpeg" %>
                     </div>
                   <% else %>
                     <div class="list-film-img-last">
@@ -72,7 +72,7 @@
 
                   <% if film.film_library.image_url.last(4) == "inal" %>
                     <div class="list-film-img">
-                      <%= image_tag "poster not available.jpeg" %>
+                      <%= image_tag "poster.jpeg" %>
                     </div>
                   <% else %>
                     <div class="list-film-img">
@@ -83,13 +83,13 @@
               <% end %>
             <% when 3 %>
               <div class="list-film-img">
-                <%= image_tag "poster not available.jpeg" %>
+                <%= image_tag "poster.jpeg" %>
               </div>
               <% list.films.each do |film| %>
                 <% if film == list.films.last %>
                   <% if film.film_library.image_url.last(4) == "inal" %>
                     <div class="list-film-img-last">
-                      <%= image_tag "poster not available.jpeg" %>
+                      <%= image_tag "poster.jpeg" %>
                     </div>
                   <% else %>
                     <div class="list-film-img-last">
@@ -101,7 +101,7 @@
 
                   <% if film.film_library.image_url.last(4) == "inal" %>
                     <div class="list-film-img">
-                      <%= image_tag "poster not available.jpeg" %>
+                      <%= image_tag "poster.jpeg" %>
                     </div>
                   <% else %>
                     <div class="list-film-img">
@@ -116,7 +116,7 @@
                 <% if film == list.films.first(4)[3] %>
                   <% if film.film_library.image_url.last(4) == "inal" %>
                     <div class="list-film-img-last">
-                      <%= image_tag "poster not available.jpeg" %>
+                      <%= image_tag "poster.jpeg" %>
                     </div>
                   <% else %>
                     <div class="list-film-img-last">
@@ -128,7 +128,7 @@
 
                   <% if film.film_library.image_url.last(4) == "inal" %>
                     <div class="list-film-img">
-                      <%= image_tag "poster not available.jpeg" %>
+                      <%= image_tag "poster.jpeg" %>
                     </div>
                   <% else %>
                     <div class="list-film-img">

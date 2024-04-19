@@ -85,7 +85,7 @@ export default class extends Controller {
     .then((data) => {
       const film_id = data.film.id
 
-      fetch (`/library/${this.libraryIdValue}/films/${film_id}`, {
+      fetch(`/library/${this.libraryIdValue}/films/${film_id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -105,7 +105,7 @@ export default class extends Controller {
     }
 
     this.ratingTargets.forEach ((t) => {
-      if (t.dataset.rating < e.target.dataset.rating && t.dataset.rating != 0) {
+      if (t.dataset.rating <= e.target.dataset.rating && t.dataset.rating != 0) {
         t.classList.add("starred")
       } else if (t.dataset.rating > e.target.dataset.rating) {
         t.classList.remove("starred")
