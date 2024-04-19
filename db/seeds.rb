@@ -21,31 +21,31 @@ puts "creating entries..."
 ## USERS
 
 user1 = User.create!(
-  username: "user1",
+  username: "leehwen",
   email: "user1@email.com",
   password: "password",
 )
 
 user2 = User.create!(
-  username: "user2",
+  username: "filmbuff",
   email: "user2@email.com",
   password: "password",
 )
 
 user3 = User.create!(
-  username: "user3",
+  username: "avocados",
   email: "user3@email.com",
   password: "password",
 )
 
 user4 = User.create!(
-  username: "user4",
+  username: "theprojector",
   email: "user4@email.com",
   password: "password",
 )
 
 user5 = User.create!(
-  username: "user5",
+  username: "ashscarrot",
   email: "user5@email.com",
   password: "password",
 )

@@ -1,0 +1,113 @@
+<div class="main-container">
+  <div class="main-content">
+
+    <div class="user-profile-header">
+      <div class="user-profile-avatar">
+        <% if @user.image.attached? %>
+          <%= cl_image_tag current_user.image.key, class: "avatar-bordered-sm", alt: "user profile image" %>
+        <% else %>
+          <%= image_tag "avatar.jpg", class: "avatar-bordered-sm", alt: "user profile image" %>
+        <% end %>
+        <p class="m-0">
+          <%= @user.username %>
+        </p>
+        <% if @user == current_user %>
+          <%= link_to "EDIT PROFILE", edit_user_registration_path(current_user), class: "btn btn-grey" %>
+        <% else %>
+        <% end %>
+      </div>
+
+      <div class="user-profile-stats">
+        <div class="user-stats-films">
+          <h3>
+            <%= @user.films.count %>
+          </h3>
+          <p>
+            FILMS
+          </p>
+        </div>
+        <div class="user-stats-likes">
+          <h3>
+            <%= @user.films.where(like: true).count %>
+          </h3>
+          <p>
+            LIKES
+          </p>
+        </div>
+        <div class="user-stats-lists">
+          <h3>
+            <%= @user.lists.count %>
+          </h3>
+          <p>
+            LISTS
+          </p>
+        </div>
+        <div class="user-stats-reviews">
+          <h3>
+            <%= @user.reviews.count %>
+          </h3>
+          <p>
+            REVIEWS
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="user-profile-content">
+
+      <div class="user-profile-watched">
+        <div class="watched-header">
+          <p class="m-0">
+            RECENTLY WATCHED
+          </p>
+        </div>
+
+        <div class="grid-container">
+          <% @watched_films = @user.films.where(watched: true) %>
+
+          <% @watched_films.first(8).each do |film| %>
+            <div class="grid-item">
+              <a href="<%= library_path(film.film_library) %>">
+                <% if film.film_library.image_url.last(4) == "inal" %>
+                  <%= image_tag "poster.jpeg" %>
+                <% else %>
+                  <%= image_tag film.film_library.image_url %>
+                <% end %>
+              </a>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="user-profile-watchlist">
+        <div class="watchlist-header">
+          <p class="m-0">
+            WATCHLIST
+          </p>
+        </div>
+
+        <div class="grid-container">
+          <% @watchlist = @user.films.where(watchlist: true) %>
+
+          <% @watchlist.first(8).each do |film| %>
+            <div class="grid-item">
+              <a href="<%= library_path(film.film_library) %>">
+                <% if film.film_library.image_url.last(4) == "inal" %>
+                  <%= image_tag "poster.jpeg" %>
+                <% else %>
+                  <%= image_tag film.film_library.image_url %>
+                <% end %>
+              </a>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+
+    <%# <div class="user-profile-reviews">
+      REVIEWS
+    </div> %>
+
+  </div>
+</div>
