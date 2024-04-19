@@ -4,10 +4,10 @@ class FilmsController < ApplicationController
     @film_library = FilmLibrary.find(params[:library_id])
 
     @film =  Film.find_or_initialize_by(
-      film_library_id: @film_library.id
+      film_library_id: @film_library.id,
+      user_id: current_user
     )
 
-    @film.user = current_user
     @film.save
 
     respond_to do |format|
