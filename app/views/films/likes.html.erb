@@ -1,0 +1,88 @@
+<div class="main-container">
+  <div class="main-content">
+    <div class="films-menu">
+      <div class="films-menu-avatar">
+        <% if current_user.image.attached? %>
+          <%= cl_image_tag current_user.image.key, class: "avatar-bordered-sm", alt: "user profile image" %>
+        <% else %>
+          <%= image_tag "avatar.jpg", class: "avatar-bordered-sm", alt: "user profile image" %>
+        <% end %>
+        <p class="m-0">
+          <%= current_user.username %>
+        </p>
+      </div>
+      <div class="films-menu-links">
+        <%= link_to "Watched", watched_films_path %>
+        <%= link_to "Likes", likes_films_path, class: "active" %>
+        <%= link_to "Watchlist", watchlist_films_path %>
+      </div>
+    </div>
+
+    <div class="films-header">
+      <p class="m-0">
+        YOU LIKED <%= @films.count %> FILMS
+      </p>
+    </div>
+
+    <div class="films-content">
+      <div class="grid-container">
+
+        <% @films.each do |film| %>
+
+          <div class="grid-item">
+            <a href="<%= library_path(film.film_library) %>">
+              <% if film.film_library.image_url.last(4) == "inal" %>
+                <%= image_tag "poster.jpeg" %>
+              <% else %>
+                <%= image_tag film.film_library.image_url %>
+              <% end %>
+
+              <div class="film-details">
+                <div class="d-flex justify-content-end">
+                  <% if film.like %>
+                    <i class="fa-solid fa-heart" style="color: #FF900F"></i>
+                  <% else %>
+                    <i class="fa-regular fa-heart"></i>
+                  <% end %>
+                </div>
+
+                <% if film.reviews.present? %>
+                  <i class="fa-solid fa-chart-bar" style="color: #00AC1C"></i>
+                <% else %>
+                <% end %>
+              </div>
+            </a>
+
+            <div class="film-rating">
+              <% case film.rating %>
+              <% when 1 %>
+                <i class="fa-solid fa-star" data-icon="rating" data-rating="1"></i>
+              <% when 2 %>
+                <i class="fa-solid fa-star" data-icon="rating" data-rating="1"></i>
+                <i class="fa-solid fa-star" data-icon="rating" data-rating="2"></i>
+              <% when 3 %>
+                <i class="fa-solid fa-star" data-icon="rating" data-rating="1"></i>
+                <i class="fa-solid fa-star" data-icon="rating" data-rating="2"></i>
+                <i class="fa-solid fa-star" data-icon="rating" data-rating="3"></i>
+              <% when 4 %>
+                <i class="fa-solid fa-star" data-icon="rating" data-rating="1"></i>
+                <i class="fa-solid fa-star" data-icon="rating" data-rating="2"></i>
+                <i class="fa-solid fa-star" data-icon="rating" data-rating="3"></i>
+                <i class="fa-solid fa-star" data-icon="rating" data-rating="4"></i>
+              <% when 5 %>
+                <i class="fa-solid fa-star" data-icon="rating" data-rating="1"></i>
+                <i class="fa-solid fa-star" data-icon="rating" data-rating="2"></i>
+                <i class="fa-solid fa-star" data-icon="rating" data-rating="3"></i>
+                <i class="fa-solid fa-star" data-icon="rating" data-rating="4"></i>
+                <i class="fa-solid fa-star" data-icon="rating" data-rating="5"></i>
+              <% else %>
+              <% end %>
+            </div>
+
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

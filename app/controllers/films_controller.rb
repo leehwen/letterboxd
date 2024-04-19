@@ -1,7 +1,4 @@
 class FilmsController < ApplicationController
-  def new
-
-  end
 
   def create
     @film_library = FilmLibrary.find(params[:library_id])
@@ -69,5 +66,17 @@ class FilmsController < ApplicationController
         format.json { render json: { head: :ok } }
       end
     end
+  end
+
+  def watched
+    @films = Film.where(user: current_user, watched: true)
+  end
+
+  def watchlist
+    @films = Film.where(user: current_user, watchlist: true)
+  end
+
+  def likes
+    @films = Film.where(user: current_user, like: true)
   end
 end
