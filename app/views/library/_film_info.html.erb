@@ -503,7 +503,7 @@
           <% if film.present? && film.reviews.present? %>
             <div class="film-reviews-container row">
               <div class="col-lg-12">
-                <% if film.reviews.count == 1%>
+                <% if film.reviews.count == 1 %>
                   <h6>
                     YOUR REVIEW
                   </h6>
@@ -663,56 +663,68 @@
                 RECENT REVIEWS
               </h6>
               <% @reviews = film_library.reviews.where.not(user: current_user) %>
-                <% @reviews.each do |review| %>
-                  <div class="film-reviews-content">
-                    <div class="film-reviews-content-left">
-                      <% if review.user.image.attached? %>
-                        <%= cl_image_tag review.user.image.key, class: "avatar-bordered", alt: "user profile image" %>
-                      <% else %>
-                        <%= image_tag "avatar.jpg", class: "avatar-bordered", alt: "user profile image" %>
-                      <% end %>
+                <% if @reviews.present? %>
+                  <% @reviews.each do |review| %>
+                    <div class="film-reviews-content">
+                      <div class="film-reviews-content-left">
+                        <% if review.user.image.attached? %>
+                          <%= cl_image_tag review.user.image.key, class: "avatar-bordered", alt: "user profile image" %>
+                        <% else %>
+                          <%= image_tag "avatar.jpg", class: "avatar-bordered", alt: "user profile image" %>
+                        <% end %>
+                      </div>
+                      <div class="film-reviews-content-right">
+                        <p class="m-0">
+                          Review by <strong><%= review.user.username %></strong>, <%= review.date.strftime("%d %b %Y") %>
+                        </p>
+                        <% case review.rating %>
+                        <% when 1 %>
+                          <i class="fa-solid fa-star starred" data-rating="1"></i>
+                          <i class="fa-solid fa-star" data-rating="2"></i>
+                          <i class="fa-solid fa-star" data-rating="3"></i>
+                          <i class="fa-solid fa-star" data-rating="4"></i>
+                          <i class="fa-solid fa-star" data-rating="5"></i>
+                        <% when 2 %>
+                          <i class="fa-solid fa-star starred" data-rating="1"></i>
+                          <i class="fa-solid fa-star starred" data-rating="2"></i>
+                          <i class="fa-solid fa-star" data-rating="3"></i>
+                          <i class="fa-solid fa-star" data-rating="4"></i>
+                          <i class="fa-solid fa-star" data-rating="5"></i>
+                        <% when 3 %>
+                          <i class="fa-solid fa-star starred" data-rating="1"></i>
+                          <i class="fa-solid fa-star starred" data-rating="2"></i>
+                          <i class="fa-solid fa-star starred" data-rating="3"></i>
+                          <i class="fa-solid fa-star" data-rating="4"></i>
+                          <i class="fa-solid fa-star" data-rating="5"></i>
+                        <% when 4 %>
+                          <i class="fa-solid fa-star starred" data-rating="1"></i>
+                          <i class="fa-solid fa-star starred" data-rating="2"></i>
+                          <i class="fa-solid fa-star starred" data-rating="3"></i>
+                          <i class="fa-solid fa-star starred" data-rating="4"></i>
+                          <i class="fa-solid fa-star" data-rating="5"></i>
+                        <% when 5 %>
+                          <i class="fa-solid fa-star starred" data-rating="1"></i>
+                          <i class="fa-solid fa-star starred" data-rating="2"></i>
+                          <i class="fa-solid fa-star starred" data-rating="3"></i>
+                          <i class="fa-solid fa-star starred" data-rating="4"></i>
+                          <i class="fa-solid fa-star starred" data-rating="5"></i>
+                        <% end %>
+                        <p class="mt-3">
+                          <%= review.review %>
+                        </p>
+                      </div>
                     </div>
-                    <div class="film-reviews-content-right">
-                      <p class="m-0">
-                        Review by <strong><%= review.user.username %></strong>, <%= review.date.strftime("%d %b %Y") %>
-                      </p>
-                      <% case review.rating %>
-                      <% when 1 %>
-                        <i class="fa-solid fa-star starred" data-rating="1"></i>
-                        <i class="fa-solid fa-star" data-rating="2"></i>
-                        <i class="fa-solid fa-star" data-rating="3"></i>
-                        <i class="fa-solid fa-star" data-rating="4"></i>
-                        <i class="fa-solid fa-star" data-rating="5"></i>
-                      <% when 2 %>
-                        <i class="fa-solid fa-star starred" data-rating="1"></i>
-                        <i class="fa-solid fa-star starred" data-rating="2"></i>
-                        <i class="fa-solid fa-star" data-rating="3"></i>
-                        <i class="fa-solid fa-star" data-rating="4"></i>
-                        <i class="fa-solid fa-star" data-rating="5"></i>
-                      <% when 3 %>
-                        <i class="fa-solid fa-star starred" data-rating="1"></i>
-                        <i class="fa-solid fa-star starred" data-rating="2"></i>
-                        <i class="fa-solid fa-star starred" data-rating="3"></i>
-                        <i class="fa-solid fa-star" data-rating="4"></i>
-                        <i class="fa-solid fa-star" data-rating="5"></i>
-                      <% when 4 %>
-                        <i class="fa-solid fa-star starred" data-rating="1"></i>
-                        <i class="fa-solid fa-star starred" data-rating="2"></i>
-                        <i class="fa-solid fa-star starred" data-rating="3"></i>
-                        <i class="fa-solid fa-star starred" data-rating="4"></i>
-                        <i class="fa-solid fa-star" data-rating="5"></i>
-                      <% when 5 %>
-                        <i class="fa-solid fa-star starred" data-rating="1"></i>
-                        <i class="fa-solid fa-star starred" data-rating="2"></i>
-                        <i class="fa-solid fa-star starred" data-rating="3"></i>
-                        <i class="fa-solid fa-star starred" data-rating="4"></i>
-                        <i class="fa-solid fa-star starred" data-rating="5"></i>
-                      <% end %>
-                      <p class="mt-3">
-                        <%= review.review %>
-                      </p>
-                    </div>
-                  </div>
+                  <% end %>
+                <% else %>
+                  <% if film.reviews.present? %>
+                    <p class="mt-3">
+                      This film has no other reviews currently.
+                    </p>
+                  <% else %>
+                    <p class="mt-3">
+                      This film no reviews currently.
+                    </p>
+                  <% end %>
                 <% end %>
             </div>
           </div>
