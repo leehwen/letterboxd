@@ -697,7 +697,6 @@ film6 = Film.create!(
 )
 
 film7 = Film.create!(
-  like: true,
   watched: true,
   rating: 4,
   user: user1,
@@ -711,7 +710,6 @@ film8 = Film.create!(
 )
 
 film9 = Film.create!(
-  like: true,
   watched: true,
   rating: 3,
   user: user1,

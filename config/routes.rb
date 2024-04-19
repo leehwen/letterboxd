@@ -19,10 +19,16 @@ Rails.application.routes.draw do
       post 'results'
     end
 
-    resources :films, only: %i[new create update]
+    resources :films, only: %i[create update]
   end
 
   resources :films, only: %i[index] do
+    collection do
+      get 'watched'
+      get 'watchlist'
+      get 'likes'
+    end
+
     resources :reviews, only: %i[create edit update]
   end
 
@@ -41,4 +47,6 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  resources :members, only: %i[index show]
 end

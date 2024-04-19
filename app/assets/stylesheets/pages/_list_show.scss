@@ -77,7 +77,7 @@
     color: $boxd-blue;
   }
 
-  .grid-item{
+  .grid-item {
     position: relative;
     transition: 0.2s ease;
 
@@ -121,13 +121,12 @@
 
     &:hover {
       .list-film-details {
-        border: 3px solid $boxd-green;
+        outline: 3px solid $boxd-green;
         border-radius: 0.2rem;
         opacity: 1;
       }
     }
   }
-
 }
 
 .list-film {
@@ -189,7 +188,7 @@
   /* For a screen < 720px, this CSS will be read */
   .list-content{
     .grid-container {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
     }
   }
 }
