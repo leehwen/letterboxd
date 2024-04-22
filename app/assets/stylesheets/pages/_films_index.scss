@@ -54,7 +54,6 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 
-
   .grid-item {
     position: relative;
     transition: 0.2s ease;
@@ -94,7 +93,7 @@
     opacity: 0;
 
     &:hover {
-      outline: 3px solid $boxd-green;
+      outline: 3px solid $boxd-sky-blue;
       border-radius: 0.2rem;
       opacity: 1;
     }

@@ -16,23 +16,45 @@
     margin-bottom: 1.25rem;
     border-bottom: 0.85px solid rgba(170, 187, 204, 0.5);
     position: relative;
+
+    a {
+      text-decoration: none;
+      color: $boxd-blue;
+      transition: 0.2s ease;
+      margin-right: 1.5rem;
+      margin-bottom: 1.25rem;
+
+      .review-film-img {
+        position: relative;
+
+        img {
+          width: 5rem;
+          border: 0.85px solid rgba(170, 187, 204, 0.5);
+          border-radius: 2px;
+          box-shadow: -3px 0px 4px rgba(0, 0, 0, 0.3);;
+        }
+      }
+    }
   }
 
-  a {
-    text-decoration: none;
-    color: $boxd-blue;
-    transition: 0.2s ease;
-    margin-right: 1.5rem;
-    margin-bottom: 1.25rem;
+  .review-actions {
+    position: absolute;
+    top: -5px;
+    right: 5px;
 
-    .review-film-img {
-      position: relative;
+    a {
+      text-decoration: none;
+      margin: 0;
+      margin-left: 0.1rem;
+    }
 
-      img {
-        width: 5rem;
-        border: 0.85px solid rgba(170, 187, 204, 0.5);
-        border-radius: 2px;
-        box-shadow: -3px 0px 4px rgba(0, 0, 0, 0.3);;
+    i {
+      color: white;
+      opacity: 0.7;
+      transition: 0.2s ease;
+
+      &:hover {
+        color: $boxd-sky-blue
       }
     }
   }
@@ -117,36 +139,33 @@
   }
 }
 
-.review-actions {
-  position: absolute;
-  top: -5px;
-  right: 5px;
+@media (max-width: 550px) {
+  /* For a screen < 540px, this CSS will be read */
 
-  a {
-    text-decoration: none;
-    margin: 0;
-    margin-left: 0.1rem;
-  }
+  .reviews-content {
+    .review {
+      a {
+        margin-right: 0.45rem;
 
-  i {
-    color: white;
-    opacity: 0.7;
-    transition: 0.2s ease;
+        .review-film-img {
+          display: none;
+        }
+      }
+    }
 
-    &:hover {
-      color: $boxd-sky-blue
+    .review-actions {
+      a {
+        margin-right: 0;
+      }
     }
   }
-}
-
-@media (max-width: 450px) {
-  /* For a screen < 540px, this CSS will be read */
 
   .review-content-header, .review-content-subheader {
     display: block;
   }
 
   .review-content-header {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    width: 90%;
   }
 }

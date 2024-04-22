@@ -1,0 +1,326 @@
+.user-profile-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+
+  .user-profile-avatar {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+
+    img {
+      height: 5rem;
+      width: 5rem;
+      margin-right: 1.2rem;
+    }
+
+    .btn-grey {
+      text-decoration: none;
+      font-size: 0.8rem;
+      padding: 5px 10px;
+      margin-left: 1.2rem;
+    }
+  }
+
+  .user-profile-stats {
+    display: flex;
+    align-items: center;
+
+    .user-stats-films, .user-stats-likes,
+    .user-stats-lists, .user-stats-reviews {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-left: 1rem;
+    }
+
+    h3, p {
+      margin: 0;
+    }
+
+    h3 {
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 0.85rem;
+    }
+  }
+}
+
+.user-profile-content {
+
+  .user-profile-watched, .user-profile-watchlist {
+    margin-bottom: 2.25rem;
+  }
+
+  .watched-header, .watchlist-header {
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 0.85px solid rgba(170, 187, 204, 0.5);
+  }
+
+  .reviews-header {
+    margin-bottom: 0rem;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 1rem;
+    row-gap: 1rem;
+  }
+
+  .grid-item {
+    position: relative;
+    transition: 0.2s ease;
+
+    a {
+      color: $boxd-blue;
+    }
+
+    img {
+      width: 100%;
+      border: 0.8px solid rgba(171, 187, 204, 0.5);
+      border-radius: 0.2rem;
+    }
+  }
+
+  .film-rating-reviews {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.6rem;
+    color: #606F7F;
+    margin-top: 0.5rem;
+
+    i.fa-star {
+      margin-right: -3px;
+    }
+  }
+
+  .film-details {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    width: 100%;
+    height: calc(100% - 24px);
+    color: $boxd-blue;
+    font-size: 1rem;
+    top: 0;
+    right: 0;
+    transition: 0.3s ease;
+    opacity: 0;
+
+    .film-details-card {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+    }
+
+    i {
+      margin: 0.5rem 0.25rem;
+    }
+
+    &:hover {
+      outline: 3px solid $boxd-sky-blue;
+      border-radius: 0.2rem;
+      opacity: 1;
+    }
+  }
+
+  .film-details.watchlist {
+    height: 100%;
+  }
+
+  .review-content {
+    display: flex;
+    margin-bottom: 0.75rem;
+    padding-top: 0.85rem;
+    border-top: 0.85px solid rgba(170, 187, 204, 0.3);
+    position: relative;
+
+    .review-content-left {
+      margin-right: 0.45rem;
+
+      .review-content-img {
+        position: relative;
+        margin-bottom: 1rem;
+
+        img {
+          width: 5rem;
+          border: 0.8px solid rgba(171, 187, 204, 0.5);
+          border-radius: 0.2rem;
+        }
+      }
+
+      .review-film-details {
+        display: flex;
+        align-items: end;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: 0.3s ease;
+        opacity: 0;
+
+        .review-film-details-card {
+          width: 100%;
+          background-color: rgba(0, 0, 0, 0.8);
+          display: flex;
+          justify-content: center;
+        }
+
+        i {
+          margin: 0.3rem 0.2rem;
+          color: $boxd-blue;
+        }
+
+        .fa-solid {
+          font-size: 1rem;
+        }
+
+        &:hover {
+          outline: 3px solid $boxd-green;
+          border-radius: 2px;
+          opacity: 1;
+        }
+      }
+    }
+
+    .review-content-right {
+      margin-left: 1rem;
+      flex-grow: 1;
+
+      .review-content-header {
+        display: flex;
+      }
+
+      .review-content-subheader {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        p {
+          margin-left: 0.8rem;
+          margin-bottom: 0;
+          font-size: 0.85rem;
+          font-family: "Poppins", sans-serif;
+          font-weight: 200;
+          opacity: 0.7;
+        }
+      }
+
+      .fa-solid {
+        font-size: 0.75rem;
+        margin-right: 0px;
+      }
+
+      .starred {
+        color: #00E054;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        margin-right: 0.45rem;
+      }
+
+      p {
+        width: 95%;
+      }
+    }
+
+    .review-actions {
+      position: absolute;
+      top: 12px;
+      right: 5px;
+
+      a {
+        color: $boxd-blue;
+        margin-left: 0.3rem;
+      }
+    }
+
+    a {
+      margin-right: 0;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+
+  .user-profile-header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
+    .user-profile-avatar {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+
+      .avatar-bordered-sm {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .user-profile-stats {
+      .user-stats-films, .user-stats-likes,
+      .user-stats-lists, .user-stats-reviews {
+        margin-left: 0;
+        margin-right: 1rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+      }
+
+      p {
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  .user-profile-content {
+    .grid-container {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+ .user-profile-content {
+   .review-content {
+    .review-content-right {
+      margin-left: 0;
+
+      .review-content-header, .review-content-subheader {
+        display: block;
+      }
+
+      .review-content-header {
+        margin-bottom: 0.5rem;
+        width: 90%;
+      }
+
+      .review-content-subheader {
+        p {
+          margin-left: 0;
+        }
+      }
+    }
+
+     .review-content-left {
+       .review-content-img {
+         display: none;
+       }
+     }
+   }
+ }
+}

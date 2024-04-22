@@ -177,7 +177,7 @@
 
 @media (max-width: 1850px) {
   /* For a screen < 720px, this CSS will be read */
-  .list-content{
+  .list-content {
     .grid-container {
       grid-template-columns: 1fr 1fr 1fr 1fr;
     }
@@ -186,7 +186,7 @@
 
 @media (max-width: 850px) {
   /* For a screen < 720px, this CSS will be read */
-  .list-content{
+  .list-content {
     .grid-container {
       grid-template-columns: 1fr 1fr 1fr;
     }
@@ -195,7 +195,7 @@
 
 @media (max-width: 575px) {
   /* For a screen < 540px, this CSS will be read */
-  .list-content{
+  .list-content {
     .grid-container {
       grid-template-columns: 1fr 1fr;
     }
