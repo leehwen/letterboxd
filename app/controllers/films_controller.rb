@@ -5,7 +5,7 @@ class FilmsController < ApplicationController
 
     @film =  Film.find_or_initialize_by(
       film_library_id: @film_library.id,
-      user_id: current_user
+      user_id: current_user.id
     )
 
     @film.save
