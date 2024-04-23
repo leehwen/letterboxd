@@ -2,7 +2,8 @@
   color: #aabbcc;
   border-bottom: 1px solid rgba(68, 85, 102, 1);
   padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
+  z-index: 5;
+  // margin-bottom: 1.5rem;
 
   h3 {
     font-size: 1.5rem;
@@ -10,22 +11,22 @@
 }
 
 .reviews-content {
-  .review {
+  .review, .review-first {
     display: flex;
     padding-bottom: 0.5rem;
-    margin-bottom: 1.25rem;
-    border-bottom: 0.85px solid rgba(170, 187, 204, 0.5);
+    padding-top: 1.25rem;
+    border-top: 0.85px solid rgba(170, 187, 204, 0.5);
     position: relative;
 
     a {
       text-decoration: none;
       color: $boxd-blue;
       transition: 0.2s ease;
-      margin-right: 1.5rem;
-      margin-bottom: 1.25rem;
 
       .review-film-img {
         position: relative;
+        margin-right: 1.5rem;
+        margin-bottom: 1.25rem;
 
         img {
           width: 5rem;
@@ -37,26 +38,8 @@
     }
   }
 
-  .review-actions {
-    position: absolute;
-    top: -5px;
-    right: 5px;
-
-    a {
-      text-decoration: none;
-      margin: 0;
-      margin-left: 0.1rem;
-    }
-
-    i {
-      color: white;
-      opacity: 0.7;
-      transition: 0.2s ease;
-
-      &:hover {
-        color: $boxd-sky-blue
-      }
-    }
+  .review-first {
+    border-top: 0;
   }
 }
 
@@ -78,9 +61,8 @@
     }
   }
 
-  .fa-solid {
+  .fa-star {
     font-size: 0.75rem;
-    margin-right: -4px;
   }
 
   .starred {
@@ -88,13 +70,41 @@
   }
 
   .content-width {
-    width: 85%;
+    width: 95%;
   }
+}
+
+.review-content-header-wrapper {
+  display: flex;
+
 }
 
 .review-content-header {
   display: flex;
+  flex-grow: 1;
   align-items: center;
+}
+
+
+.review-actions {
+  a {
+    text-decoration: none;
+    margin: 0;
+    // margin-left: 0.1rem;
+  }
+
+  .fa-pencil {
+    &:hover {
+      color: $boxd-sky-blue;
+    }
+  }
+
+  .fa-trash-can {
+    &:hover {
+      color:  #E81301;
+    }
+  }
+
 }
 
 .review-content-subheader {
@@ -140,22 +150,12 @@
 }
 
 @media (max-width: 550px) {
-  /* For a screen < 540px, this CSS will be read */
-
   .reviews-content {
-    .review {
+    .review, .review-first {
       a {
-        margin-right: 0.45rem;
-
         .review-film-img {
           display: none;
         }
-      }
-    }
-
-    .review-actions {
-      a {
-        margin-right: 0;
       }
     }
   }

@@ -8,7 +8,11 @@
 
     <div class="reviews-content">
       <% @reviews.each do |review| %>
-        <div class="review">
+        <% if review == @reviews.first %>
+          <div class="review-first">
+        <% else %>
+          <div class="review">
+        <% end %>
           <%= link_to library_path(review.film_library) do %>
             <div class="review-film-img">
               <% if review.film_library.image_url.last(4) == "inal" %>
@@ -35,17 +39,29 @@
           <% end %>
 
           <div class="review-content">
-            <div class="review-content-header">
-              <h3>
-                <%= link_to review.film_library.title, library_path(review.film_library) %>
-              </h3>
-              <h4>
-                <%= review.film_library.release_date.first(4) %>
-              </h4>
+            <div class="review-content-header-wrapper">
+              <div class="review-content-header">
+                <h3>
+                  <%= link_to review.film_library.title, library_path(review.film_library) %>
+                </h3>
+                <h4>
+                  <%= review.film_library.release_date.first(4) %>
+                </h4>
+              </div>
+
+              <div class="review-actions">
+                <%= link_to edit_film_review_path(review.film, review) do %>
+                  <i class="fa-solid fa-pencil"></i>
+                <% end %>
+
+                <%= link_to review_path(review), data: {turbo_method: :delete}, class: "delete-list" do %>
+                <i class="fa-regular fa-trash-can"></i>
+                <% end %>
+              </div>
             </div>
 
             <div class="review-content-subheader">
-              <div class="me-3">
+              <div class="d-flex me-2">
                 <% case review.rating %>
                 <% when 1 %>
                   <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-rating="1"></i>
@@ -92,15 +108,6 @@
             </div>
           </div>
 
-          <div class="review-actions">
-            <%= link_to edit_film_review_path(review.film, review) do %>
-              <i class="fa-solid fa-pencil"></i>
-            <% end %>
-
-            <%= link_to review_path(review), data: {turbo_method: :delete}, class: "delete-list" do %>
-            <i class="fa-regular fa-trash-can"></i>
-            <% end %>
-          </div>
         </div>
       <% end %>
     </div>

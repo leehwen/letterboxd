@@ -125,7 +125,6 @@
 }
 
 @media (max-width: 1850px) {
-  /* For a screen < 720px, this CSS will be read */
   .films-content {
     .grid-container.watchlist {
       grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -134,7 +133,6 @@
 }
 
 @media (max-width: 1250px) {
-  /* For a screen < 720px, this CSS will be read */
   .films-content {
     .grid-container {
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -142,11 +140,10 @@
   }
 }
 
-@media (max-width: 850px) {
-  /* For a screen < 720px, this CSS will be read */
+@media (max-width: 950px) {
   .films-content {
     .grid-container {
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     }
 
     .grid-container.watchlist {
@@ -156,27 +153,31 @@
 }
 
 @media (max-width: 650px) {
-  /* For a screen < 540px, this CSS will be read */
   .films-content {
     .grid-container {
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
     }
   }
 }
 
 @media (max-width: 575px) {
-  /* For a screen < 540px, this CSS will be read */
   .films-menu {
     font-size: 0.85rem;
     }
 
   .films-content {
-    .grid-container {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-
     .grid-container.watchlist {
       grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .films-menu {
+    .films-menu-avatar {
+      p {
+        display: none;
+      }
     }
   }
 }

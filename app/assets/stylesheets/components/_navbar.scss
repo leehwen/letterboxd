@@ -38,7 +38,7 @@
     .dropdown-menu {
       background-color: #8899aa;
 
-      a {
+      .dropdown-item {
         color: #18202D;
 
         &:hover {
@@ -47,6 +47,13 @@
         }
       }
     }
+
+    .nav-link {
+      &:hover {
+        color: white;
+      }
+    }
+
   }
 
   .nav-link {
@@ -99,7 +106,7 @@
   }
 }
 
-@media (max-width: 770px) {
+@media (max-width: 767px) {
   .navbar-container {
     .navbar-logo {
       justify-content: center;
@@ -117,7 +124,7 @@
 
 @media (max-width: 585px) {
     .navbar-container {
-      width: 90%;
+      width: 80%;
 
       .navbar-logo {
         .logo {
