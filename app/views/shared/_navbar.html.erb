@@ -24,25 +24,34 @@
     <div class="navbar-menu-wrapper">
       <% if user_signed_in? %>
       <div class="dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          FILMS
+        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <% if current_user.image.attached? %>
+            <%= cl_image_tag current_user.image.key, class: "avatar-bordered-sm", alt: "user profile image" %>
+          <% else %>
+            <%= image_tag "avatar.jpg", class: "avatar-bordered-sm", alt: "user profile image" %>
+          <% end %>
+          <%= current_user.username.upcase %>
         </a>
+
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="<%= member_path(current_user) %>">Profile</a></li>
-          <li><a class="dropdown-item" href="<%= watched_films_path %>">Watched</a></li>
-          <li><a class="dropdown-item" href="<%= likes_films_path %>">Likes</a></li>
-          <li><a class="dropdown-item" href="<%= watchlist_films_path %>">Watchlist</a></li>
+          <li><%= link_to "Profile", member_path(current_user), class: "dropdown-item"%></li>
+          <li><%= link_to "Films", watched_films_path, class: "dropdown-item"%></li>
+          <li><%= link_to "Watchlist", watchlist_films_path, class: "dropdown-item"%></li>
+          <li><%= link_to "Lists", lists_path, class: "dropdown-item" %></li>
+          <li><%= link_to "Likes", likes_films_path, class: "dropdown-item"%></li>
+          <li><%= link_to "Reviews", reviews_path, class: "dropdown-item" %></li>
+          <li></li>
         </ul>
+
       </div>
-        <%= link_to "LISTS", lists_path, class: "nav-link" %>
-        <%= link_to "REVIEWS", reviews_path, class: "nav-link" %>
+        <%= link_to "LATEST", "#", class: "nav-link" %>
         <%= link_to "MEMBERS", members_path, class: "nav-link" %>
         <%= link_to "SIGN OUT", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
       <% else %>
         <%= link_to "SIGN IN", new_user_session_path, class: "nav-link" %>
         <%= link_to "CREATE ACCOUNT", new_user_registration_path, class: "nav-link" %>
-        <%= link_to "FILMS", "#", class: "nav-link" %>
-        <%= link_to "LISTS", "#", class: "nav-link" %>
+        <%= link_to "LATEST", "#", class: "nav-link" %>
+        <%= link_to "MEMBERS", members_path, class: "nav-link" %>
       <% end %>
     </div>
   </div>

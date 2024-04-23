@@ -246,6 +246,11 @@
     .review-actions {
       top: 15px;
       right: 10px;
+      position: absolute;
+
+      a {
+        color: $boxd-blue;
+      }
 
       i.fa-star {
         opacity: 1;
