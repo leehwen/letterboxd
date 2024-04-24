@@ -244,15 +244,18 @@
                 </h3>
               </div>
 
-              <div class="review-actions">
-                <%= link_to edit_film_review_path(review.film, review) do %>
-                  <i class="fa-solid fa-pencil"></i>
-                <% end %>
+              <% if @user == current_user %>
+                <div class="review-actions">
+                  <%= link_to edit_film_review_path(review.film, review) do %>
+                    <i class="fa-solid fa-pencil"></i>
+                  <% end %>
 
-                <%= link_to review_path(review), data: {turbo_method: :delete}, class: "delete-list" do %>
-                  <i class="fa-regular fa-trash-can"></i>
-                <% end %>
-              </div>
+                  <%= link_to review_path(review), data: {turbo_method: :delete}, class: "delete-list" do %>
+                    <i class="fa-regular fa-trash-can"></i>
+                  <% end %>
+                </div>
+              <% else %>
+              <% end %>
             </div>
 
             <div class="review-content-date">
