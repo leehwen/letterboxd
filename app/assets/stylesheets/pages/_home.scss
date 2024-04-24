@@ -52,12 +52,12 @@ h4 {
 }
 
 @media (max-width: 560px) {
-    .hm-container {
-      padding-top: 2rem;
-      padding-bottom: 2rem;
+  .hm-container {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
 
-      .hm-content {
-        width: 80%;
-      }
+    .hm-content {
+      width: 80%;
     }
   }
+}

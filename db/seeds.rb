@@ -7,6 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require "open-uri"
 
 puts "resetting data base..."
 Review.destroy_all
@@ -26,11 +27,19 @@ user1 = User.create!(
   password: "password",
 )
 
+file = URI.open("https://thispersondoesnotexist.com/")
+user1.image.attach(io: file, filename: "avatar1.jpeg", content_type: "image/jpeg")
+user1.save
+
 user2 = User.create!(
   username: "filmbuff",
   email: "user2@email.com",
   password: "password",
 )
+
+file = URI.open("https://thispersondoesnotexist.com/")
+user2.image.attach(io: file, filename: "avatar1.jpeg", content_type: "image/jpeg")
+user2.save
 
 user3 = User.create!(
   username: "avocados",
@@ -38,17 +47,29 @@ user3 = User.create!(
   password: "password",
 )
 
+file = URI.open("https://thispersondoesnotexist.com/")
+user3.image.attach(io: file, filename: "avatar1.jpeg", content_type: "image/jpeg")
+user3.save
+
 user4 = User.create!(
   username: "theprojector",
   email: "user4@email.com",
   password: "password",
 )
 
+file = URI.open("https://thispersondoesnotexist.com/")
+user4.image.attach(io: file, filename: "avatar1.jpeg", content_type: "image/jpeg")
+user4.save
+
 user5 = User.create!(
   username: "ashscarrot",
   email: "user5@email.com",
   password: "password",
 )
+
+file = URI.open("https://thispersondoesnotexist.com/")
+user5.image.attach(io: file, filename: "avatar1.jpeg", content_type: "image/jpeg")
+user5.save
 
 ## FILM LIBARIES
 
