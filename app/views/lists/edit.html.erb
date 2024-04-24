@@ -5,6 +5,7 @@
       Edit list
      </h3>
     </div>
+
     <div>
       <%= simple_form_for(@list) do |f| %>
         <%= f.hidden_field :film_library_id, value: @film_library_id if @film_library_id.present? %>

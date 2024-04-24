@@ -500,7 +500,7 @@
           </div>
 
           <% if film.present? && film.reviews.present? %>
-            <div class="film-reviews-container row">
+            <div class="film-reviews-container row" data-controller="review">
               <div class="col-lg-12">
                 <% if film.reviews.count == 1 %>
                   <h6>
@@ -594,11 +594,11 @@
                                           <p class="m-0">
                                             LAST WATCHED ON
                                           </p>
-                                          <input class="form-control form-control-sm review-modal-pickr" data-datepicker-target="editReview" data-film-info-target="updatedReviewDate" data-review-id="<%= review.id %>" data-date="<%= review.date %>" type="text" placeholder="Select date" aria-label=".form-control-sm example">
+                                          <input class="form-control form-control-sm review-modal-pickr" data-datepicker-target="editReview" data-review-target="updatedReviewDate" data-review-id="<%= review.id %>" data-date="<%= review.date %>" type="text" placeholder="Select date" aria-label=".form-control-sm example">
                                         </div>
                                         <h1 class="modal-title fs-5" id="exampleModalLabel">Review of <%= review.film_library.title %> </h1>
                                         <div class="mb-3">
-                                          <textarea class="form-control review-modal-input" id="exampleFormControlTextarea1" data-film-info-target="updatedReview" data-review-id="<%= review.id %>" rows="4"><%= review.review %></textarea>
+                                          <textarea class="form-control review-modal-input" id="exampleFormControlTextarea1" data-review-target="updatedReview" data-review-id="<%= review.id %>" rows="4"><%= review.review %></textarea>
                                         </div>
                                         <div class="review-modal-rating">
                                           <p class="m-0">
@@ -608,35 +608,35 @@
                                             <div class="review-rating-stars">
                                               <% case review.rating %>
                                               <% when 1 %>
-                                                <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-review-id="<%= review.id %>" data-rating="1"></i>
-                                                <i class="fa-solid fa-star" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-review-id="<%= review.id %>" data-rating="2"></i>
-                                                <i class="fa-solid fa-star" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-review-id="<%= review.id %>" data-rating="3"></i>
-                                                <i class="fa-solid fa-star" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-review-id="<%= review.id %>" data-rating="4"></i>
-                                                <i class="fa-solid fa-star" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-review-id="<%= review.id %>" data-rating="5"></i>
+                                                <i class="fa-solid fa-star starred" data-action="click->review#updateRating" data-review-target="updatedRating" data-review-id="<%= review.id %>" data-rating="1"></i>
+                                                <i class="fa-solid fa-star" data-action="click->review#updateRating" data-review-target="updatedRating" data-review-id="<%= review.id %>" data-rating="2"></i>
+                                                <i class="fa-solid fa-star" data-action="click->review#updateRating" data-review-target="updatedRating" data-review-id="<%= review.id %>" data-rating="3"></i>
+                                                <i class="fa-solid fa-star" data-action="click->review#updateRating" data-review-target="updatedRating" data-review-id="<%= review.id %>" data-rating="4"></i>
+                                                <i class="fa-solid fa-star" data-action="click->review#updateRating" data-review-target="updatedRating" data-review-id="<%= review.id %>" data-rating="5"></i>
                                               <% when 2 %>
-                                                <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-review-id="<%= review.id %>" data-rating="1"></i>
-                                                <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-review-id="<%= review.id %>" data-rating="2"></i>
-                                                <i class="fa-solid fa-star" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-review-id="<%= review.id %>" data-rating="3"></i>
-                                                <i class="fa-solid fa-star" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-review-id="<%= review.id %>" data-rating="4"></i>
-                                                <i class="fa-solid fa-star" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-review-id="<%= review.id %>" data-rating="5"></i>
+                                                <i class="fa-solid fa-star starred" data-action="click->review#updateRating" data-review-target="updatedRating" data-review-id="<%= review.id %>" data-rating="1"></i>
+                                                <i class="fa-solid fa-star starred" data-action="click->review#updateRating" data-review-target="updatedRating" data-review-id="<%= review.id %>" data-rating="2"></i>
+                                                <i class="fa-solid fa-star" data-action="click->review#updateRating" data-review-target="updatedRating" data-review-id="<%= review.id %>" data-rating="3"></i>
+                                                <i class="fa-solid fa-star" data-action="click->review#updateRating" data-review-target="updatedRating" data-review-id="<%= review.id %>" data-rating="4"></i>
+                                                <i class="fa-solid fa-star" data-action="click->review#updateRating" data-review-target="updatedRating" data-review-id="<%= review.id %>" data-rating="5"></i>
                                               <% when 3 %>
-                                                <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-review-id="<%= review.id %>" data-rating="1"></i>
-                                                <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-review-id="<%= review.id %>" data-rating="2"></i>
-                                                <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-review-id="<%= review.id %>" data-rating="3"></i>
-                                                <i class="fa-solid fa-star" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-review-id="<%= review.id %>" data-rating="4"></i>
-                                                <i class="fa-solid fa-star" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-review-id="<%= review.id %>" data-rating="5"></i>
+                                                <i class="fa-solid fa-star starred" data-action="click->review#updateRating" data-review-target="updatedRating" data-review-id="<%= review.id %>" data-rating="1"></i>
+                                                <i class="fa-solid fa-star starred" data-action="click->review#updateRating" data-review-target="updatedRating" data-review-id="<%= review.id %>" data-rating="2"></i>
+                                                <i class="fa-solid fa-star starred" data-action="click->review#updateRating" data-review-target="updatedRating" data-review-id="<%= review.id %>" data-rating="3"></i>
+                                                <i class="fa-solid fa-star" data-action="click->review#updateRating" data-review-target="updatedRating" data-review-id="<%= review.id %>" data-rating="4"></i>
+                                                <i class="fa-solid fa-star" data-action="click->review#updateRating" data-review-target="updatedRating" data-review-id="<%= review.id %>" data-rating="5"></i>
                                               <% when 4 %>
-                                                <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-review-id="<%= review.id %>" data-rating="1"></i>
-                                                <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-review-id="<%= review.id %>" data-rating="2"></i>
-                                                <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-review-id="<%= review.id %>" data-rating="3"></i>
-                                                <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-review-id="<%= review.id %>" data-rating="4"></i>
-                                                <i class="fa-solid fa-star" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-review-id="<%= review.id %>" data-rating="5"></i>
+                                                <i class="fa-solid fa-star starred" data-action="click->review#updateRating" data-review-target="updatedRating" data-review-id="<%= review.id %>" data-rating="1"></i>
+                                                <i class="fa-solid fa-star starred" data-action="click->review#updateRating" data-review-target="updatedRating" data-review-id="<%= review.id %>" data-rating="2"></i>
+                                                <i class="fa-solid fa-star starred" data-action="click->review#updateRating" data-review-target="updatedRating" data-review-id="<%= review.id %>" data-rating="3"></i>
+                                                <i class="fa-solid fa-star starred" data-action="click->review#updateRating" data-review-target="updatedRating" data-review-id="<%= review.id %>" data-rating="4"></i>
+                                                <i class="fa-solid fa-star" data-action="click->review#updateRating" data-review-target="updatedRating" data-review-id="<%= review.id %>" data-rating="5"></i>
                                               <% when 5 %>
-                                                <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-review-id="<%= review.id %>" data-rating="1"></i>
-                                                <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-review-id="<%= review.id %>" data-rating="2"></i>
-                                                <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-review-id="<%= review.id %>" data-rating="3"></i>
-                                                <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-review-id="<%= review.id %>" data-rating="4"></i>
-                                                <i class="fa-solid fa-star starred" data-action="click->film-info#updateRating" data-film-info-target="updatedRating" data-review-id="<%= review.id %>" data-rating="5"></i>
+                                                <i class="fa-solid fa-star starred" data-action="click->review#updateRating" data-review-target="updatedRating" data-review-id="<%= review.id %>" data-rating="1"></i>
+                                                <i class="fa-solid fa-star starred" data-action="click->review#updateRating" data-review-target="updatedRating" data-review-id="<%= review.id %>" data-rating="2"></i>
+                                                <i class="fa-solid fa-star starred" data-action="click->review#updateRating" data-review-target="updatedRating" data-review-id="<%= review.id %>" data-rating="3"></i>
+                                                <i class="fa-solid fa-star starred" data-action="click->review#updateRating" data-review-target="updatedRating" data-review-id="<%= review.id %>" data-rating="4"></i>
+                                                <i class="fa-solid fa-star starred" data-action="click->review#updateRating" data-review-target="updatedRating" data-review-id="<%= review.id %>" data-rating="5"></i>
                                               <% end %>
                                             </div>
                                           </div>
@@ -645,7 +645,7 @@
                                     </div>
                                   </div>
                                   <div class="modal-footer review-modal-footer">
-                                    <button type="button" class="btn btn-green" data-action="click->film-info#updateReview" data-film-id="<%= review.film.id %>" data-review-id="<%= review.id %>">Update</button>
+                                    <button type="button" class="btn btn-green" data-action="click->review#updateReview" data-film-id="<%= review.film.id %>" data-review-id="<%= review.id %>">Update</button>
                                   </div>
                                 </div>
                               </div>
