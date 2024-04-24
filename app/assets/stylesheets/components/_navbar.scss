@@ -38,7 +38,7 @@
     .dropdown-menu {
       background-color: #8899aa;
 
-      a {
+      .dropdown-item {
         color: #18202D;
 
         &:hover {
@@ -47,6 +47,13 @@
         }
       }
     }
+
+    .nav-link {
+      &:hover {
+        color: white;
+      }
+    }
+
   }
 
   .nav-link {
@@ -99,8 +106,7 @@
   }
 }
 
-@media (max-width: 770px) {
-  /* For a screen < 540px, this CSS will be read */
+@media (max-width: 767px) {
   .navbar-container {
     .navbar-logo {
       justify-content: center;
@@ -116,10 +122,15 @@
   }
   }
 
-@media (max-width: 560px) {
-  /* For a screen < 540px, this CSS will be read */
+@media (max-width: 585px) {
     .navbar-container {
-      width: 90%;
+      width: 80%;
+
+      .navbar-logo {
+        .logo {
+          width: 12.5rem;
+        }
+      }
     }
 
     .navbar-menu {
@@ -138,9 +149,15 @@
     }
   }
 
-@media (max-width: 380px) {
+@media (max-width: 400px) {
     .navbar-container {
       width: 90%;
+
+      .navbar-logo {
+        .logo {
+          width: 10.5rem;
+        }
+      }
     }
 
     .navbar-menu {
@@ -149,7 +166,7 @@
 
       .navbar-menu-wrapper {
         justify-content: center;
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         // width: 25%;
 
         // .nav-link {

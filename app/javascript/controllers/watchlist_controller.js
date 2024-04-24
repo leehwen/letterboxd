@@ -40,9 +40,11 @@ export default class extends Controller {
     this.iconTargets.forEach((t1) => {
       if (e.target.dataset.icon == "like" && e.target.dataset.icon === t1.dataset.icon) {
         t1.classList.toggle("d-none")
-      } else if (e.target.dataset.icon == "watch" && e.target.dataset.icon === t1.dataset.icon) {
+      } else if (e.target.dataset.icon == "watch" && e.target.dataset.status == "inactive" && e.target.dataset.icon === t1.dataset.icon) {
         t1.classList.toggle("d-none")
         setTimeout(() => {this.filmTarget.classList.add("d-none")}, 800)
+      } else if (e.target.dataset.icon == "watch" && e.target.dataset.status == "active" && e.target.dataset.icon === t1.dataset.icon) {
+        t1.classList.toggle("d-none")
       }
     })
   }

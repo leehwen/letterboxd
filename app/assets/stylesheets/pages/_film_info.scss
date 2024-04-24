@@ -105,7 +105,7 @@
 }
 
 .film-info-card {
-  min-width: 16rem;
+  min-width: 18rem;
   display: flex;
   flex-direction: column;
   background-color: #445566;
@@ -120,6 +120,10 @@
     border-bottom: 1.2px solid rgba(25, 30, 37, 1);
 
     .film-info-tracker {
+      p {
+        transition: 0.2s ease;
+      }
+
       &:hover {
         p {
           color: white;
@@ -181,6 +185,10 @@
     .btn-none {
       padding: 0;
       color: $boxd-blue;
+
+      &:hover {
+        color: white;
+      }
     }
 
     a {
@@ -196,6 +204,9 @@
 }
 
 .film-info-list {
+  min-width: 18rem;
+
+
   .header {
     margin-top: 1.5rem;
     margin-bottom: 0.85rem;
@@ -227,28 +238,59 @@
     margin-bottom: 0.75rem;
     padding-top: 0.85rem;
     border-top: 0.85px solid rgba(170, 187, 204, 0.3);
-    position: relative;
+
+    .film-reviews-content-left {
+      .avatar-bordered {
+        &:hover {
+          border: white 1px solid;
+        }
+      }
+    }
 
     .film-reviews-content-right {
       margin-left: 1rem;
       flex-grow: 1;
 
-      .fa-solid {
+      .username {
+        text-decoration: none;
+        color: $boxd-blue;
+        transition: 0.2s ease;
+
+        &:hover {
+          color: white;
+        }
+      }
+
+      .fa-star {
         font-size: 0.75rem;
-        margin-right: -4px;
+        // margin-right: -4px;
       }
 
       .starred {
         color: #00E054;
       }
+
     }
 
-    .review-actions {
-      top: 15px;
-      right: 10px;
+    .film-reviews-actions {
+      min-width: 40px;
+      margin-left: 0.8rem;
 
-      i.fa-star {
-        opacity: 1;
+      a {
+        color: $boxd-blue;
+        transition: 0.2s ease;
+
+        &:hover {
+          color: #E81301;
+        }
+      }
+
+      .fa-pencil {
+        transition: 0.2s ease;
+
+        &:hover {
+          color: $boxd-sky-blue;
+        }
       }
     }
   }
@@ -392,7 +434,6 @@
 
 
 @media (max-width: 3500px) {
-
   .film-info-container {
     .film-info {
       width: 50%;
@@ -400,8 +441,16 @@
   }
 }
 
-@media (max-width: 1500px) {
+// @media (max-width: 2000px) {
 
+//   .film-info-container {
+//     .film-info {
+//       width: 70%;
+//     }
+//   }
+// }
+
+@media (max-width: 1500px) {
   .film-info-container {
     .film-info {
       width: 70%;
@@ -409,9 +458,16 @@
   }
 }
 
-@media (max-width: 575px) {
-  /* For a screen < 540px, this CSS will be read */
+// @media (max-width: 1300px) {
 
+//   .film-info-container {
+//     .film-info {
+//       width: 90%;
+//     }
+//   }
+// }
+
+@media (max-width: 585px) {
     .film-info-container {
       padding-bottom: 2rem;
 

@@ -3,7 +3,7 @@
 
     <div class="list-header">
       <div class="list-header-left">
-        <div class="d-flex list-header-left-title">
+        <div class="list-header-left-title">
           <h3 class="m-0">
             <%= @list.name %>
           </h3>
@@ -16,7 +16,7 @@
 
             <% if @film_list_notes.present? %>
               <%= link_to notes_list_path(@list), class: "list-header-left-notes" do %>
-              <i class="fa-solid fa-glasses"></i> Read notes
+                <i class="fa-solid fa-glasses"></i> Read notes
               <% end %>
             <% end %>
           </div>

@@ -5,6 +5,7 @@
     border-bottom: 1px solid #435666;
 
     .list-header-left-title {
+      display: flex;
       margin-bottom: 0.75rem;
     }
 
@@ -18,6 +19,9 @@
       margin-left: 0.45rem;
       transition: 0.2s ease;
       border-radius: 0.2rem;
+      max-width: 75px;
+      min-width: 75px;
+      max-height: 29px;
     }
 
     a.list-header-left-notes {
@@ -29,6 +33,7 @@
       margin-left: 0.45rem;
       transition: 0.2s ease;
       border-radius: 0.2rem;
+      min-width: 115px;
 
       &:hover {
         background-color: #cc8844;
@@ -176,7 +181,6 @@
 }
 
 @media (max-width: 1850px) {
-  /* For a screen < 720px, this CSS will be read */
   .list-content {
     .grid-container {
       grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -185,7 +189,6 @@
 }
 
 @media (max-width: 850px) {
-  /* For a screen < 720px, this CSS will be read */
   .list-content {
     .grid-container {
       grid-template-columns: 1fr 1fr 1fr;
@@ -193,8 +196,24 @@
   }
 }
 
-@media (max-width: 575px) {
-  /* For a screen < 540px, this CSS will be read */
+@media (max-width: 585px) {
+  .list-header .list-header-left
+  .list-header-left-title {
+    flex-direction: column;
+  }
+
+  .list-header .list-header-left
+  .list-header-left-notes {
+    margin-left: 0;
+    margin-top: 0.75rem;
+  }
+
+  .list-header .list-header-left
+  a.list-header-left-notes {
+    margin-left: 0;
+    margin-top: 0.75rem;
+  }
+
   .list-content {
     .grid-container {
       grid-template-columns: 1fr 1fr;

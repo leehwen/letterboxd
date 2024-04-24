@@ -3,7 +3,7 @@
 
     <div class="list-header">
       <div class="list-header-left">
-        <div class="d-flex list-header-left-title">
+        <div class="list-header-left-title">
           <h3 class="m-0">
             <%= link_to @list.name, list_path(@list) %>
           </h3>
@@ -13,9 +13,8 @@
             <% @list.film_lists.each do |filmlist| %>
               <% @film_list_notes << filmlist.notes if filmlist.notes.present? %>
             <% end %>
-
             <p class="m-0">
-              <i class="fa-solid fa-glasses"></i>
+             <i class="fa-solid fa-glasses"></i>
               Notes
             </p>
 

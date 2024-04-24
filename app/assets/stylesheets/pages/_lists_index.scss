@@ -9,10 +9,6 @@
     display: flex;
     justify-content: end;
     margin-top: 0.75rem;
-
-    .new-list {
-      margin-right: 0.75rem;
-    }
   }
 
   h3 {
@@ -37,7 +33,7 @@
         margin-right: -3rem;
 
         img {
-          width: 5rem;
+          max-width: 5rem;
           border: 0.85px solid rgba(170, 187, 204, 0.5);
           border-radius: 2px;
           box-shadow: -3px 0px 4px rgba(0, 0, 0, 0.3);;
@@ -46,7 +42,7 @@
 
       .list-film-img-last {
         img {
-          width: 5rem;
+          max-width: 5rem;
           border: 0.85px solid rgba(170, 187, 204, 0.5);
           border-radius: 2px;
           box-shadow: -3px 0px 5px rgba(0, 0, 0, 0.3);;
@@ -74,21 +70,24 @@
 
     h3 {
       display: inline-block;
+
+      a {
+        text-decoration: none;
+        color: white;
+
+        &:hover {
+          color: $boxd-sky-blue;
+        }
+      }
     }
 
-    a {
-      transition: 0.2s ease;
-      text-decoration: none;
-      color: white;
-
+    a.edit-list {
       &:hover {
-        color: $boxd-sky-blue;
+        color:$boxd-sky-blue;
       }
     }
 
     a.delete-list {
-      transition: 0.2s ease;
-
       &:hover {
         color: #E81301;
       }
@@ -96,10 +95,58 @@
 
     i {
       font-size: 0.8rem;
-      margin-left: 0.5rem;
+      margin-left: 0.3rem;
       transition: 0.2s ease;
       pointer-events: none;
     }
 
+  }
+}
+
+@media (max-width: 540px) {
+  .lists-content {
+    .list {
+      flex-direction: column;
+      margin-bottom: 1.8rem;
+
+      a.list-film-imgs {
+        width: 23rem;
+
+        .list-film-img {
+          img {
+            max-width: 8rem;
+          }
+        }
+
+        .list-film-img-last {
+          img {
+            max-width: 8rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 465px) {
+  .lists-content {
+    .list {
+
+      a.list-film-imgs {
+        width: 19rem;
+
+        .list-film-img {
+          img {
+            max-width: 7rem;
+          }
+        }
+
+        .list-film-img-last {
+          img {
+            max-width: 7rem;
+          }
+        }
+      }
+    }
   }
 }

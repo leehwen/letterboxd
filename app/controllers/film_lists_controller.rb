@@ -19,10 +19,10 @@ class FilmListsController < ApplicationController
     end
 
     @film =  Film.find_or_initialize_by(
-      film_library_id: @film_library.id
+      film_library_id: @film_library.id,
+      user_id: current_user.id
     )
 
-    @film.user = current_user
     @film.save
 
     @film_list.film_id = @film.id
