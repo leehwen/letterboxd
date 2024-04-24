@@ -1,1 +1,51 @@
-all members
+<div class="main-container">
+  <div class="main-content">
+    <div class="members-tagline">
+      <h4>
+        Film lovers, critics and friends — find popular members.
+      </h4>
+    </div>
+
+    <div class="members-grid-container">
+        <% @users.each do |user| %>
+          <div class="members-grid-item">
+            <div>
+              <%= link_to member_path(user) do %>
+                <% if user.image.attached? %>
+                  <%= cl_image_tag current_user.image.key, class: "avatar-bordered", alt: "user profile image" %>
+                <% else %>
+                  <%= image_tag "https://thispersondoesnotexist.com", class: "avatar-bordered", alt: "user profile image" %>
+                <% end %>
+              <% end %>
+            </div>
+
+            <div>
+              <p class="m-0">
+                <strong>
+                  <%= link_to user.username, member_path(user), class: "username" %>
+                </strong>
+              </p>
+
+              <div class="member-stats">
+                <i class="fa-solid fa-eye" style="color: #00E054;"></i>
+                <p>
+                  <% @films_watched = Film.where(user: user, watched: true)%>
+                  <%= @films_watched.count %>
+                </p>
+
+                <i class="fa-solid fa-heart" style="color: #FF900F;"></i>
+                <p>
+                  <% @films_liked = Film.where(user: user, like: true)%>
+                  <%= @films_liked.count %>
+                </p>
+              </div>
+
+              <p>
+                <%= user.reviews.count %> reviews
+              </p>
+            </div>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
