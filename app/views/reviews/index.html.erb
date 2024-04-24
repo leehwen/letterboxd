@@ -13,40 +13,35 @@
         <% else %>
           <div class="review">
         <% end %>
-          <%= link_to library_path(review.film_library) do %>
-            <div class="review-film-img">
-              <% if review.film_library.image_url.last(4) == "inal" %>
-                  <%= image_tag "poster.jpeg" %>
-              <% else %>
-                  <%= image_tag review.film_library.image_url %>
-              <% end %>
-              <div class="review-film-details">
-                <div class="review-film-details-card">
-                  <% if review.film.watched %>
-                    <i class="fa-solid fa-eye" style="color: #00E054;"></i>
-                  <% else %>
-                    <i class="fa-regular fa-eye"></i>
-                  <% end %>
+          <%= link_to library_path(review.film_library), class: "review-film-img" do %>
+            <% if review.film_library.image_url.last(4) == "inal" %>
+                <%= image_tag "poster.jpeg" %>
+            <% else %>
+                <%= image_tag review.film_library.image_url %>
+            <% end %>
+            <div class="review-film-details">
+              <div class="review-film-details-card">
+                <% if review.film.watched %>
+                  <i class="fa-solid fa-eye" style="color: #00E054;"></i>
+                <% else %>
+                  <i class="fa-regular fa-eye"></i>
+                <% end %>
 
-                  <% if review.film.like %>
-                    <i class="fa-solid fa-heart" style="color: #FF900F;"></i>
-                  <% else %>
-                    <i class="fa-regular fa-heart"></i>
-                  <% end %>
-                </div>
+                <% if review.film.like %>
+                  <i class="fa-solid fa-heart" style="color: #FF900F;"></i>
+                <% else %>
+                  <i class="fa-regular fa-heart"></i>
+                <% end %>
               </div>
             </div>
           <% end %>
 
           <div class="review-content">
-            <div class="review-content-header-wrapper">
-              <div class="review-content-header">
+            <div class="review-content-header">
+              <div class="review-content-title">
                 <h3>
                   <%= link_to review.film_library.title, library_path(review.film_library) %>
                 </h3>
-                <h4>
-                  <%= review.film_library.release_date.first(4) %>
-                </h4>
               </div>
 
               <div class="review-actions">
@@ -55,9 +50,15 @@
                 <% end %>
 
                 <%= link_to review_path(review), data: {turbo_method: :delete}, class: "delete-list" do %>
-                <i class="fa-regular fa-trash-can"></i>
+                  <i class="fa-regular fa-trash-can"></i>
                 <% end %>
               </div>
+            </div>
+
+            <div class="review-content-date">
+              <h4>
+                <%= review.film_library.release_date.first(4) %>
+              </h4>
             </div>
 
             <div class="review-content-subheader">
