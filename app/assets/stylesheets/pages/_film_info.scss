@@ -260,16 +260,14 @@
           color: white;
         }
       }
+    }
 
-      .fa-star {
-        font-size: 0.75rem;
-        // margin-right: -4px;
-      }
+    .fa-star {
+      font-size: 0.75rem;
+    }
 
-      .starred {
-        color: #00E054;
-      }
-
+    .starred {
+      color: #00E054;
     }
 
     .film-reviews-actions {
@@ -381,14 +379,6 @@
 
     .fa-star {
       font-size: 1.2rem;
-    }
-
-    .fa-xmark {
-      font-size: 1rem;
-      color: #8C969F;
-      position: absolute;
-      left: -1.2rem;
-      display: none;
     }
 
     .starred {
