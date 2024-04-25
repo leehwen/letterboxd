@@ -63,7 +63,7 @@
       <div class="grid-container">
         <% @watched_films = @user.films.where(watched: true) %>
 
-        <% @watched_films.order("updated_at DESC").first(6).each do |film| %>
+        <% @watched_films.order("watched_updated_at DESC").first(6).each do |film| %>
           <div class="grid-item" data-controller="profile" data-profile-library-id-value="<%= film.film_library_id %>" data-profile-target="film">
             <a href="<%= library_path(film.film_library) %>">
               <% if film.film_library.image_url.last(4) == "inal" %>
@@ -150,7 +150,7 @@
       <div class="grid-container">
         <% @watchlist = @user.films.where(watchlist: true) %>
 
-        <% @watchlist.order("updated_at DESC").first(6).each do |film| %>
+        <% @watchlist.order("watchlist_updated_at DESC").first(6).each do |film| %>
           <div class="grid-item" data-controller="profile" data-profile-library-id-value="<%= film.film_library_id %>" data-profile-target="film">
             <a href="<%= library_path(film.film_library) %>">
               <% if film.film_library.image_url.last(4) == "inal" %>
