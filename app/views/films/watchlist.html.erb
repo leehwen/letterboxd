@@ -3,9 +3,9 @@
     <div class="films-menu">
       <div class="films-menu-avatar">
         <% if current_user.image.attached? %>
-          <%= cl_image_tag current_user.image.key, class: "avatar-bordered-sm", alt: "user profile image" %>
+          <%= cl_image_tag current_user.image.key, class: "avatar-bordered-sm", alt: "Profile image for #{current_user.username}" %>
         <% else %>
-          <%= image_tag "avatar.jpg", class: "avatar-bordered-sm", alt: "user profile image" %>
+          <%= image_tag "avatar.jpg", class: "avatar-bordered-sm", alt: "Profile image for #{current_user.username}" %>
         <% end %>
         <p class="m-0">
           <%= current_user.username %>
@@ -32,9 +32,9 @@
           <div class="grid-item" data-controller="watchlist" data-watchlist-library-id-value="<%= film.film_library_id %>" data-watchlist-target="film">
             <a href="<%= library_path(film.film_library) %>">
               <% if film.film_library.image_url.last(4) == "inal" %>
-                <%= image_tag "poster.jpeg" %>
+                <%= image_tag "poster.jpeg", alt: "Poster for #{film.film_library.title}" %>
               <% else %>
-                <%= image_tag film.film_library.image_url %>
+                <%= image_tag film.film_library.image_url, alt: "Poster for #{film.film_library.title}" %>
               <% end %>
 
               <div class="film-details watchlist" >

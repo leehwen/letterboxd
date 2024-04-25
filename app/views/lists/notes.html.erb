@@ -45,11 +45,11 @@
         <div class="list-film">
           <% if filmlist.film.film_library.image_url.last(4) == "inal" %>
             <div class="list-film-img">
-              <%= image_tag "poster.jpeg" %>
+              <%= image_tag "poster.jpeg", alt: "Poster for #{filmlist.film.film_library.title}" %>
             </div>
           <% else %>
             <div class="list-film-img">
-              <%= image_tag filmlist.film.film_library.image_url %>
+              <%= image_tag filmlist.film.film_library.image_url, alt: "Poster for #{filmlist.film.film_library.title}" %>
             </div>
           <% end %>
 

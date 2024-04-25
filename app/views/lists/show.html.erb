@@ -48,9 +48,9 @@
           <a href="<%= library_path(filmlist.film.film_library) %>">
             <div class="grid-item">
               <% if filmlist.film.film_library.image_url.last(4) == "inal" %>
-                <%= image_tag "poster.jpeg" %>
+                <%= image_tag "poster.jpeg", alt: "Poster for #{filmlist.film.film_library.title}" %>
               <% else %>
-                <%= image_tag filmlist.film.film_library.image_url %>
+                <%= image_tag filmlist.film.film_library.image_url, alt: "Poster for #{filmlist.film.film_library.title}" %>
               <% end %>
 
               <div class="list-film-details">

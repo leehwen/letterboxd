@@ -44,7 +44,7 @@
                   </div>
                 <% else %>
                   <div class="list-film-img-last">
-                    <%= image_tag film.film_library.image_url %>
+                    <%= image_tag film.film_library.image_url, alt: "Poster for #{film.film_library.title}" %>
                   </div>
                 <% end %>
               <% end %>
@@ -58,11 +58,11 @@
                 <% if film == list.films.last %>
                   <% if film.film_library.image_url.last(4) == "inal" %>
                     <div class="list-film-img-last">
-                      <%= image_tag "poster.jpeg" %>
+                      <%= image_tag "poster.jpeg", alt: "Poster for #{film.film_library.title}" %>
                     </div>
                   <% else %>
                     <div class="list-film-img-last">
-                      <%= image_tag film.film_library.image_url %>
+                      <%= image_tag film.film_library.image_url, alt: "Poster for #{film.film_library.title}" %>
                     </div>
                   <% end %>
 
@@ -70,11 +70,11 @@
 
                   <% if film.film_library.image_url.last(4) == "inal" %>
                     <div class="list-film-img">
-                      <%= image_tag "poster.jpeg" %>
+                      <%= image_tag "poster.jpeg", alt: "Poster for #{film.film_library.title}" %>
                     </div>
                   <% else %>
                     <div class="list-film-img">
-                      <%= image_tag film.film_library.image_url %>
+                      <%= image_tag film.film_library.image_url, alt: "Poster for #{film.film_library.title}" %>
                     </div>
                   <% end %>
                 <% end %>
@@ -87,11 +87,11 @@
                 <% if film == list.films.last %>
                   <% if film.film_library.image_url.last(4) == "inal" %>
                     <div class="list-film-img-last">
-                      <%= image_tag "poster.jpeg" %>
+                      <%= image_tag "poster.jpeg", alt: "Poster for #{film.film_library.title}" %>
                     </div>
                   <% else %>
                     <div class="list-film-img-last">
-                      <%= image_tag film.film_library.image_url %>
+                      <%= image_tag film.film_library.image_url, alt: "Poster for #{film.film_library.title}" %>
                     </div>
                   <% end %>
 
@@ -99,11 +99,11 @@
 
                   <% if film.film_library.image_url.last(4) == "inal" %>
                     <div class="list-film-img">
-                      <%= image_tag "poster.jpeg" %>
+                      <%= image_tag "poster.jpeg", alt: "Poster for #{film.film_library.title}" %>
                     </div>
                   <% else %>
                     <div class="list-film-img">
-                      <%= image_tag film.film_library.image_url %>
+                      <%= image_tag film.film_library.image_url, alt: "Poster for #{film.film_library.title}" %>
                     </div>
                   <% end %>
                 <% end %>
@@ -114,11 +114,11 @@
                 <% if film == list.films.first(4)[3] %>
                   <% if film.film_library.image_url.last(4) == "inal" %>
                     <div class="list-film-img-last">
-                      <%= image_tag "poster.jpeg" %>
+                      <%= image_tag "poster.jpeg", alt: "Poster for #{film.film_library.title}" %>
                     </div>
                   <% else %>
                     <div class="list-film-img-last">
-                      <%= image_tag film.film_library.image_url %>
+                      <%= image_tag film.film_library.image_url, alt: "Poster for #{film.film_library.title}" %>
                     </div>
                   <% end %>
 
@@ -126,11 +126,11 @@
 
                   <% if film.film_library.image_url.last(4) == "inal" %>
                     <div class="list-film-img">
-                      <%= image_tag "poster.jpeg" %>
+                      <%= image_tag "poster.jpeg", alt: "Poster for #{film.film_library.title}" %>
                     </div>
                   <% else %>
                     <div class="list-film-img">
-                      <%= image_tag film.film_library.image_url %>
+                      <%= image_tag film.film_library.image_url, alt: "Poster for #{film.film_library.title}" %>
                     </div>
                   <% end %>
                 <% end %>

@@ -4,9 +4,9 @@
     <div class="user-profile-header">
       <div class="user-profile-avatar">
         <% if @user.image.attached? %>
-          <%= cl_image_tag @user.image.key, class: "avatar-bordered-sm", alt: "user profile image" %>
+          <%= cl_image_tag @user.image.key, class: "avatar-bordered-sm", alt: "Profile image for #{@user.username}" %>
         <% else %>
-          <%= image_tag "avatar.jpg", class: "avatar-bordered-sm", alt: "user profile image" %>
+          <%= image_tag "avatar.jpg", class: "avatar-bordered-sm", alt: "Profile image for #{@user.username}" %>
         <% end %>
         <p class="m-0">
           <%= @user.username %>
@@ -67,9 +67,9 @@
           <div class="grid-item" data-controller="profile" data-profile-library-id-value="<%= film.film_library_id %>" data-profile-target="film">
             <a href="<%= library_path(film.film_library) %>">
               <% if film.film_library.image_url.last(4) == "inal" %>
-                <%= image_tag "poster.jpeg" %>
+                <%= image_tag "poster.jpeg", alt: "Poster for #{film.film_library.title}" %>
               <% else %>
-                <%= image_tag film.film_library.image_url %>
+                <%= image_tag film.film_library.image_url, alt: "Poster for #{film.film_library.title}" %>
               <% end %>
 
               <div class="film-details">
@@ -154,9 +154,9 @@
           <div class="grid-item" data-controller="profile" data-profile-library-id-value="<%= film.film_library_id %>" data-profile-target="film">
             <a href="<%= library_path(film.film_library) %>">
               <% if film.film_library.image_url.last(4) == "inal" %>
-                <%= image_tag "poster.jpeg" %>
+                <%= image_tag "poster.jpeg", alt: "Poster for #{film.film_library.title}" %>
               <% else %>
-                <%= image_tag film.film_library.image_url %>
+                <%= image_tag film.film_library.image_url, alt: "Poster for #{film.film_library.title}" %>
               <% end %>
 
               <div class="film-details watchlist">
@@ -217,9 +217,9 @@
             <% @current_user_film = Film.find_by(film_library_id: review.film_library, user_id: current_user) %>
             <%= link_to library_path(review.film_library), class: "review-film-img" do %>
               <% if review.film_library.image_url.last(4) == "inal" %>
-                  <%= image_tag "poster.jpeg" %>
+                  <%= image_tag "poster.jpeg", alt: "Poster for #{review.film_library.title}" %>
               <% else %>
-                  <%= image_tag review.film_library.image_url %>
+                  <%= image_tag review.film_library.image_url, alt: "Poster for #{review.film_library.title}" %>
               <% end %>
 
               <div class="review-film-details" data-controller="profile" data-profile-library-id-value="<%= review.film_library_id %>" data-profile-target="film">
@@ -277,9 +277,9 @@
                               <div class="col-md-3 ps-md-4 col-sm-4 ps-sm-3">
                                 <div class="review-modal-img">
                                   <% if review.film_library.image_url.last(4) == 'inal' %>
-                                    <%= image_tag "poster.jpeg" %>
+                                    <%= image_tag "poster.jpeg", alt: "Poster for #{review.film_library.title}" %>
                                   <% else %>
-                                    <%= image_tag review.film_library.image_url %>
+                                    <%= image_tag review.film_library.image_url, alt: "Poster for #{review.film_library.title}" %>
                                   <% end %>
                                 </div>
                               </div>
@@ -412,10 +412,6 @@
       </div>
 
     </div>
-
-    <%# <div class="user-profile-reviews">
-      REVIEWS
-    </div> %>
 
   </div>
 </div>
