@@ -9,11 +9,11 @@
     <div class="reviews-content" data-controller="datepicker">
       <div data-controller="review">
         <% @modal_number = 0 %>
-        <% @reviews.each do |review| %>
+        <% @reviews.order("updated_at DESC").each do |review| %>
 
           <% @modal_number += 1 %>
 
-          <% if review == @reviews.first %>
+          <% if review == @reviews.order("updated_at DESC").first %>
             <div class="review-first">
           <% else %>
             <div class="review">

@@ -27,7 +27,7 @@
     <div class="films-content">
       <div class="grid-container watchlist">
 
-        <% @films.each do |film| %>
+        <% @films.order("updated_at DESC").each do |film| %>
 
           <div class="grid-item" data-controller="watchlist" data-watchlist-library-id-value="<%= film.film_library_id %>" data-watchlist-target="film">
             <a href="<%= library_path(film.film_library) %>">

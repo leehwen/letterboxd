@@ -41,7 +41,7 @@
 
     <div class="list-content">
 
-      <% @list.film_lists.each do |filmlist| %>
+      <% @list.film_lists.order("updated_at DESC").each do |filmlist| %>
         <div class="list-film">
           <% if filmlist.film.film_library.image_url.last(4) == "inal" %>
             <div class="list-film-img">

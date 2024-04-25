@@ -512,7 +512,7 @@
                   </h6>
                 <% end %>
                   <% @modal_number = 2 %>
-                  <% film.reviews.each do |review| %>
+                  <% film.reviews.order("updated_at DESC").each do |review| %>
                     <% @modal_number += 1 %>
                     <div class="film-reviews-content">
                       <div class="film-reviews-content-left">
@@ -672,7 +672,7 @@
               </h6>
               <% @reviews = film_library.reviews.where.not(user: current_user) %>
                 <% if @reviews.present? %>
-                  <% @reviews.each do |review| %>
+                  <% @reviews.order("updated_at DESC").each do |review| %>
                     <div class="film-reviews-content">
                       <div class="film-reviews-content-left">
                         <%= link_to member_path(review.user) do %>

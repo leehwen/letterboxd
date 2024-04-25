@@ -27,7 +27,7 @@
 
     <div class="mt-4" data-film-lists-target="filmList">
       <% if @film_lists.present? %>
-        <% @film_lists.each do |filmlist| %>
+        <% @film_lists.order("updated_at DESC").each do |filmlist| %>
           <div class="film" data-film-lists-target="film" data-list-id="<%= filmlist.id %>">
             <div class= "film-img">
               <% if filmlist.film.film_library.image_url.last(4) == "inal" %>
