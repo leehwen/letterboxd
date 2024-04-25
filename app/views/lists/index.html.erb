@@ -17,7 +17,7 @@
 
     <div class="lists-content">
 
-      <% @lists.each do |list| %>
+      <% @lists.order("updated_at DESC").each do |list| %>
         <div class="list">
 
           <%= link_to list_path(list), class: "list-film-imgs" do %>
