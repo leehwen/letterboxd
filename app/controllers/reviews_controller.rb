@@ -3,6 +3,10 @@ class ReviewsController < ApplicationController
     @reviews = Review.where(user: current_user)
   end
 
+  def new
+
+  end
+
   def create
     @review_date = params[:date]
     @review_content = params[:review]
