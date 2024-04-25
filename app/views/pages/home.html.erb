@@ -10,8 +10,8 @@
       <% @film_library.sample(4).each do |filmlibrary| %>
         <div class="homepage-grid-item">
           <a href="<%= library_path(filmlibrary) %>">
-            <% if filmlibrary.image_url.last(4) == "inal", alt: "Poster for #{filmlibrary.title}" %>
-              <%= image_tag "poster.jpeg" %>
+            <% if filmlibrary.image_url.last(4) == "inal" %>
+              <%= image_tag "poster.jpeg", alt: "Poster for #{filmlibrary.title}" %>
             <% else %>
               <%= image_tag filmlibrary.image_url, alt: "Poster for #{filmlibrary.title}" %>
             <% end %>
