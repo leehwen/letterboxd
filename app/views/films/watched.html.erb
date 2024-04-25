@@ -27,7 +27,7 @@
     <div class="films-content">
       <div class="grid-container">
 
-        <% @films.order("updated_at DESC").each do |film| %>
+        <% @films.order("watched_updated_at DESC").each do |film| %>
 
           <div class="grid-item">
             <a href="<%= library_path(film.film_library) %>">

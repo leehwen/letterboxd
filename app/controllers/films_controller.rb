@@ -1,7 +1,4 @@
 class FilmsController < ApplicationController
-  def new
-
-  end
 
   def create
     @film_library = FilmLibrary.find(params[:library_id])
