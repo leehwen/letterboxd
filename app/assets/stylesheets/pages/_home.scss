@@ -43,6 +43,14 @@ h4 {
   }
 }
 
+@media (max-width: 2000px) {
+  .hm-container {
+    .hm-content {
+      width: 60%;
+    }
+  }
+}
+
 @media (max-width: 1500px) {
   .hm-container {
     .hm-content {

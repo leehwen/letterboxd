@@ -38,7 +38,7 @@ user2 = User.create!(
 )
 
 file = URI.open("https://thispersondoesnotexist.com/")
-user2.image.attach(io: file, filename: "avatar1.jpeg", content_type: "image/jpeg")
+user2.image.attach(io: file, filename: "avatar2.jpeg", content_type: "image/jpeg")
 user2.save
 
 user3 = User.create!(
@@ -48,7 +48,7 @@ user3 = User.create!(
 )
 
 file = URI.open("https://thispersondoesnotexist.com/")
-user3.image.attach(io: file, filename: "avatar1.jpeg", content_type: "image/jpeg")
+user3.image.attach(io: file, filename: "avatar3.jpeg", content_type: "image/jpeg")
 user3.save
 
 user4 = User.create!(
@@ -58,7 +58,7 @@ user4 = User.create!(
 )
 
 file = URI.open("https://thispersondoesnotexist.com/")
-user4.image.attach(io: file, filename: "avatar1.jpeg", content_type: "image/jpeg")
+user4.image.attach(io: file, filename: "avatar4.jpeg", content_type: "image/jpeg")
 user4.save
 
 user5 = User.create!(
@@ -68,7 +68,7 @@ user5 = User.create!(
 )
 
 file = URI.open("https://thispersondoesnotexist.com/")
-user5.image.attach(io: file, filename: "avatar1.jpeg", content_type: "image/jpeg")
+user5.image.attach(io: file, filename: "avatar5.jpeg", content_type: "image/jpeg")
 user5.save
 
 ## FILM LIBARIES

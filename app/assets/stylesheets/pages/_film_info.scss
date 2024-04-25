@@ -431,14 +431,14 @@
   }
 }
 
-// @media (max-width: 2000px) {
+@media (max-width: 2000px) {
 
-//   .film-info-container {
-//     .film-info {
-//       width: 70%;
-//     }
-//   }
-// }
+  .film-info-container {
+    .film-info {
+      width: 60%;
+    }
+  }
+}
 
 @media (max-width: 1500px) {
   .film-info-container {
