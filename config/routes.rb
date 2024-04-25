@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       post 'results'
     end
 
-    resources :films, only: %i[create update]
+    resources :films, only: %i[new create update]
   end
 
   resources :films, only: %i[index] do
