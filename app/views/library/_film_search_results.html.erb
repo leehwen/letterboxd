@@ -12,11 +12,11 @@
 
       <% if result[:poster_path].blank? %>
         <div class="srch-results-image">
-          <%= image_tag "poster.jpeg" %>
+          <%= image_tag "poster.jpeg", alt: "Poster for #{result[:original_title]}" %>
         </div>
       <% else %>
         <div class="srch-results-image">
-          <%= image_tag "https://image.tmdb.org/t/p/original#{result[:poster_path]}" %>
+          <%= image_tag "https://image.tmdb.org/t/p/original#{result[:poster_path]}", alt: "Poster for #{result[:original_title]}" %>
         </div>
       <% end %>
 

@@ -12,9 +12,9 @@
             <div>
               <%= link_to member_path(user) do %>
                 <% if user.image.attached? %>
-                  <%= cl_image_tag user.image.key, class: "avatar-bordered", alt: "user profile image" %>
+                  <%= cl_image_tag user.image.key, class: "avatar-bordered", alt: "Profile image for #{user.username}" %>
                 <% else %>
-                  <%= image_tag "https://thispersondoesnotexist.com", class: "avatar-bordered", alt: "user profile image" %>
+                  <%= image_tag "https://thispersondoesnotexist.com", class: "avatar-bordered", alt: "Profile image for #{user.username}" %>
                 <% end %>
               <% end %>
             </div>

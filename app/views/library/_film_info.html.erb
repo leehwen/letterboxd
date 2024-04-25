@@ -2,7 +2,7 @@
   <div class="film-info-backdrop">
     <% if film_library.backdrop_url.last(4) == "inal"%>
     <% else %>
-      <%= image_tag film_library.backdrop_url, class: "film-backdrop" %>
+      <%= image_tag film_library.backdrop_url, class: "film-backdrop", alt: "Promotional still for #{film_library.title}" %>
     <% end %>
   </div>
 
@@ -13,11 +13,11 @@
       <div class="col-lg-3 col-md-4 col-sm-5">
         <% if film_library.image_url.last(4) == "inal" %>
           <div class="film-info-img">
-            <%= image_tag "poster.jpeg", class: "film-img" %>
+            <%= image_tag "poster.jpeg", class: "film-img", alt: "Poster for #{film_library.title}" %>
           </div>
         <% else %>
           <div class="film-info-img">
-            <%= image_tag film_library.image_url, class: "film-img" %>
+            <%= image_tag film_library.image_url, class: "film-img", alt: "Poster for #{film_library.title}" %>
           </div>
         <% end %>
       </div>
@@ -256,9 +256,9 @@
                               <div class="col-md-3 ps-md-4 col-sm-4 ps-sm-3">
                                 <div class="review-modal-img">
                                   <% if film_library.image_url.last(4) == 'inal' %>
-                                    <%= image_tag "poster.jpeg" %>
+                                    <%= image_tag "poster.jpeg", alt: "Poster for #{film_library.title}" %>
                                   <% else %>
-                                    <%= image_tag film_library.image_url %>
+                                    <%= image_tag film_library.image_url, alt: "Poster for #{film_library.title}" %>
                                   <% end %>
                                 </div>
                               </div>
@@ -517,9 +517,9 @@
                     <div class="film-reviews-content">
                       <div class="film-reviews-content-left">
                         <% if current_user.image.attached? %>
-                          <%= cl_image_tag current_user.image.key, class: "avatar-bordered", alt: "user profile image" %>
+                          <%= cl_image_tag current_user.image.key, class: "avatar-bordered", alt: "Profile image for #{current_user.username}" %>
                         <% else %>
-                          <%= image_tag "avatar.jpg", class: "avatar-bordered", alt: "user profile image" %>
+                          <%= image_tag "avatar.jpg", class: "avatar-bordered", alt: "Profile image for #{current_user.username}" %>
                         <% end %>
                       </div>
 
@@ -583,9 +583,9 @@
                                       <div class="col-md-3 ps-md-4 col-sm-4 ps-sm-3">
                                         <div class="review-modal-img">
                                           <% if review.film_library.image_url.last(4) == 'inal' %>
-                                            <%= image_tag "poster.jpeg" %>
+                                            <%= image_tag "poster.jpeg", alt: "Poster for #{review.film_library.title}" %>
                                           <% else %>
-                                            <%= image_tag review.film_library.image_url %>
+                                            <%= image_tag review.film_library.image_url, alt: "Poster for #{review.film_library.title}" %>
                                           <% end %>
                                         </div>
                                       </div>
@@ -677,9 +677,9 @@
                       <div class="film-reviews-content-left">
                         <%= link_to member_path(review.user) do %>
                           <% if review.user.image.attached? %>
-                            <%= cl_image_tag review.user.image.key, class: "avatar-bordered", alt: "user profile image" %>
+                            <%= cl_image_tag review.user.image.key, class: "avatar-bordered", alt: "Profile image for #{review.user.username}" %>
                           <% else %>
-                            <%= image_tag "avatar.jpg", class: "avatar-bordered", alt: "user profile image" %>
+                            <%= image_tag "avatar.jpg", class: "avatar-bordered", alt: "Profile image for #{review.user.username}" %>
                           <% end %>
                         <% end %>
                       </div>

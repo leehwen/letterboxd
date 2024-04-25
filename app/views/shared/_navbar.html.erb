@@ -26,9 +26,9 @@
       <div class="dropdown">
         <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           <% if current_user.image.attached? %>
-            <%= cl_image_tag current_user.image.key, class: "avatar-bordered-sm", alt: "user profile image" %>
+            <%= cl_image_tag current_user.image.key, class: "avatar-bordered-sm", alt: "Profile image for #{current_user.username}" %>
           <% else %>
-            <%= image_tag "avatar.jpg", class: "avatar-bordered-sm", alt: "user profile image" %>
+            <%= image_tag "avatar.jpg", class: "avatar-bordered-sm", alt: "Profile image for #{current_user.username}e" %>
           <% end %>
           <%= current_user.username.upcase %>
         </a>

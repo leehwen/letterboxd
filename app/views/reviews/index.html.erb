@@ -21,9 +21,9 @@
 
           <%= link_to library_path(review.film_library), class: "review-film-img" do %>
             <% if review.film_library.image_url.last(4) == "inal" %>
-                <%= image_tag "poster.jpeg" %>
+                <%= image_tag "poster.jpeg", alt: "Poster for #{review.film_library.title}" %>
             <% else %>
-                <%= image_tag review.film_library.image_url %>
+                <%= image_tag review.film_library.image_url, alt: "Poster for #{review.film_library.title}" %>
             <% end %>
 
             <div class="review-film-details">
@@ -69,9 +69,9 @@
                           <div class="col-md-3 ps-md-4 col-sm-4 ps-sm-3">
                             <div class="review-modal-img">
                               <% if review.film_library.image_url.last(4) == 'inal' %>
-                                <%= image_tag "poster.jpeg" %>
+                                <%= image_tag "poster.jpeg", alt: "Poster for #{review.film_library.title}" %>
                               <% else %>
-                                <%= image_tag review.film_library.image_url %>
+                                <%= image_tag review.film_library.image_url, alt: "Poster for #{review.film_library.title}" %>
                               <% end %>
                             </div>
                           </div>
