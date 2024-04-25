@@ -25,11 +25,11 @@ class FilmsController < ApplicationController
     if @update_type == "watch"
 
       if @film.watched
-        @film.update(watched: false)
+        @film.update(watched: false, watched_updated_at: nil)
       else
-        @film.update(watched: true)
+        @film.update(watched: true, watched_updated_at: DateTime.now)
         if @film.watchlist
-          @film.update(watchlist: false)
+          @film.update(watchlist: false, watchlist_updated_at: nil)
         end
       end
 
@@ -40,9 +40,9 @@ class FilmsController < ApplicationController
     elsif @update_type == "like"
 
       if @film.like
-        @film.update(like: false)
+        @film.update(like: false, like_updated_at: nil)
       else
-        @film.update(like: true)
+        @film.update(like: true, like_updated_at: DateTime.now)
       end
 
       respond_to do |format|
@@ -52,9 +52,9 @@ class FilmsController < ApplicationController
     elsif @update_type == "watchlist"
 
       if @film.watchlist
-        @film.update(watchlist: false)
+        @film.update(watchlist: false, watchlist_updated_at: nil)
       else
-        @film.update(watchlist: true)
+        @film.update(watchlist: true, watchlist_updated_at: DateTime.now)
       end
 
       respond_to do |format|

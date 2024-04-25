@@ -686,12 +686,16 @@ film1 = Film.create!(
   rating: 4,
   user: user1,
   film_library: filmlibrary1,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film2 = Film.create!(
   watchlist: true,
   user: user1,
   film_library: filmlibrary5,
+  watchlist_updated_at: DateTime.now,
 )
 
 film3 = Film.create!(
@@ -700,6 +704,9 @@ film3 = Film.create!(
   rating: 4,
   user: user1,
   film_library: filmlibrary7,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film4 = Film.create!(
@@ -708,18 +715,23 @@ film4 = Film.create!(
   rating: 5,
   user: user1,
   film_library: filmlibrary8,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film5 = Film.create!(
   watchlist: true,
   user: user1,
   film_library: filmlibrary11,
+  watchlist_updated_at: DateTime.now,
 )
 
 film6 = Film.create!(
   watchlist: true,
   user: user1,
   film_library: filmlibrary12,
+  watchlist_updated_at: DateTime.now,
 )
 
 film7 = Film.create!(
@@ -727,12 +739,15 @@ film7 = Film.create!(
   rating: 4,
   user: user1,
   film_library: filmlibrary15,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film8 = Film.create!(
   watchlist: true,
   user: user1,
   film_library: filmlibrary16,
+  watchlist_updated_at: DateTime.now,
 )
 
 film9 = Film.create!(
@@ -740,6 +755,8 @@ film9 = Film.create!(
   rating: 3,
   user: user1,
   film_library: filmlibrary18,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film10 = Film.create!(
@@ -748,6 +765,9 @@ film10 = Film.create!(
   rating: 4,
   user: user1,
   film_library: filmlibrary21,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film11 = Film.create!(
@@ -756,6 +776,9 @@ film11 = Film.create!(
   rating: 5,
   user: user1,
   film_library: filmlibrary25,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film12 = Film.create!(
@@ -764,12 +787,16 @@ film12 = Film.create!(
   rating: 5,
   user: user1,
   film_library: filmlibrary26,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film13 = Film.create!(
   watchlist: true,
   user: user1,
   film_library: filmlibrary31,
+  watchlist_updated_at: DateTime.now,
 )
 
 film14 = Film.create!(
@@ -778,6 +805,9 @@ film14 = Film.create!(
   rating: 4,
   user: user1,
   film_library: filmlibrary32,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
   )
 
 film15 = Film.create!(
@@ -786,6 +816,9 @@ film15 = Film.create!(
   rating: 5,
   user: user1,
   film_library: filmlibrary36,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
   )
 
 film16 = Film.create!(
@@ -794,6 +827,9 @@ film16 = Film.create!(
   rating: 4,
   user: user2,
   film_library: filmlibrary9,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film17 = Film.create!(
@@ -802,12 +838,16 @@ film17 = Film.create!(
   rating: 4,
   user: user2,
   film_library: filmlibrary10,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film18 = Film.create!(
   watchlist: true,
   user: user2,
   film_library: filmlibrary24,
+  watchlist_updated_at: DateTime.now,
 )
 
 film19 = Film.create!(
@@ -816,6 +856,9 @@ film19 = Film.create!(
   rating: 5,
   user: user2,
   film_library: filmlibrary25,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film20 = Film.create!(
@@ -824,6 +867,9 @@ film20 = Film.create!(
   rating: 5,
   user: user2,
   film_library: filmlibrary26,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film21 = Film.create!(
@@ -832,6 +878,9 @@ film21 = Film.create!(
   rating: 5,
   user: user2,
   film_library: filmlibrary35,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film22 = Film.create!(
@@ -840,6 +889,9 @@ film22 = Film.create!(
   rating: 4,
   user: user2,
   film_library: filmlibrary36,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film23 = Film.create!(
@@ -848,6 +900,9 @@ film23 = Film.create!(
   rating: 5,
   user: user2,
   film_library: filmlibrary37,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film24 = Film.create!(
@@ -856,6 +911,9 @@ film24 = Film.create!(
   rating: 4,
   user: user2,
   film_library: filmlibrary38,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film25 = Film.create!(
@@ -864,18 +922,23 @@ film25 = Film.create!(
   rating: 5,
   user: user2,
   film_library: filmlibrary39,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film26 = Film.create!(
   watchlist: true,
   user: user2,
   film_library: filmlibrary41,
+  watchlist_updated_at: DateTime.now,
 )
 
 film27 = Film.create!(
   watchlist: true,
   user: user2,
   film_library: filmlibrary42,
+  watchlist_updated_at: DateTime.now,
 )
 
 film28 = Film.create!(
@@ -884,6 +947,9 @@ film28 = Film.create!(
   rating: 4,
   user: user2,
   film_library: filmlibrary46,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film29 = Film.create!(
@@ -892,18 +958,23 @@ film29 = Film.create!(
   rating: 5,
   user: user2,
   film_library: filmlibrary47,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film30 = Film.create!(
   watchlist: true,
   user: user2,
   film_library: filmlibrary50,
+  watchlist_updated_at: DateTime.now,
 )
 
 film31 = Film.create!(
   watchlist: true,
   user: user3,
   film_library: filmlibrary2,
+  watchlist_updated_at: DateTime.now,
 )
 
 film32 = Film.create!(
@@ -912,6 +983,9 @@ film32 = Film.create!(
   rating: 3,
   user: user3,
   film_library: filmlibrary3,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film33 = Film.create!(
@@ -920,6 +994,9 @@ film33 = Film.create!(
   rating: 3,
   user: user3,
   film_library: filmlibrary4,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film34 = Film.create!(
@@ -928,6 +1005,9 @@ film34 = Film.create!(
   rating: 5,
   user: user3,
   film_library: filmlibrary6,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film35 = Film.create!(
@@ -936,6 +1016,9 @@ film35 = Film.create!(
   rating: 4,
   user: user3,
   film_library: filmlibrary13,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film36 = Film.create!(
@@ -944,18 +1027,23 @@ film36 = Film.create!(
   rating: 4,
   user: user3,
   film_library: filmlibrary14,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film37 = Film.create!(
   watchlist: true,
   user: user3,
   film_library: filmlibrary17,
+  watchlist_updated_at: DateTime.now,
 )
 
 film38 = Film.create!(
   watchlist: true,
   user: user3,
   film_library: filmlibrary19,
+  watchlist_updated_at: DateTime.now,
 )
 
 film39 = Film.create!(
@@ -964,6 +1052,9 @@ film39 = Film.create!(
   rating: 5,
   user: user3,
   film_library: filmlibrary20,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film40 = Film.create!(
@@ -972,6 +1063,9 @@ film40 = Film.create!(
   rating: 5,
   user: user3,
   film_library: filmlibrary25,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film41 = Film.create!(
@@ -980,18 +1074,23 @@ film41 = Film.create!(
   rating: 4,
   user: user3,
   film_library: filmlibrary26,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film42 = Film.create!(
   watchlist: true,
   user: user3,
   film_library: filmlibrary28,
+  watchlist_updated_at: DateTime.now,
 )
 
 film43 = Film.create!(
   watchlist: true,
   user: user3,
   film_library: filmlibrary29,
+  watchlist_updated_at: DateTime.now,
 )
 
 film44 = Film.create!(
@@ -1000,12 +1099,16 @@ film44 = Film.create!(
   rating: 4,
   user: user3,
   film_library: filmlibrary30,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film45 = Film.create!(
   watchlist: true,
   user: user3,
   film_library: filmlibrary31,
+  watchlist_updated_at: DateTime.now,
 )
 
 film46 = Film.create!(
@@ -1014,6 +1117,9 @@ film46 = Film.create!(
   rating: 5,
   user: user4,
   film_library: filmlibrary8,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film47 = Film.create!(
@@ -1022,6 +1128,9 @@ film47 = Film.create!(
   rating: 3,
   user: user4,
   film_library: filmlibrary9,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film48 = Film.create!(
@@ -1030,12 +1139,16 @@ film48 = Film.create!(
   watchlist: 4,
   user: user4,
   film_library: filmlibrary18,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film49 = Film.create!(
   watchlist: true,
   user: user4,
   film_library: filmlibrary22,
+  watchlist_updated_at: DateTime.now
 )
 
 film50 = Film.create!(
@@ -1044,6 +1157,9 @@ film50 = Film.create!(
   rating: 4,
   user: user4,
   film_library: filmlibrary23,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film51 = Film.create!(
@@ -1052,6 +1168,9 @@ film51 = Film.create!(
   rating: 4,
   user: user4,
   film_library: filmlibrary24,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film52 = Film.create!(
@@ -1060,6 +1179,9 @@ film52 = Film.create!(
   rating: 3,
   user: user4,
   film_library: filmlibrary25,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film53 = Film.create!(
@@ -1068,6 +1190,9 @@ film53 = Film.create!(
   rating: 4,
   user: user4,
   film_library: filmlibrary26,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film54 = Film.create!(
@@ -1076,12 +1201,16 @@ film54 = Film.create!(
   rating: 4,
   user: user4,
   film_library: filmlibrary27,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film55 = Film.create!(
   watchlist: true,
   user: user4,
   film_library: filmlibrary28,
+  watchlist_updated_at: DateTime.now,
 )
 
 film56 = Film.create!(
@@ -1090,6 +1219,9 @@ film56 = Film.create!(
   rating: 4,
   user: user4,
   film_library: filmlibrary40,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film57 = Film.create!(
@@ -1098,6 +1230,9 @@ film57 = Film.create!(
   rating: 4,
   user: user4,
   film_library: filmlibrary43,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film58 = Film.create!(
@@ -1106,6 +1241,9 @@ film58 = Film.create!(
   rating: 5,
   user: user4,
   film_library: filmlibrary44,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film59 = Film.create!(
@@ -1114,6 +1252,9 @@ film59 = Film.create!(
   rating: 3,
   user: user4,
   film_library: filmlibrary45,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film60 = Film.create!(
@@ -1122,6 +1263,9 @@ film60 = Film.create!(
   rating: 3,
   user: user4,
   film_library: filmlibrary48,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film61 = Film.create!(
@@ -1130,6 +1274,9 @@ film61 = Film.create!(
   rating: 5,
   user: user5,
   film_library: filmlibrary1,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film62 = Film.create!(
@@ -1138,18 +1285,23 @@ film62 = Film.create!(
   rating: 4,
   user: user5,
   film_library: filmlibrary5,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film63 = Film.create!(
   watchlist: true,
   user: user5,
   film_library: filmlibrary8,
+  watchlist_updated_at: DateTime.now,
 )
 
 film64 = Film.create!(
   watchlist: true,
   user: user5,
   film_library: filmlibrary9,
+  watchlist_updated_at: DateTime.now,
 )
 
 film65 = Film.create!(
@@ -1158,6 +1310,9 @@ film65 = Film.create!(
   rating: 4,
   user: user5,
   film_library: filmlibrary11,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film66 = Film.create!(
@@ -1166,6 +1321,9 @@ film66 = Film.create!(
   rating: 5,
   user: user5,
   film_library: filmlibrary12,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film67 = Film.create!(
@@ -1174,6 +1332,9 @@ film67 = Film.create!(
   rating: 5,
   user: user5,
   film_library: filmlibrary15,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film68 = Film.create!(
@@ -1182,6 +1343,9 @@ film68 = Film.create!(
   rating: 5,
   user: user5,
   film_library: filmlibrary16,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film69 = Film.create!(
@@ -1190,6 +1354,9 @@ film69 = Film.create!(
   rating: 4,
   user: user5,
   film_library: filmlibrary27,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film70 = Film.create!(
@@ -1198,6 +1365,9 @@ film70 = Film.create!(
   rating: 5,
   user: user5,
   film_library: filmlibrary30,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film71 = Film.create!(
@@ -1206,6 +1376,9 @@ film71 = Film.create!(
   rating: 4,
   user: user5,
   film_library: filmlibrary33,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film72 = Film.create!(
@@ -1214,6 +1387,9 @@ film72 = Film.create!(
   rating: 5,
   user: user5,
   film_library: filmlibrary34,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film73 = Film.create!(
@@ -1222,12 +1398,16 @@ film73 = Film.create!(
   rating: 5,
   user: user5,
   film_library: filmlibrary35,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 film74 = Film.create!(
   watchlist: true,
   user: user5,
   film_library: filmlibrary41,
+  watchlist_updated_at: DateTime.now,
 )
 
 film75 = Film.create!(
@@ -1236,6 +1416,9 @@ film75 = Film.create!(
   rating: 4,
   user: user5,
   film_library: filmlibrary49,
+  like_updated_at: DateTime.now,
+  watched_updated_at: DateTime.now,
+  rating_updated_at: DateTime.now,
 )
 
 ## LISTS
