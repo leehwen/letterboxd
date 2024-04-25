@@ -5,7 +5,7 @@
       New list
      </h3>
     </div>
-    <div>
+    <div class="new-list-form">
       <%= simple_form_for(@list) do |f| %>
         <%= f.hidden_field :film_library_id, value: @film_library_id if @film_library_id.present? %>
         <%= f.input :name %>

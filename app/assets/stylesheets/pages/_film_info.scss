@@ -307,6 +307,13 @@
 .list-modal-footer {
   border-top: 1px solid #334455;
   background-color: #334455;
+
+  &:active {
+    .btn-green {
+      background-color: #009D1A;
+      color: white;
+    }
+  }
 }
 
 .list-modal-btn-close, .review-modal-btn-close {
@@ -335,6 +342,13 @@
 
 .review-modal-footer {
   border-top: 0;
+
+  &:active {
+    .btn-green {
+      background-color: #009D1A;
+      color: white;
+    }
+  }
 }
 
 .review-modal-img {

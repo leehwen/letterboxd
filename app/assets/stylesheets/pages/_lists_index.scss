@@ -9,6 +9,13 @@
     display: flex;
     justify-content: end;
     margin-top: 0.75rem;
+
+    &:active {
+      .btn-green {
+        background-color: #009D1A;
+        color: white;
+      }
+    }
   }
 
   h3 {

@@ -61,6 +61,18 @@
     .edit-list {
       margin-right: 0.75rem;
     }
+
+    &:active {
+      .btn-green {
+        background-color: #009D1A;
+        color: white;
+      }
+
+      .btn-red {
+        background-color: #d11200;
+        color: white;
+      }
+    }
   }
 
   h3 {

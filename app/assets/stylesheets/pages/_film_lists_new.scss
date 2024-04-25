@@ -147,6 +147,24 @@ h3 {
   padding: 2rem 0;
 }
 
+.film-list-btns {
+  display: flex;
+  justify-content: end;
+  margin-top: 1.5rem;
+
+  &:active {
+    .btn-green {
+      background-color: #009D1A;
+      color: white;
+    }
+
+    .btn-grey {
+      background-color: #667788;
+      color: white;
+    }
+  }
+}
+
 @media (max-width: 3500px) {
   .new-film-list-results {
     width: 50%;
