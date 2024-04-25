@@ -42,7 +42,7 @@
       </div>
     </div>
 
-    <div class="d-flex justify-content-end mt-4">
+    <div class="film-list-btns">
       <%# <button type="button" class="btn btn-grey me-2">Cancel</button> %>
       <% if @url.last(3) == "new" %>
         <%= link_to 'Cancel', list_path(@list), data: {turbo_method: :delete}, class: "btn btn-grey me-2" %>
