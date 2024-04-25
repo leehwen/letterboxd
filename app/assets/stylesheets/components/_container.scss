@@ -17,6 +17,14 @@
   }
 }
 
+@media (max-width: 2000px) {
+  .main-container {
+    .main-content {
+      width: 60%;
+    }
+  }
+}
+
 @media (max-width: 1500px) {
   .main-container {
     .main-content {

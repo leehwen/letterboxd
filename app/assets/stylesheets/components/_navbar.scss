@@ -96,6 +96,16 @@
   }
 }
 
+@media (max-width: 3500px) {
+  .navbar-container {
+    width: 60%;
+  }
+
+  .navbar-menu {
+    width: 60%;
+  }
+}
+
 @media (max-width: 1500px) {
   .navbar-container {
     width: 70%;

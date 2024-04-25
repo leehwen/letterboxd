@@ -4,7 +4,7 @@
     <div class="user-profile-header">
       <div class="user-profile-avatar">
         <% if @user.image.attached? %>
-          <%= cl_image_tag current_user.image.key, class: "avatar-bordered-sm", alt: "user profile image" %>
+          <%= cl_image_tag @user.image.key, class: "avatar-bordered-sm", alt: "user profile image" %>
         <% else %>
           <%= image_tag "avatar.jpg", class: "avatar-bordered-sm", alt: "user profile image" %>
         <% end %>
@@ -73,28 +73,31 @@
               <% end %>
 
               <div class="film-details">
-                <div class="film-details-card">
-                  <div data-action="click->profile#tracker">
-                    <% @current_user_film = Film.find_by(film_library_id: film.film_library, user_id: current_user) %>
-                    <% if @current_user_film.present? && @current_user_film.watched %>
-                      <i class="fa-solid fa-eye" style="color: #00E054;" data-category="watched" data-profile-target="icon" data-icon="watch" data-status="active" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
-                      <i class="fa-regular fa-eye d-none" data-category="watched" data-profile-target="icon" data-icon="watch" data-status="inactive" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
-                    <% else %>
-                      <i class="fa-solid fa-eye d-none" style="color: #00E054;" data-category="watched" data-profile-target="icon" data-icon="watch" data-status="active" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
-                      <i class="fa-regular fa-eye" data-category="watched" data-profile-target="icon" data-icon="watch" data-status="inactive" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
-                    <% end %>
-                  </div>
+                <% if user_signed_in? %>
+                  <div class="film-details-card">
+                    <div data-action="click->profile#tracker">
+                      <% @current_user_film = Film.find_by(film_library_id: film.film_library, user_id: current_user) %>
+                      <% if @current_user_film.present? && @current_user_film.watched %>
+                        <i class="fa-solid fa-eye" style="color: #00E054;" data-category="watched" data-profile-target="icon" data-icon="watch" data-status="active" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
+                        <i class="fa-regular fa-eye d-none" data-category="watched" data-profile-target="icon" data-icon="watch" data-status="inactive" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
+                      <% else %>
+                        <i class="fa-solid fa-eye d-none" style="color: #00E054;" data-category="watched" data-profile-target="icon" data-icon="watch" data-status="active" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
+                        <i class="fa-regular fa-eye" data-category="watched" data-profile-target="icon" data-icon="watch" data-status="inactive" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
+                      <% end %>
+                    </div>
 
-                  <div data-action="click->profile#tracker">
-                    <% if @current_user_film.present? && @current_user_film.watched %>
-                      <i class="fa-solid fa-heart" style="color: #FF900F;" data-category="watched" data-profile-target="icon" data-icon="like" data-status="active" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
-                      <i class="fa-regular fa-heart d-none" data-category="watched" data-profile-target="icon" data-icon="like" data-status="inactive" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
-                    <% else %>
-                      <i class="fa-solid fa-heart d-none" style="color: #FF900F;" data-category="watched" data-profile-target="icon" data-icon="like" data-status="active" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
-                      <i class="fa-regular fa-heart" data-category="watched" data-profile-target="icon" data-icon="like" data-status="inactive" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
-                    <% end %>
+                    <div data-action="click->profile#tracker">
+                      <% if @current_user_film.present? && @current_user_film.watched %>
+                        <i class="fa-solid fa-heart" style="color: #FF900F;" data-category="watched" data-profile-target="icon" data-icon="like" data-status="active" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
+                        <i class="fa-regular fa-heart d-none" data-category="watched" data-profile-target="icon" data-icon="like" data-status="inactive" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
+                      <% else %>
+                        <i class="fa-solid fa-heart d-none" style="color: #FF900F;" data-category="watched" data-profile-target="icon" data-icon="like" data-status="active" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
+                        <i class="fa-regular fa-heart" data-category="watched" data-profile-target="icon" data-icon="like" data-status="inactive" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
+                      <% end %>
+                    </div>
                   </div>
-                </div>
+                <% else %>
+                <% end %>
               </div>
             </a>
 
@@ -157,28 +160,31 @@
               <% end %>
 
               <div class="film-details watchlist">
-                <div class="film-details-card">
-                  <div data-action="click->profile#tracker">
-                    <% @current_user_film = Film.find_by(film_library_id: film.film_library, user_id: current_user) %>
-                    <% if @current_user_film.present? && @current_user_film.watched %>
-                      <i class="fa-solid fa-eye" style="color: #00E054;" data-category="watchlist" data-profile-target="icon" data-icon="watch" data-status="active" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
-                      <i class="fa-regular fa-eye d-none" data-category="watchlist" data-profile-target="icon" data-icon="watch" data-status="inactive" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
-                    <% else %>
-                      <i class="fa-solid fa-eye d-none" style="color: #00E054;" data-category="watchlist" data-profile-target="icon" data-icon="watch" data-status="active" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
-                      <i class="fa-regular fa-eye" data-category="watchlist" data-profile-target="icon" data-icon="watch" data-status="inactive" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
-                    <% end %>
-                  </div>
+                <% if user_signed_in? %>
+                  <div class="film-details-card">
+                    <div data-action="click->profile#tracker">
+                      <% @current_user_film = Film.find_by(film_library_id: film.film_library, user_id: current_user) %>
+                      <% if @current_user_film.present? && @current_user_film.watched %>
+                        <i class="fa-solid fa-eye" style="color: #00E054;" data-category="watchlist" data-profile-target="icon" data-icon="watch" data-status="active" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
+                        <i class="fa-regular fa-eye d-none" data-category="watchlist" data-profile-target="icon" data-icon="watch" data-status="inactive" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
+                      <% else %>
+                        <i class="fa-solid fa-eye d-none" style="color: #00E054;" data-category="watchlist" data-profile-target="icon" data-icon="watch" data-status="active" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
+                        <i class="fa-regular fa-eye" data-category="watchlist" data-profile-target="icon" data-icon="watch" data-status="inactive" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
+                      <% end %>
+                    </div>
 
-                  <div data-action="click->profile#tracker">
-                    <% if @current_user_film.present? && @current_user_film.like %>
-                      <i class="fa-solid fa-heart" style="color: #FF900F;" data-category="watchlist" data-profile-target="icon" data-icon="like" data-status="active" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
-                      <i class="fa-regular fa-heart d-none" data-category="watchlist" data-profile-target="icon" data-icon="like" data-status="inactive" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
-                    <% else %>
-                      <i class="fa-solid fa-heart d-none" style="color: #FF900F;" data-category="watchlist" data-profile-target="icon" data-icon="like" data-status="active" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
-                      <i class="fa-regular fa-heart" data-category="watchlist" data-profile-target="icon" data-icon="like" data-status="inactive" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
-                    <% end %>
+                    <div data-action="click->profile#tracker">
+                      <% if @current_user_film.present? && @current_user_film.like %>
+                        <i class="fa-solid fa-heart" style="color: #FF900F;" data-category="watchlist" data-profile-target="icon" data-icon="like" data-status="active" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
+                        <i class="fa-regular fa-heart d-none" data-category="watchlist" data-profile-target="icon" data-icon="like" data-status="inactive" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
+                      <% else %>
+                        <i class="fa-solid fa-heart d-none" style="color: #FF900F;" data-category="watchlist" data-profile-target="icon" data-icon="like" data-status="active" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
+                        <i class="fa-regular fa-heart" data-category="watchlist" data-profile-target="icon" data-icon="like" data-status="inactive" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
+                      <% end %>
+                    </div>
                   </div>
-                </div>
+                <% else %>
+                <% end %>
               </div>
             </a>
           </div>
@@ -217,27 +223,30 @@
               <% end %>
 
               <div class="review-film-details" data-controller="profile" data-profile-library-id-value="<%= review.film_library_id %>" data-profile-target="film">
-                <div class="review-film-details-card">
-                  <div data-action="click->profile#tracker">
-                    <% if @current_user_film.present? && @current_user_film.watched %>
-                      <i class="fa-solid fa-eye" style="color: #00E054;" data-category="review" data-profile-target="icon" data-icon="watch" data-status="active" data-user-id="<%= current_user.id %>" data-film-user="<%= review.user_id %>"></i>
-                      <i class="fa-regular fa-eye d-none" data-category="review" data-profile-target="icon" data-icon="watch" data-status="inactive" data-user-id="<%= current_user.id %>" data-film-user="<%= review.user_id %>"></i>
-                    <% else %>
-                      <i class="fa-solid fa-eye d-none" style="color: #00E054;" data-category="review" data-profile-target="icon" data-icon="watch" data-status="active" data-user-id="<%= current_user.id %>" data-film-user="<%= review.user_id %>"></i>
-                      <i class="fa-regular fa-eye" data-category="review" data-profile-target="icon" data-icon="watch" data-status="inactive" data-user-id="<%= current_user.id %>" data-film-user="<%= review.user_id %>"></i>
-                    <% end %>
-                  </div>
+                <% if user_signed_in? %>
+                  <div class="review-film-details-card">
+                    <div data-action="click->profile#tracker">
+                      <% if @current_user_film.present? && @current_user_film.watched %>
+                        <i class="fa-solid fa-eye" style="color: #00E054;" data-category="review" data-profile-target="icon" data-icon="watch" data-status="active" data-user-id="<%= current_user.id %>" data-film-user="<%= review.user_id %>"></i>
+                        <i class="fa-regular fa-eye d-none" data-category="review" data-profile-target="icon" data-icon="watch" data-status="inactive" data-user-id="<%= current_user.id %>" data-film-user="<%= review.user_id %>"></i>
+                      <% else %>
+                        <i class="fa-solid fa-eye d-none" style="color: #00E054;" data-category="review" data-profile-target="icon" data-icon="watch" data-status="active" data-user-id="<%= current_user.id %>" data-film-user="<%= review.user_id %>"></i>
+                        <i class="fa-regular fa-eye" data-category="review" data-profile-target="icon" data-icon="watch" data-status="inactive" data-user-id="<%= current_user.id %>" data-film-user="<%= review.user_id %>"></i>
+                      <% end %>
+                    </div>
 
-                  <div data-action="click->profile#tracker">
-                    <% if @current_user_film.present? && @current_user_film.like %>
-                      <i class="fa-solid fa-heart" style="color: #FF900F;" data-category="review" data-profile-target="icon" data-icon="like" data-status="active" data-user-id="<%= current_user.id %>" data-film-user="<%= review.user_id %>"></i>
-                      <i class="fa-regular fa-heart d-none" data-category="review" data-profile-target="icon" data-icon="like" data-status="inactive" data-user-id="<%= current_user.id %>" data-film-user="<%= review.user_id %>"></i>
-                    <% else %>
-                      <i class="fa-solid fa-heart d-none" style="color: #FF900F;" data-category="review" data-profile-target="icon" data-icon="like" data-status="active" data-user-id="<%= current_user.id %>" data-film-user="<%= review.user_id %>"></i>
-                      <i class="fa-regular fa-heart" data-category="review" data-profile-target="icon" data-icon="like" data-status="inactive" data-user-id="<%= current_user.id %>" data-film-user="<%= review.user_id %>"></i>
-                    <% end %>
+                    <div data-action="click->profile#tracker">
+                      <% if @current_user_film.present? && @current_user_film.like %>
+                        <i class="fa-solid fa-heart" style="color: #FF900F;" data-category="review" data-profile-target="icon" data-icon="like" data-status="active" data-user-id="<%= current_user.id %>" data-film-user="<%= review.user_id %>"></i>
+                        <i class="fa-regular fa-heart d-none" data-category="review" data-profile-target="icon" data-icon="like" data-status="inactive" data-user-id="<%= current_user.id %>" data-film-user="<%= review.user_id %>"></i>
+                      <% else %>
+                        <i class="fa-solid fa-heart d-none" style="color: #FF900F;" data-category="review" data-profile-target="icon" data-icon="like" data-status="active" data-user-id="<%= current_user.id %>" data-film-user="<%= review.user_id %>"></i>
+                        <i class="fa-regular fa-heart" data-category="review" data-profile-target="icon" data-icon="like" data-status="inactive" data-user-id="<%= current_user.id %>" data-film-user="<%= review.user_id %>"></i>
+                      <% end %>
+                    </div>
                   </div>
-                </div>
+                <% else %>
+                <% end %>
               </div>
             <% end %>
 
