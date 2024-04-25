@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       post 'results'
     end
 
-    resources :films, only: %i[create update]
+    resources :films, only: %i[new create update]
   end
 
   resources :films, only: %i[index] do
@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[create edit update]
   end
 
-  resources :reviews, only: %i[index destroy]
+  resources :reviews, only: %i[new index destroy]
 
   resources :lists do
     member do
