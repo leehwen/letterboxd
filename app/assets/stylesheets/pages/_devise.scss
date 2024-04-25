@@ -1,0 +1,28 @@
+.devise-form {
+  margin-top: 1.5rem;
+
+  .form-text {
+    color: $boxd-blue;
+  }
+}
+
+.devise-btn {
+  margin-bottom: 1.5rem;
+
+  &:active {
+    .btn-green {
+      background-color: #009D1A;
+      color: white;
+    }
+  }
+}
+
+.devise-links {
+  a {
+    color: $boxd-blue;
+
+    &:hover {
+      color: $boxd-sky-blue;
+    }
+  }
+}

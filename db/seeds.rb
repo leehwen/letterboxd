@@ -25,6 +25,7 @@ user1 = User.create!(
   username: "leehwen",
   email: "user1@email.com",
   password: "password",
+  token: SecureRandom.alphanumeric(32)
 )
 
 file = URI.open("https://thispersondoesnotexist.com/")
@@ -35,6 +36,7 @@ user2 = User.create!(
   username: "filmbuff",
   email: "user2@email.com",
   password: "password",
+  token: SecureRandom.alphanumeric(32)
 )
 
 file = URI.open("https://thispersondoesnotexist.com/")
@@ -45,6 +47,7 @@ user3 = User.create!(
   username: "avocados",
   email: "user3@email.com",
   password: "password",
+  token: SecureRandom.alphanumeric(32)
 )
 
 file = URI.open("https://thispersondoesnotexist.com/")
@@ -55,6 +58,7 @@ user4 = User.create!(
   username: "theprojector",
   email: "user4@email.com",
   password: "password",
+  token: SecureRandom.alphanumeric(32)
 )
 
 file = URI.open("https://thispersondoesnotexist.com/")
@@ -65,6 +69,7 @@ user5 = User.create!(
   username: "ashscarrot",
   email: "user5@email.com",
   password: "password",
+  token: SecureRandom.alphanumeric(32)
 )
 
 file = URI.open("https://thispersondoesnotexist.com/")
