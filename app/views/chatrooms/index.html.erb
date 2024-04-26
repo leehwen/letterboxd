@@ -1,7 +1,95 @@
-<% @chatrooms.each do |chatroom| %>
-  <% if chatroom.user1 == current_user %>
-    <%= link_to "Chatroom with #{chatroom.user2.username}", chatroom_path(chatroom) %>
-  <% elsif chatroom.user2 == current_user %>
-      <%= link_to "Chatroom with #{chatroom.user1.username}", chatroom_path(chatroom) %>
-  <% end %>
-<% end %>
+<div class="main-container">
+  <div class="main-content">
+    <div class="chatroom-header">
+      <h3>
+        Messages
+      </h3>
+    </div>
+    <div class="chatroom-body">
+      <div class="chatroom-index">
+        <% @chatrooms.each do |chatroom| %>
+          <% if chatroom.user1 == current_user %>
+            <%= link_to chatroom_path(chatroom), class: "chatroom-index-user" do %>
+              <% if chatroom.user2.image.attached? %>
+                <%= cl_image_tag chatroom.user2.image.key, class: "avatar-bordered", alt: "Profile image for #{chatroom.user2.username}" %>
+              <% else %>
+                <%= image_tag "avatar.jpg", class: "avatar-bordered", alt: "Profile image for #{chatroom.user2.username}" %>
+              <% end %>
+              <div>
+                <p class="m-0">
+                  <strong>
+                    <%= chatroom.user2.username %>
+                  </strong>
+                </p>
+                <% if chatroom.messages.present? %>
+                  <p class="m-0">
+                    <%= "You:" if chatroom.messages.last.user == current_user %>
+                    <%= chatroom.messages.last.content.truncate(25) %>
+                  </p>
+                  <p class="chatroom-index-timestamp">
+                    <em>
+                      <%= chatroom.messages.last.updated_at.strftime("%d %b %Y, %-I:%M %p") %>
+                    </em>
+                  </p>
+                <% else %>
+                  <p class="m-0">
+                    -
+                  </p>
+                  <p class="chatroom-index-timestamp">
+                    <em>
+                      No messages available
+                    </em>
+                  </p>
+                <% end %>
+              </div>
+            <% end %>
+          <% elsif chatroom.user2 == current_user %>
+            <%= link_to chatroom_path(chatroom), class: "chatroom-index-user" do %>
+              <% if chatroom.user1.image.attached? %>
+                <%= cl_image_tag chatroom.user1.image.key, class: "avatar-bordered", alt: "Profile image for #{chatroom.user1.username}" %>
+              <% else %>
+                <%= image_tag "avatar.jpg", class: "avatar-bordered", alt: "Profile image for #{chatroom.user1.username}" %>
+              <% end %>
+              <div>
+                <p class="m-0">
+                  <strong>
+                    <%= chatroom.user2.username %>
+                  </strong>
+                </p>
+                <% if chatroom.messages.present? %>
+                  <p class="m-0">
+                    <%= "You:" if chatroom.messages.last.user == current_user %>
+                    <%= chatroom.messages.last.content.truncate(25) %>
+                  </p>
+                  <p class="chatroom-index-timestamp">
+                    <em>
+                      <%= chatroom.messages.last.updated_at.strftime("%d %b %Y, %-I:%M %p") %>
+                    </em>
+                  </p>
+                <% else %>
+                  <p class="m-0">
+                    -
+                  </p>
+                  <p class="chatroom-index-timestamp">
+                    <em>
+                      No messages available
+                    </em>
+                  </p>
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="chatroom-messages">
+        <i class="fa-regular fa-comments"></i>
+        <h4>
+          Your messages
+        </h4>
+        <p>
+          Send private messages to a friend.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
