@@ -1,7 +1,7 @@
       <div class="<%= request.original_url.last(5) == "rooms" ? "chatrooms-index" : "chatroom-index" %>">
         <% chatrooms.each do |chatroom| %>
           <% if chatroom.user1 == current_user %>
-            <%= link_to chatroom_path(chatroom), class: "chatrooms-index-user" do %>
+            <%= link_to chatroom_path(chatroom), class: "#{request.original_url.last(5) == "rooms" ? "chatrooms-index-user" : "chatroom-index-user"} #{"active" if @chatroom.present? && @chatroom.user2 == chatroom.user2 }" do %>
               <% if chatroom.user2.image.attached? %>
                 <%= cl_image_tag chatroom.user2.image.key, class: "avatar-bordered", alt: "Profile image for #{chatroom.user2.username}" %>
               <% else %>
@@ -18,7 +18,7 @@
                     <%= "You:" if chatroom.messages.last.user == current_user %>
                     <%= chatroom.messages.last.content.truncate(25) %>
                   </p>
-                  <p class="chatrooms-index-timestamp">
+                  <p class="<%= request.original_url.last(5) == "rooms" ? "chatrooms-index-timestamp" : "chatroom-index-timestamp" %>">
                     <em>
                       <%= chatroom.messages.last.updated_at.strftime("%d %b %Y, %-I:%M %p") %>
                     </em>
@@ -27,7 +27,7 @@
                   <p class="m-0">
                     -
                   </p>
-                  <p class="chatrooms-index-timestamp">
+                  <p class="<%= request.original_url.last(5) == "rooms" ? "chatrooms-index-timestamp" : "chatroom-index-timestamp" %>">
                     <em>
                       No messages available
                     </em>
@@ -36,7 +36,7 @@
               </div>
             <% end %>
           <% elsif chatroom.user2 == current_user %>
-            <%= link_to chatroom_path(chatroom), class: "chatrooms-index-user" do %>
+            <%= link_to chatroom_path(chatroom), class: "#{request.original_url.last(5) == "rooms" ? "chatrooms-index-user" : "chatroom-index-user"} #{"active" if @chatroom.present? && @chatroom.user1 == chatroom.user1 }" do %>
               <% if chatroom.user1.image.attached? %>
                 <%= cl_image_tag chatroom.user1.image.key, class: "avatar-bordered", alt: "Profile image for #{chatroom.user1.username}" %>
               <% else %>
@@ -53,7 +53,7 @@
                     <%= "You:" if chatroom.messages.last.user == current_user %>
                     <%= chatroom.messages.last.content.truncate(25) %>
                   </p>
-                  <p class="chatrooms-index-timestamp">
+                  <p class="<%= request.original_url.last(5) == "rooms" ? "chatrooms-index-timestamp" : "chatroom-index-timestamp" %>">
                     <em>
                       <%= chatroom.messages.last.updated_at.strftime("%d %b %Y, %-I:%M %p") %>
                     </em>
@@ -62,7 +62,7 @@
                   <p class="m-0">
                     -
                   </p>
-                  <p class="chatrooms-index-timestamp">
+                  <p class="<%= request.original_url.last(5) == "rooms" ? "chatrooms-index-timestamp" : "chatroom-index-timestamp" %>">
                     <em>
                       No messages available
                     </em>
