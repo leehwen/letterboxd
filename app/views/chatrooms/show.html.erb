@@ -1,0 +1,28 @@
+<div class="container chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+  <% if @chatroom.user1 == current_user %>
+    <h1>
+      Chatroom with <%= @chatroom.user2.username %>
+    </h1>
+  <% elsif @chatroom.user2 == current_user %>
+    <h1>
+      Chatroom with <%= @chatroom.user1.username %>
+    </h1>
+  <% end %>
+
+  <div class="messages" data-chatroom-subscription-target="messages">
+    <% @chatroom.messages.each do |message| %>
+      <%= render "messages/message", message: message %>
+    <% end %>
+  </div>
+
+  <%= simple_form_for [@chatroom, @message],
+    html: {data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex"} do |f|
+  %>
+    <%= f.input :content,
+      label: false,
+      placeholder: "Type your message here...",
+      wrapper_html: {class: "flex-grow-1"}
+    %>
+    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <% end %>
+</div>

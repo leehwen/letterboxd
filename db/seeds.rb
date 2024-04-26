@@ -14,6 +14,7 @@ Review.destroy_all
 Film.destroy_all
 List.destroy_all
 FilmLibrary.destroy_all
+Chatroom.destroy_all
 User.destroy_all
 
 

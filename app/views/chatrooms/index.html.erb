@@ -1,0 +1,7 @@
+<% @chatrooms.each do |chatroom| %>
+  <% if chatroom.user1 == current_user %>
+    <%= link_to "Chatroom with #{chatroom.user2.username}", chatroom_path(chatroom) %>
+  <% elsif chatroom.user2 == current_user %>
+      <%= link_to "Chatroom with #{chatroom.user1.username}", chatroom_path(chatroom) %>
+  <% end %>
+<% end %>

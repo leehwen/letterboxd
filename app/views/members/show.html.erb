@@ -11,9 +11,16 @@
         <p class="m-0">
           <%= @user.username %>
         </p>
+        <% @chatroom = Chatroom.where(user1: current_user, user2: @user).or(Chatroom.where(user1: @user, user2: current_user)) %>
         <% if @user == current_user %>
           <%= link_to "EDIT PROFILE", edit_user_registration_path(current_user), class: "btn btn-grey" %>
-        <% else %>
+        <% elsif user_signed_in? && @chatroom.present? %>
+          <%= link_to "MESSAGE", chatroom_path(@chatroom[0]), class: "btn btn-grey" %>
+        <% elsif user_signed_in? %>
+          <%= simple_form_for(Chatroom) do |f| %>
+            <%= f.hidden_field :user2_id, value: @user.id %>
+            <%= f.submit "MESSAGE", class: "btn btn-grey"%>
+          <% end %>
         <% end %>
       </div>
 
