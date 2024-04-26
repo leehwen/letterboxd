@@ -1,28 +1,42 @@
-<div class="container chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-  <% if @chatroom.user1 == current_user %>
-    <h1>
-      Chatroom with <%= @chatroom.user2.username %>
-    </h1>
-  <% elsif @chatroom.user2 == current_user %>
-    <h1>
-      Chatroom with <%= @chatroom.user1.username %>
-    </h1>
-  <% end %>
+<div data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+  <div class="main-container">
+    <div class="main-content">
+      <div class="chatroom-header">
+        <h3>
+          Messages
+        </h3>
 
-  <div class="messages" data-chatroom-subscription-target="messages">
-    <% @chatroom.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
-    <% end %>
+        <h3 class="chatroom-header-back">
+          <%= link_to "<< Messages", chatrooms_path %>
+        </h3>
+      </div>
+
+      <div class="chatroom-body">
+        <%= render "chatrooms_list", chatrooms: @chatrooms %>
+
+        <div class="chatroom-messages" data-chatroom-subscription-target="messages">
+          <div class="chatroom-messages-content">
+            <% @chatroom.messages.each do |message| %>
+              <%= render "messages/message", message: message %>
+            <% end %>
+          </div>
+
+          <div class="chatroom-messages-form">
+            <%= simple_form_for [@chatroom, @message],
+              html: {data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex"} do |f|
+            %>
+              <%= f.input :content,
+                label: false,
+                placeholder: "Type your message here...",
+                input_html: {rows: 1, class: "chatroom-form-input"},
+                wrapper_html: {class: "chatroom-form-input-wrapper"}
+              %>
+              <%= f.submit "Send", class: "btn btn-outline-secondary chatroom-form-btn" %>
+            <% end %>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
-
-  <%= simple_form_for [@chatroom, @message],
-    html: {data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex"} do |f|
-  %>
-    <%= f.input :content,
-      label: false,
-      placeholder: "Type your message here...",
-      wrapper_html: {class: "flex-grow-1"}
-    %>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-  <% end %>
 </div>
