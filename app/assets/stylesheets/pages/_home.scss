@@ -40,7 +40,9 @@ h4 {
 
 .homepage-grid-item {
   img {
+    height: 100%;
     width: 100%;
+    object-fit: cover;
     outline: 0.8px solid rgba(171, 187, 204, 0.5);
     border-radius: 0.2rem;
     transition: 0.2s ease;
