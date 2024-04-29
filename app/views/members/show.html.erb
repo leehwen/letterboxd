@@ -94,7 +94,7 @@
                     </div>
 
                     <div data-action="click->profile#tracker">
-                      <% if @current_user_film.present? && @current_user_film.watched %>
+                      <% if @current_user_film.present? && @current_user_film.like %>
                         <i class="fa-solid fa-heart" style="color: #FF900F;" data-category="watched" data-profile-target="icon" data-icon="like" data-status="active" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
                         <i class="fa-regular fa-heart d-none" data-category="watched" data-profile-target="icon" data-icon="like" data-status="inactive" data-user-id="<%= current_user.id %>" data-film-user="<%= film.user_id %>"></i>
                       <% else %>
