@@ -3,7 +3,7 @@
     <% if film_list.film.film_library.image_url.last(4) == "inal" %>
       <%= image_tag "poster.jpeg", alt: "Poster for #{film_list.film.film_library.title}"%>
     <% else %>
-      <%= image_tag film_list.film.film_library.image_url, , alt: "Poster for #{film_list.film.film_library.title}" %>
+      <%= image_tag film_list.film.film_library.image_url, alt: "Poster for #{film_list.film.film_library.title}" %>
     <% end %>
   </div>
   <div class="film-content">
