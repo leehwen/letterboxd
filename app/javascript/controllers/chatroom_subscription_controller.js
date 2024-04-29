@@ -5,7 +5,8 @@ import { createConsumer } from "@rails/actioncable"
 export default class extends Controller {
   static targets = ["messages"]
   static values = {
-    chatroomId: String,
+    chatroomId: Number,
+    userId: Number,
   }
 
   connect() {
@@ -25,8 +26,11 @@ export default class extends Controller {
     event.target.reset()
   }
 
-  #insertMessageAndScrollDown(data) {
-    this.messagesTarget.insertAdjacentHTML("beforeend", data)
+  #insertMessageAndScrollDown({sender, message}) {
+    if(sender != this.userIdValue) {
+      message = message.replace("message-sender", "message-receiver")
+    }
+    this.messagesTarget.insertAdjacentHTML("beforeend", message)
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
   }
 }

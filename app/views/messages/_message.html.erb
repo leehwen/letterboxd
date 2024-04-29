@@ -1,7 +1,13 @@
-<div id="message-<%= message.id %>">
+<div id="message-<%= message.id %>" class="chatroom-message <%= message.user == current_user ? "message-sender" : "message-receiver" %>">
+  <p>
+      <%= message.content %>
+  </p>
   <small>
-    <strong><%= message.user.username %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+    <strong>
+      <%= message.user.username %>
+    </strong>
+    <i>
+      <%= message.created_at.strftime("%a %b %e at %l:%M %p") %>
+    </i>
   </small>
-  <p><%= message.content %></p>
 </div>
