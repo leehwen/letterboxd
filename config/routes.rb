@@ -49,4 +49,8 @@ Rails.application.routes.draw do
   end
 
   resources :members, only: %i[index show]
+
+  resources :chatrooms, only: %i[index show create] do
+    resources :messages, only: :create
+  end
 end

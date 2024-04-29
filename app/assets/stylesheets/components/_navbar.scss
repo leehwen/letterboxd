@@ -84,6 +84,11 @@
 .search-pill-btn {
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
+  transition: 0.2s ease;
+
+  &:hover {
+    background-color: #191E25;
+  }
 }
 
 @media (max-width: 3500px) {
