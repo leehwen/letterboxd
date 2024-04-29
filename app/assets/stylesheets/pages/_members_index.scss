@@ -23,6 +23,8 @@
 
   .avatar-bordered {
     width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
     margin-bottom: 1rem;
 
     &:hover {

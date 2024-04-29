@@ -10,8 +10,8 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :chatrooms
 
-  validates :password, presence: true
-  validates :username, :email, presence: true, uniqueness: true
+  validates :username, :email, presence: true
+  validates :username, :email, uniqueness: true
 
   after_create :set_token
 
